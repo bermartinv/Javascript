@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+<script>
+  var intentos = 1;  
+
+function numeroAleatorio(){
+    var aleatorio=Math.floor((Math.random()*100)+1);
+    var numero=document.getElementById('number').value;
+    var texto2=document.getElementById('solucion2');
+        while ((intentos<30) && (Number(aleatorio !== numero))){
+          if (numero<aleatorio){
+            alert ("El numero aleatorio es mayor");
+          }else if (numero == aleatorio){
+              texto2.innerHTML = 'Felicidades acertastes el numero aleatorio que era '+aleatorio+
+                  ' has utilizado '+intentos+' intentos para adivinarlo.';
+              break;
+          }else{
+            alert ("EL numero aleatorio es menor");   
+          }
+            intentos ++;  
+            numero = prompt ('Elige otro numero');
+        }
+   
+    
+}
+
+    
+</script>
 </head>
 <body>
-    
+<label>Introduzaca un numero aleatorio entre 1 y 100</label>
+<input type="number" id="number" />
+<button onclick="numeroAleatorio()">Comprobar</button>
+<div id="solucion2"></div>
 </body>
 </html>

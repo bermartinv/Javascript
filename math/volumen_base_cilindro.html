@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+table,th,td {
+    border-collapse: collapse;
+    empty-cells :show;
+    border:2px solid green;
+    text-align: center;
+    
+}
+th,td{
+    width:200px;    
+}
+</style>
+<script>
+function Calcular(){
+    var radio = document.getElementById("radio").value;
+    var altura = document.getElementById("altura").value;
+    var areaTotal = (2 * (Math.PI) * radio * altura ) * (radio + altura);
+    var volumenCilindro = (Math.PI) * (radio * radio) * altura;
+    var solucion = document.getElementById("solucion");
+    solucion.innerHTML = "<table><tr><th>Base cilindro</th><th>Volumen cilindro</th></tr><tr><td>"+areaTotal.toFixed(2)+"</td><td>"+volumenCilindro.toFixed(2)+"</td></tr></table>";
+                
+}
+ 
+    
+</script>
+</head>   
+<body>
+ <label>Escriba el radio</label>   
+<input type="number" id="radio"/><br/>
+<label>Escriba la altura</label>
+<input type="number" id="altura"/><br/>
+<button onclick="Calcular()">Calcular</button><br/><br/>
+<div id="solucion"></div>
+</body>
+</html>
