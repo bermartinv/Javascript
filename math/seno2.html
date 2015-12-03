@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<style type="text/css">
+		button {margin:10px;}
+		.volador{border: solid 1px; width: auto; text-align: center; padding:15px;
+			color: yellow; border-radius: 40px; background: purple; position:absolute; top: 400px; left: 0;position:absolute; left: 0;}
+		#volador2{top: 400px;}
+		#volador1{top: 200px;}
+		</style>
+		<script type="text/javascript">
+		window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+									  window.webkitRequestAnimationFrame || window.oRequestAnimationFrame;
+		var globalID;
+		var posicionHorizontal = 0;
+		
+		var posicionVertical = 200;
+		var direccionVertical = false;
+		var direccionHorizontal = false;
+		function animacionRepetimos() {
+			if(posicionHorizontal==0){direccionHorizontal=false;}
+			if(posicionHorizontal==(Number(document.body.clientWidth)-100)){direccionHorizontal=true;}
+			if (direccionHorizontal==true){
+				posicionHorizontal--;
+			}else{
+				posicionHorizontal++;
+			}
+					posicionVertical = posicionVertical+(Math.sin(0.04*posicionHorizontal));
+			document.getElementById('volador1').style.left = posicionHorizontal + 'px';
+			document.getElementById('volador1').style.top = posicionVertical + 'px';
+			document.getElementById('volador2').style.left = posicionHorizontal + 'px';
+			globalID = requestAnimationFrame(animacionRepetimos);
+		}
+		function empezar() {globalID = requestAnimationFrame(animacionRepetimos);}
+		function detener() {  cancelAnimationFrame(globalID);}
+		</script>
+	</head>
+	<body >
+		<button id="start" onclick="empezar()">Empezar</button><button id="stop" onclick = "detener()">Detener</button>
+		<div id="volador1" class="volador">JavaScript</div>
+		<div id="volador2" class="volador">JavaScript</div>
+		<div id="posicionVertica"></div>
+	</body>
+</html>
