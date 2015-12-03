@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+      var objeto_raiz={
+        nombre:'Bernardo',
+        edad:14,
+        sexo:'macho'   
+    }
+      document.write("Para saber si un objeto tiene una propiedad determinada usaremos hasOwnProperty:<br/>");
+       if (objeto_raiz.hasOwnProperty('nombre')){
+           document.write("Este objeto tiene una propiedad nombre");
+       }
+       var formula="objeto_raiz.hasOwnProperty('nombre')";
+       document.write("Se define de la siguiente manera:<br/> "+formula.bold()) ;
+   </script>
+    
+</body>
+</html>

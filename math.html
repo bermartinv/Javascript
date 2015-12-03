@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <p  onclick=write() id="primer" >Aqui</p>
+   <p onclick=random()> un valor al azar</p>
+   <p onclick=primitiva()>Numeros al azar en la primitiva </p>  
+   <p onclick=minimos()>Te damos el valor minimo</p>
+    <p onclick=maximo()>El valor maximo de entre estos numeros es=12,34,1,56,32</p> 
+    <p onclick=redondeo()>Esto es el redondeo de un número aleatorio</p>
+    <p onclick=potencia()>La potencia de 6 elevado a 3</p>
+    <p onclick=potencia2()>Nueva verson de la potencia</p>
+    <p onclick=valorDe()>El valor de la variable es: </p>
+<script>
+    function write(){
+    var cambio=document.getElementById("primer").innerHTML=("hola que tal");
+        var nombre=document.getElementById("nombre").innerHTML="Hola BEBE";
+    }
+    
+    function random(){
+        var numero=(Math.random())*100;
+        var numeroEntero=numero.toFixed();
+        alert("El número al azar es " +numeroEntero);
+    }
+    
+    function primitiva(){
+     var primi=Array(6);
+        for (i=0;i<=5;i++){
+        var numero=(Math.random())*100;
+            numero=numero.toFixed();
+         primi[i]=numero;
+            if (primi[i]>60){
+                i--;
+            }
+                 for (j=0;j<=i;j++){
+                    if (primi[i+1]===primi[j]){
+                        i--;
+                    }
+                     
+                }       
+        
+        }
+     
+        alert(primi);   
+    };
+    
+    function minimos(){
+        var vector=Array(6);
+        for (i=0;i<=5;i++){
+             vector[i]=prompt("intorduzca un numero");
+                for (j=0;j<=i;j++){
+                    if (vector[j]<vector[i]){
+                        menor=vector[j];
+                    }
+                }   
+        }
+        alert("El valor menor de los introducidos es " +menor);
+    };
+    
+    function maximo(){
+        var maximo=Math.max(12,34,1,56,32);
+        alert(maximo);
+    };
+    
+    function redondeo(){
+        var numAleatorio=(Math.random())*100;
+        var redondeoUp=Math.ceil(numAleatorio);
+        var redondeoDown=Math.floor(numAleatorio);
+        alert ("el valor aleatorio multiplicado *100 es : " +numAleatorio+ "\nEl valor redondeado hacia arriba: " +redondeoUp+
+              "\ny el redodneo hacia abajo es: "+redondeoDown);
+    };
+    
+    function potencia(){
+     var potencia=Math.pow(6,3);
+        alert ("El resultado es:\n" +potencia );
+    };
+    
+    function potencia2(){
+     var primero=prompt("Diganos la base del numero que quiere calcular");
+     var segundo=prompt("diga la potencia de la base");
+     var potencia=Math.pow(primero,segundo);
+     alert ("El resultado de la base " +primero+ " elevado a la potencia " +segundo+ " es: " +potencia);
+    };
+    
+    function valorDe(){
+     var casa=10;
+        alert(casa.valueOf());
+    }
+    
+    </script>
+</body>
+</html>
