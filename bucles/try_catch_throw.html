@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var constructor=function(name,age,male){
+     this.name=name;
+     this.age=age;
+     this.male=male;
+        
+    }
+        
+    var nombre=prompt("Intorduzaca el nombre del trabajador");
+    var edad=prompt("Que edad tiene?");
+    var sexo=prompt("Que sexo tiene:");
+    
+    
+    var trabajador=new constructor(nombre,edad,sexo);
+    
+        document.write("Los datos del trabajador son: <br/> ");  
+        
+    for (key in trabajador){
+          
+         document.write(key + (" ") +trabajador[key]+ (" ") );
+    }
+        x=empleado.edad;
+        
+       try{
+            
+            if (isNaN(x) throw ("la edad tiene que ser un numero"));
+           if ((trabajador.sexo!=="hombre")||(trabajador.sexo!=="mujer")) throw ("Debe escribir hombre o mujer");
+            
+            
+            }
+        catch(error){
+            document.write("<br/>HA cometido un error: "+error);
+            }
+    
+    </script>
+</body>
+</html>

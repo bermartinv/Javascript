@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="solicitudDatos()">Calcular</button>
+    
+    
+    </body>
+    <script>
+    
+    function suma(x,y){
+        return x+y;   
+    }
+        
+    function resta(x,y){
+        return x-y;
+    }
+        
+    function multiplicacion(x,y){
+        return x*y;
+    }
+        
+    function division(x,y){
+        return x/y;
+    }
+        
+    function crearObjeto(x,y){
+        this.sumador=suma(x,y);
+        this.restador=resta(x,y);
+        this.multiplicador=multiplicacion(x,y);
+        this.divisor=division(x,y)
+    }
+    
+    function calcular(x,y){
+        var nuevoCaluculo=new crearObjeto(x,y);
+        for (cadaOperacion in nuevoCaluculo){
+            alert("El resultado de " +cadaOperacion+ "es:" +nuevoCaluculo[cadaOperacion]);       
+        }
+    
+    }
+    
+        
+    function solicitudDatos(){
+            var x =prompt("Introduzca el primer valor:");
+            var y=prompt ("Introduzca el segundo valor:");
+            calcular(Number(x),Number(y));    
+        
+    }
+    
+    
+    
+    
+    </script>
+    
+    
+</body>
+</html>

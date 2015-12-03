@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+ <button onclick="palabra()">Palabra</button>
+  <script>
+      function palabra(){
+   var palabra=prompt("Diganos la palabra que quiere saber las letras");
+          longitud=palabra.length;
+          var indice=0;var solucion="";
+          while (indice<longitud){
+           solucion +="La letra " +(indice+1)+" es "+palabra.charAt(indice)+"\n";
+              indice++;
+              
+              
+          } 
+          alert(solucion)
+      }
+    </script>    
+</body>
+</html>

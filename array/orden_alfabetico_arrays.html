@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="ejercicio1()">Ordenar vector numeros</button>
+<button onclick="ejercicio2()">Ordenar alfabeticamente sin tener en cuenta mayusculas/minusculas</button>
+<script>
+    function ejercicio2(){
+				var miArray = ['Moto','soto','Abaco','abeja','Sapo','nieve','Zumba','barco'];
+				alert(miArray.sort(function(a, b){return a.toLowerCase().localeCompare(b.toLowerCase());}));
+			}
+    
+    function ejercicio1(){
+        var original=[33, 2, 36, 55, 4, 1];
+        var deMayoraMenor=[33, 2, 36, 55, 4, 1];
+        var deMenoraMayor=[33, 2, 36, 55, 4, 1];
+        deMayoraMenor=deMayoraMenor.sort(function(elemento1,elemento2){return elemento2-elemento1;});
+        deMenoraMayor=deMenoraMayor.sort(function(elemento1,elemento2){return elemento1-elemento2;});
+        var msg =  'El vactor original tiene ' +original+'\n';
+        var msg = msg + 'El vector ordenador de mayor a menor es:'+deMayoraMenor+'\n';
+        var msg = msg + 'El vector ordenado de menor a mayor es:'+deMenoraMayor;
+        alert (msg);
+        
+        
+    }
+</script>
+</body>
+</html>

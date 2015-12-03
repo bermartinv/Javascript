@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body onload="gestionProceso()">
+    <h1>Ejercicio curso aprenderaprogramar.com</h1>
+    <div></div>
+
+<script>
+function gestionProceso(){
+    
+    nodo=document.getElementsByTagName("div");
+    
+    var valores=pedirCincoNumeros();
+    
+    var multiplos=multiplicaporCinco(valores);
+    
+    var mensaje=escribirMensaje(valores,multiplos);
+   
+    mostrarResultado(mensaje,nodo);
+
+function pedirCincoNumeros(){
+    
+    var vector=new Array(5);
+    
+    for(var i=0;i<vector.length;i++){
+        
+        vector[i]=prompt("Introduzca un valor numerico:");
+        
+       vector[i]=Number(vector[i]);
+    
+       if (isNaN(vector[i])==true){
+           
+           alert("Debe introducir numeros");
+        
+            break;
+        }
+           
+   }
+        
+     return vector;   
+            
+}
+    
+function multiplicaporCinco(vector){
+    
+    //var valores=new Array(5);
+    
+    for (var i=0;i<vector.length;i++){
+    
+        vector[i]=vector[i]*5;
+        
+    }
+    
+return vector;    
+    
+}
+    
+function escribirMensaje(primeros,segundos){
+    
+    var mensaje="";
+    
+    for (var i=0;i<primeros.length;i++){
+        
+        mensaje= mensaje+"El valor "+(i+1)+" que elegistes fue "+primeros[i]+ " y multiplicado por 5 es "+segundos[i]+"         hola que tal";        
+    }
+    
+    return mensaje;
+    
+}
+    
+function mostrarResultado(mensaje,nodoDiv){
+    
+    nodoDiv[0].textContent=mensaje;
+    
+}
+    
+}
+    
+    
+</script>
+</body>
+</html>

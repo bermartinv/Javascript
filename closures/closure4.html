@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Hucha(nombre)
+{
+    var nombreHucha=nombre;
+    var monedasGuardadas=0;
+
+    return function contarMonedas(monedas)
+    {
+        monedasGuardadas+=monedas;
+        document.write(nombreHucha + " tiene " + monedasGuardadas + " monedas <br/> ");
+    }  
+  
+}
+   var hucha1= Hucha("hucha1");
+var hucha2= Hucha("hucha2");
+
+hucha1(5);
+hucha1(15);
+
+hucha2(5);
+hucha2(40); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var gExecute1 = null;
+var gExecute2 = null;
+var gExecute3 = null;
+ 
+function createClosure()
+{
+    var num = 10;
+    gExecute1 = function () { alert(num); };
+  
+    gExecute2 = function () { alert(++num); };
+  
+    gClosure3 = function () { alert(num = "¡¡Toma ya!!!"); };
+}
+ 
+createClosure();
+gExecute1();  // Ejecuta el código: function () { alert(num); }; 
+              // --> Muestra en pantalla: 10
+gExecute2();  // Ejecuta el código: function () { alert(++num); }; 
+              // --> Muestra en pantalla: 11
+gExecute3();  // Ejecuta el código: function () { alert(num = "¡¡Toma ya!!!"); }; 
+              // --> Muestra en pantalla: ¡¡Toma ya!!!
+ 
+//¿Qué mostrará ahora la siguiente linea de código...?
+gExecute1();</script>
+</body>
+</html>

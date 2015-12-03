@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function personalizedGreet(name) {
+ 
+    var hello = "Hello ";
+ 
+    return function () { alert(hello + name); };
+}
+ 
+//Creamos dos closures distintos
+ 
+var greet1 = personalizedGreet("Pedro");
+var greet2 = personalizedGreet("María");
+ 
+greet1();  //Muestra en pantalla: Hello Pedro
+greet2();  //Muestra en pantalla: Hello María</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <form method="get" onsubmit="validar()" action="" name="formulario">
+      <label>Introduzca nombre</label>
+      <input type="text" name="nombre" id="nombre"/>
+      <br/>
+      <label>Introduzca primer apellido</label>
+      <input type="text" name="apellido"/>
+      <br/>
+      <label>Introduzca correo electronico</label>
+      <input type="text" name="correo"/>
+      <br/>
+      
+      <input type="submit" name="boton" value="Aceptar"/>
+      <br/>
+            
+       
+   </form>
+<script>
+function validar(){
+    validarNombre();
+    validarApellido();
+    var completo=document.getElementsByName("correo");
+    var correo=completo[0].value;
+    correo=minusculas(correo);
+    correo=cambio(correo);
+    validarCorreo(correo);
+}
+
+function validarNombre(){
+   var nombred=document.getElementsByName("nombre");
+    var palabra=nombred[0].value;
+    if (palabra.length<3){
+        alert("El nombre debe tener al menos tres letras");
+    }
+}
+    
+function validarApellido(){
+var nombred=document.getElementsByName("apellido");
+    var palabra=nombred[0].value;
+    if (palabra.length<3){
+        alert("El apellido debe tener al menos tres letras");
+    }    
+}
+
+function validarCorreo(correo){
+    
+    valido1=0;valido=0;
+    for (i=0;i<=correo.length;i++){
+         
+        if (correo[i]="@"){
+            valido++;
+        } 
+        if (correo[i]="."){
+            valido1++;
+        }
+    }
+    if ((valido!=1)||(valido1!=1)){
+        alert("Debe haber solo un @ y un solo . en email");    
+    }
+    
+    
+   
+}
+     function minusculas(email){
+        return email.toLowerCase();
+        
+    }
+    function cambio(correo){
+        return correo.replace(/at/g,"@");
+        
+    }
+</script> 
+</body>
+</html>

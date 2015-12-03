@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+  function constructor(nombre,pais){
+       this.nombre=nombre;
+       this.pais=pais;
+   }
+    
+    objecto1=new constructor("pepe","eapaña");
+    
+    if (objecto1  instanceof constructor){
+        alert ("Estos objetos estan instanciados");   
+    }
+    else {
+        alert ("No instanciados");   
+    }
+</script>
+</body>
+</html>

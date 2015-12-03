@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style type="text/css">
+
+body {text-align: center; font-family: sans-serif;}
+
+div {margin:20px;}
+
+#contenedor {width:405px;margin:auto;}
+
+#adelante, #atras {padding:15px; width: 130px; float: left;
+
+color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+#adelante:hover, #atras:hover {background: rgb(66, 184, 221);}
+
+</style>  
+</head>
+
+
+   <body onload="carrusel('incrementa')">
+
+<div >
+
+<p>Pulsa adelante o atrás</p>
+
+<h1 id="numeracion">Camiseta 6</h1>
+
+<img id="imgCarrusel" src="http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_6_humor_informatico_foto.jpg" alt="Camiseta 6 aprenderaprogramar.com" title="Diálogo entre informáticos">
+
+<div id="contenedor">
+
+<div id ="atras" onclick="carrusel('decrementa')"> Atrás </div>
+
+<div id="adelante" onclick="carrusel('incrementa')" >Adelante</div>
+
+</div>
+</div>
+
+ <script>
+    var contador=0;   
+    var tiempo=2000; 
+     function carrusel(variable){
+      var imagenes=["http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_6_humor_informatico_foto.jpg","http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_9_humor_informatico_foto.jpg","http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_11_humor_informatico_foto.jpg"];
+       var valorTitle=["tituloCamiseta6","tituloCamiseta9","tituloCamiseta11"];
+       var valorAlt=["camiseta6","camiseta9","camiseta11"];
+       var valorNumeracion=["Camiseta 6","Camiseta 9","Camiseta 11"];  
+         
+         
+      contador=contador%(imagenes.length);
+       document.getElementById("imgCarrusel").src=imagenes[contador];
+document.getElementById("imgCarrusel").title=valorTitle[contador];
+document.getElementById("imgCarrusel").alt=valorAlt[contador];
+document.getElementById("numeracion").innerHTML=valorNumeracion[contador];
+         
+         if (variable=="incrementa"){
+            
+             contador++;
+             
+         }
+         else if (variable=="decrementa"){
+             
+            contador--;
+             if (contador<=0){
+                 contador=0;
+             }
+         }
+        else{
+        };
+         
+        //setTimeout('carrusel("hola")',tiempo);
+         
+     }
+                    
+                    
+                    
+     
+     
+       
+       </script>
+   
+</body>
+</html>

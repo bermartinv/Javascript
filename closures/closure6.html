@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var personaje=function(){
+        var nombre="anónimo";
+        
+        return {
+            getNombre:function(){
+                return nombre;   
+            },
+            
+            setNombre:function(name){
+                    nombre=name;
+            }
+            
+        }
+    }();
+    
+    personaje.setNombre("Maria");
+    document.write("El nombre del personaje es : " +personaje.getNombre());
+    
+    
+    
+    
+    </script>
+</body>
+</html>

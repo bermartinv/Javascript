@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <button onclick="mostrar()">Cometas</button>
+   
+<script>   
+// Definicion del objeto
+function cometaDef(diametro,temperatura,nombre){
+    this.diametro=diametro;
+    this.temperatura=temperatura;
+    this.nombre=nombre;
+    
+    }
+   
+//Definicion Metodo Clase del objeto
+function construyendoProto(){
+    this.definicionSegunDiccionario="Un cometa es muy chulo";
+    this.obtenerRadio=function(){
+        return(this.diametro)/2;        
+    }
+    this.obtenerTemperaturaFarenheit=function(){
+        return (1.8*this.temperatura)+32;       
+    }
+}
+    
+cometaDef.prototype=new construyendoProto();
+
+function mostrar(){
+    var cometa=new Array();    
+    cometa[0]=new cometaDef(13,12,"arena de mal");
+    cometa[1]=new cometaDef(120,12,"bonito");
+    cometa[2]=new cometaDef(123,12,"rueda amarilla");
+    var var1=prompt("Cual es el diametros del cometa");
+    var var2=prompt("A que temperatura se encuentra el cometa");
+    var var3=prompt("Que nombre tiene:");
+    var1=Number(var1);
+    var2=Number(var2);
+    cometa[3]=new cometaDef(var1,var2,var3);
+    var msg='';
+				for(i in cometa){
+					msg = 'Definicion de cometa ' + cometa[i].definicionSegunDiccionario + '\n';				
+					msg = msg + 'El cometa ' + cometa[i].nombre + ' tiene de diametro ' + cometa[i].diametro + ' y su radio es de  '+cometa[i].obtenerRadio()+ "\n";
+                    msg = msg + 'Además tiene una temperatura de ' +cometa[i].obtenerTemperaturaFarenheit()+ ' de grados Farenheit, y una temperatura en grados centigrados de '+cometa[i].temperatura;
+                    alert(msg);
+				}
+}   
+</script>    
+</body>
+</html>

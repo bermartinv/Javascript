@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="mostrarMeteoritos()">Mostrar Meteoritos</button>
+<script>
+// Los metodos y variables estaticos definen caracteríticas globales del objeto, se accede desde el objeto comun
+function meteorito(diametro,temperatura,nombre){
+    this.diametro = diametro;
+    this.temperatura = temperatura;
+    this.nombre = nombre;
+}
+    
+meteorito.definicionSegunDiccionario="Un meteorito es muy grande";
+meteorito.obtenerRadio=function(diametro){
+    return (diametro/2);
+    
+}
+meteorito.obtenerFarenheit=function(temperatura){
+    return (1.8*temperatura)+32;
+    
+}
+
+var meteoritos=new Array();
+    meteoritos[0]=new meteorito(125,12,'Alpha');
+    meteoritos[1]=new meteorito(200,12,'Beta');
+    meteoritos[2]=new meteorito(1231,12,'Gamma');
+
+function mostrarMeteoritos(){
+    
+    var msg='';
+    for (indice in meteoritos){
+    msg='La definicion de meteorito es: '+meteorito.definicionSegunDiccionario+ '\n';
+    msg= msg + 'El meteorito se llama '+meteoritos[indice].nombre+ ' y tiene un diametro de '+meteoritos[indice].diametro+' y su radio es de '+meteorito.obtenerRadio(meteoritos[indice].diametro)+'\n';
+    msg = msg + 'La temperatura del meteorito en grados centigrados es' +meteoritos[indice].temperatura+' y de '+meteorito.obtenerFarenheit(meteoritos[indice].temperatura)+' grados Farenheit.';
+        alert(msg);
+    }
+}
+    
+    
+    
+</script>
+</body>
+</html>

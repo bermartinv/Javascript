@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+   <p><a href="principal.html" title="Página principal" >Ir a la pagina principal</a></p>
+
+<h1 onmouseover="estiloOrange(this)" onmouseout="estiloBrown(this)">Novedades</h1>
+
+<p onmouseover="fondoYellow(this)" onmouseout="fondoNone(this)">Aquí presentamos las novedades del sitio.</p>
+
+<h3 onmouseover="estiloOrange(this)" onmouseout="estiloBrown(this)">Lanzamos el producto X-FASHION</h3>
+
+<p onmouseover="fondoYellow(this)" onmouseout="fondoNone(this)">Este producto permite estirar la piel hasta dejarla como la de un bebé.</p>
+
+<p><img src="http://i.imgur.com/tq5Bs.png" title="Imagen del producto" alt="imagen producto x-fashion" /></p>
+
+<h3 onmouseover="estiloOrange(this)" onmouseout="estiloBrown(this)">Mejoramos el producto T-MOTION</h3>
+
+<p onmouseover="fondoYellow(this)" onmouseout="fondoNone(this)">Hemos lanzado una nueva versión del producto T-MOTION</p>
+
+<p onmouseover="fondoYellow(this)" onmouseout="fondoNone(this)"><img src="http://i.imgur.com/SpZyc.png" title="Imagen del proudcto tmotion" alt="imagen producto tmotion" /></p>
+<script>
+    
+    function estiloOrange(elemento){
+        elemento.style.color="orange";
+    }
+    
+    function estiloBrown(elemento){
+        elemento.style.color="brown";    
+    }
+    
+    function fondoYellow(elemento){
+        elemento.style.backgroundColor="yellow";    
+    }
+    
+    function fondoNone(elemento){
+        elemento.style.backgroundColor="transparent";    
+    }
+    
+</script>
+</body>
+</html>

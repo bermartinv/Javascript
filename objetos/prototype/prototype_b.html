@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <button onclick="cometa1()">Cometa1</button>
+   <button onclick="cometa2()">Cometa2</button>
+   <button onclick="cometa3()">Cometa3</button>
+   
+<script>
+// Definicion del objeto
+function cometa(diametro,temperatura,nombre){
+    this.diametro=diametro;
+    this.temperatura=temperatura;
+    this.nombre=nombre;
+    
+    }
+    
+//Definicion Metodo Clase del objeto
+cometa.prototype={
+    definicionSegunDiccionario:"Un cometa es muy chulo",
+    obtenerRadio:function(){
+        var radio=(this.diametro)/2;
+        
+    },
+    obtenerTemperaturaFahrenheit:function(){
+        var f=(1.8*this.temperatura)+32;
+        
+    }
+}
+    
+
+
+function cometa1(){
+    var diametro=prompt("Cual va a ser su diametro:");
+    var temperatura=prompt("Que temperatura tiene:");
+    var nombre=prompt("Que nombre le vas a poner:");
+    var cometas1=new cometa(Number(diametro),Number(temperatura),nombre);
+}
+    
+function cometa2(){
+    var diametro=prompt("Cual va a ser su diametro:");
+    var temperatura=prompt("Que temperatura tiene:");
+    var nombre=prompt("Que nombre le vas a poner:");
+    var cometas2=new cometa(diametro,temperatura,nombre);
+}
+    
+function cometa3(){
+    var diametro=prompt("Cual va a ser su diametro:");
+    var temperatura=prompt("Que temperatura tiene:");
+    var nombre=prompt("Que nombre le vas a poner:");
+    var cometas3=new cometa(diametro,temperatura,nombre);
+}   
+    
+</script>
+   
+   
+    
+</body>
+</html>

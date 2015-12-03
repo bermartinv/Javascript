@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<form id="myForm">
+<label>Type anything but "fun": <input id="noFun" type="text" oninput="checkValid(this)" required ><input type="submit"></label>
+<div><button onclick="previewMessage();">Preview errors</button></div>
+<div id="err"></div>
+</form>
+<script>
+    function checkValid(input) {
+        if (input.value == "fun") {
+            input.setCustomValidity("You're having too much fun!");
+        } else {
+            // input is fine -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+    function previewMessage() {
+        var myform = document.getElementById("noFun")
+        document.getElementById("err").innerHTML = myform.validationMessage;
+    }
+</script>
+
+</body>
+</html>
+

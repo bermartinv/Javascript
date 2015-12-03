@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ejemploA()">EjemploA</button>
+    <button onclick="ejemploB()">EjemploB</button>
+    <button onclick="ejemploC()">EjemploC</button>
+<script>
+    function ejemploA(){
+    var valor=0;
+        while (valor<10000000 || isNaN(valor)){
+            var valor=Number(prompt("Introduzca un valor superior a 10000000"));   
+        }  
+       alert("El valor que has introducido con tres dígitos significativos es "+valor.toPrecision(3));
+    }
+    
+    function ejemploB(){
+        var explReg=/^\d+\.\d{4,}$/;
+        var valor=0;
+        while (explReg.test(valor)==false){
+            valor=Number(prompt("Introduzca un valor que tenga como mínimo 4 decimales y se lo redondearemos a 2"));
+        }
+        alert ("Su numero redondeado en dos digitos es:"+valor.toFixed(2));
+    }
+    
+    function ejemploC(){
+				var frase = "";
+				var expReg = /^[0-9]/;
+				while(!expReg.test(frase)){
+					frase = prompt('Introduce una frase que comience por un número entero o decimal.');
+				}
+				alert('El número entero que devuelve la frase es: ' + parseInt(frase) + '\nEl número decimal que devuele es: ' + parseFloat(frase));
+			}
+    
+    
+</script>
+
+</body>
+</html>

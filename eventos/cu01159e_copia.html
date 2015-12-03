@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Ejemplo curso aprenderaprogramar.com</title><meta charset="utf-8">
+		<style type="text/css">
+			body {background-color:yellow; font-family: sans-serif;}
+			label {color: maroon; display:block; padding:5px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var elementoInput = document.getElementsByTagName('input');
+				for(var i = 0; i < elementoInput.length; i++){
+					elementoInput[i].addEventListener('focus', cambiaFondo);
+					elementoInput[i].addEventListener('blur', verificar);
+				}
+				function cambiaFondo(){this.style.backgroundColor = 'white'; this.nextSibling.textContent = '';}
+				function verificar(){verificaDatos(this);}
+			}
+			var nombreCorrecto = false;
+			var emailCorrecto = false;
+			var edadCorrecta = false;
+			function verificaDatosFormulario(){
+				if(nombreCorrecto && emailCorrecto && edadCorrecta){
+					return true;
+				}else{
+					if(!document.getElementById('nombre').value && !document.getElementById('email').value){
+						alert('No se ha rellenado ni el nombre ni el correo electrónico.');
+					}else if(!document.getElementById('nombre').value && document.getElementById('email').value){
+						alert('No se ha rellenado el nombre.');
+					}else if(document.getElementById('nombre').value && !document.getElementById('email').value){
+						alert('No se ha rellenado el correo electrónico.');
+					}
+					return false;
+				}
+			}
+            function verificaDatos(nodo){
+				switch(nodo.name) {
+					case 'nombre':
+						if(!comprobarNombre(nodo.value)){
+							cambiaColorDeFondo(nodo);
+							nombreCorrecto = false;
+						}else{
+							nombreCorrecto = true;
+						}
+						break;
+					case 'edad':
+						if(!comprobarEdad(nodo.value)){
+							cambiaColorDeFondo(nodo);
+							edadCorrecta = false;
+						}else{
+							edadCorrecta = true;
+						}
+						break;
+					case 'email':
+						nodo.value = pasarEmailAMinusculas(nodo.value);
+						if (comprobrarAtEnEmail(nodo.value)){nodo.value = cambiarAtEnEmail(nodo.value);}
+						if(!comprobarEmail(nodo.value)){
+							cambiaColorDeFondo(nodo);
+							emailCorrecto = false;
+						}else{
+							emailCorrecto = true;
+						}
+						break;
+					default:
+						break;
+				}
+			}
+			function comprobarEdad(edad){
+				if(edad>0){return true;}
+			}
+			function comprobrarAtEnEmail(email){
+				var expAt = /\w+\sat\s\w+/;
+				if(expAt.test(email)){return true;}
+			}
+			function cambiarAtEnEmail(email){
+				return email.replace(/\sat\s/g,'@');
+			}
+			function pasarEmailAMinusculas(email){
+				return email.toLowerCase();
+			}
+			function comprobarNombre(nombre){
+				var expReg = /\w{3}/;				
+				if(!expReg.test(nombre)){
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function comprobarEmail(email){
+				var expArroba = /[@]/;
+				var expPunto = /[.]/;
+				var expRegEmail = /\w+[@]\w+[.][A-Za-z]{2}/;
+				if(!expPunto.test(email) || !expArroba.test(email)){
+					if(!expArroba.test(email) && !expPunto.test(email)){
+						alert('Dirección de correo errónea, faltan el signo @ y el .');
+					}else if(!expArroba.test(email) && expPunto.test(email)){
+						alert('Dirección de correo errónea, falta el signo @');
+					}else{
+						alert('Dirección de correo errónea, falta el signo .');
+					}
+					return false;
+				}else{
+					if(expRegEmail.test(email)){
+						return true;
+					}else{
+						return false;
+					}	
+				}
+			}
+			function cambiaColorDeFondo(nodo){
+				nodo.style.backgroundColor = 'orange'; nodo.nextSibling.textContent = 'Campo incorrecto.';
+			}
+		</script>
+	</head>
+	<body>
+		<h1>La web para aprender programación</h1>
+		<p>EJERCICIO 2</p>
+		<p>Crea un documento HTML que conste de un título h1 con el texto...</p>
+		<form name ="formularioContacto" class="formularioTipo1" method="get" onsubmit="return verificaDatosFormulario()">
+			<label for="nombre"><span>Nombre:</span> <input id="nombre" type="text" name="nombre" "><span></span></label>
+			<label for="apellidos"><span>Apellidos:</span> <input id="apellidos" type="text" name="apellidos"><span></span></label>
+			<label for="edad"><span>Edad:</span> <input id="edad" type="text" name="edad" ><span></span></label>
+			<label for="email"><span>Correo electrónico:</span> <input id="email" type="text" name="email" ><span></span></label>
+			<label><input type="submit" value="Enviar"><input type="reset" value="Cancelar"></label>
+		</form>
+	</body
+</html>

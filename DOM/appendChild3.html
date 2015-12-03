@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		div{
+			border-style: solid;
+			text-align: center;
+			padding: 5 px;
+			width: 350px;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		var cont = 1;
+		var insertarElemento2;
+		function inicio () {
+			insertarElemento1 = document.getElementById("body");
+			insertarElemento2 = document.getElementById("divInicial");
+		}
+		
+		function anidarElemento0 () {
+			var nodoHijo = document.createElement("div");
+			var textNodoHijo = document.createTextNode("Nodo creado " + cont);
+			nodoHijo.style.width = "150px";
+			nodoHijo.style.textAlign = "center";
+			nodoHijo.appendChild(textNodoHijo);
+			insertarElemento1.appendChild(nodoHijo);
+			cont++;	
+		}
+		function anidarElemento () {
+			var nodoHijo = document.createElement("div");
+			var textNodoHijo = document.createTextNode("Nodo creado " + cont);
+			nodoHijo.style.width = "150px";
+			nodoHijo.style.margin = "0px auto";
+			nodoHijo.style.textAlign = "center";
+			nodoHijo.appendChild(textNodoHijo);
+			insertarElemento2.appendChild(nodoHijo);
+			cont++;	
+		}
+	</script>
+</head>
+<body id="body">
+	<div id="divInicial">Curso JavaScript aprenderaprogramar.com</div>
+	<input type="button" value="Añadir al final" onclick="anidarElemento0()"/>
+	<input type="button" value="Anidar" id="btnAnidar" onclick="anidarElemento()" />
+	
+	<script type="text/javascript">
+		inicio();
+	</script>
+</body>
+</html>

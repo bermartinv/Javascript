@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <img id="imagen" title="JavaScript" src="http://i1336.photobucket.com/albums/o646/alejrod872/Curso%20JavaScript/javascript_logo_zps7835661f.png?t=1392290933"/>
+    <button onclick=cambio()>CAmbio imagen</button>
+    <script>
+        function cambio(){
+         var imagen=document.getElementById("imagen");
+            imagen.setAttribute("src","http://i.imgur.com/tq5Bs.png");
+            imagen.setAttribute("title","PHP");
+            imagen.style.height="100px";
+            imagen.style.width="100px";
+        }
+    </script>
+</body>
+</html>

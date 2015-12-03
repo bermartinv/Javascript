@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
+</script>
+<p>Como ya sabemos hay mucha gente que se quiere pasar de lista copiando el contenido de un blog para luego pegarlo tal cual y publicarlo. En ocasiones escribir un post significa dedicarle mucho tiempo, ya sea investigando, recopilando fuentes, buscando imágenes, redactando, corrigiendo y dando forma al contenido, y de pronto nuestro esfuerzo aparece en el blog de otros asumiendo que son los autores de dicho contenido y obviamente sin la mención de créditos.
+
+Así que veremos una forma para evitar que nos roben el contenido del blog alguno de estos odiosos personajes. Aclaro, estoy completamente de acuerdo en que la información debe ser libre y debe compartirse, pero de ningún modo estoy de acuerdo en que se robe información y se asuman el trabajo de otros, por lo que si tomas información de algún lado cita a los autores y redáctalo con tus propias palabras.
+
+Entonces vamos a emplear un script que deshabilita la opción de seleccionar el texto de una página web, evitando de esta forma que hagan un 'copy & paste' y te roben tu contenido. Pero que hay que aclarar que no es un método infalible, ninguno lo es.</p>
+</body>
+</html>

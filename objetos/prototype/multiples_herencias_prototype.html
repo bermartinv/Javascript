@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="crearObjetos()">Crear Tomate</button>
+<script>
+    //
+    // Definimos vegetal
+    //
+    function vegetal(){
+        this.nombre='';
+    }
+    
+    vegetal.prototype.movilidad="Ser vivo sin movilidad";
+    
+    //
+    // Definicion de plantas cultivadas
+    //
+    function plantaCultivada(){
+        this.nombreCientifico="desconocido";    
+    }
+    plantaCultivada.prototype=new vegetal();
+    
+    //
+    // DEfinicion hortalizas
+    //
+    function hortalizas(){
+        this.tipoHortaliza="indefindo";
+    }
+    
+    // Tambien se podia haber defindo como : hortalizas.prototype.componentePrincipal="<<Agua>>"
+    hortalizas.prototype=new plantaCultivada();
+    hortalizas.prototype.componentePrincipal="Agua";
+    
+    
+    function zanahoria(){
+        this.valorCalorico=45;
+    }
+    zanahoria.prototype=new hortalizas();
+    
+    function lechuga(){
+        this.valorCalorico=31;
+    }
+    lechuga.prototype=new hortalizas();
+    
+    function tomate(){
+        this.valorCalorico=39;
+    }
+    tomate.prototype=new hortalizas();
+   
+    
+    
+    function crearObjetos(){
+        var tomate1=new tomate();
+        tomate1.nombre="Tomatete";
+        var msg = (''+tomate1.nombre+' tiene la propiedad movilidad:'+tomate1.movilidad+' y su componente principal es el '+tomate1.componentePrincipal);
+        alert (msg);
+        
+    }
+    
+        
+    
+    
+    </script>
+</body>
+</html>

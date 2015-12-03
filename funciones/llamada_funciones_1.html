@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculo de impuestos según productos</h1>
+    
+        <label>Introduzca el importe:</label>
+        <input type="number" required id="importe" /><br/>
+        
+    <button  style="margin-left:200px" onclick=practica()>Ver resultado</button><br/>
+    
+    <p id="resultado"></p>
+    
+    <script>
+    function practica(){
+        var importe=document.getElementById("importe").value;
+       
+        var total=obtenerImporteConImpuestos(importe);
+        
+        function obtenerImporteConImpuestos(importe){
+           
+            var productos=4;
+            var lista=Array(productos);
+            lista[1]=importe*1.21;
+            lista[2]=importe*1.10;
+            lista[3]=importe*1.05;
+           
+            for (var i=0;i<=lista.length-1;i++){
+                document.write("el resultado del producto " +i+ " con el importe de " +importe+ " mas los impuestos es: " +lista[i]+ "<br/>" );
+                
+             
+            }
+        };
+        
+        
+        
+      
+        
+    }
+   
+    </script>
+</body>
+</html>

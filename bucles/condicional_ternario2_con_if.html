@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="color()">Colorea una liena</button>
+    <button onclick="ternario()">Colorea ternario</button>
+<script>
+    function color(){
+        var color=prompt("IDiganos que color quiere: red / green / yellow ");
+        if (color== 'red' || color=='green' || color=='yellow'){
+            var html='<h1 style="background-color:'+color+'";>Hemos pintado este h1 de tu color elegido</h1>';
+        }
+        else {
+            html='<h1>Ha elegido mal el color</h1>';
+        }
+        var elbody=document.getElementsByTagName("body")[0];    
+            elbody.innerHTML=elbody.innerHTML+html;
+    }
+    
+    function ternario(){
+        var htmlADevolver = '';
+
+var colorUsuario = prompt('Elija color red, yellow o blue');
+
+htmlADevolver += colorUsuario ? '<h1 style="background-color:'+colorUsuario+
+
+';"> Usted eligió '+colorUsuario+'</h1>' : '<h1>No eligió color</h1>';
+
+var nodoBody = document.getElementsByTagName('body')[0];
+
+nodoBody.innerHTML = nodoBody.innerHTML + htmlADevolver;
+
+}
+
+       
+    
+    
+</script>
+    
+    
+    
+</body>
+</html>

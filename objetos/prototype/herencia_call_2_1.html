@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="crearObjetos()">Mostrar Objetos</button>
+<script>
+    function Persona(nombre){
+        this.nombre = nombre || 'Desconociodo'    
+        this.saludar = function (){
+            alert ('Soy  '+this.nombre+' profesor ');
+        }
+    }
+    Persona.prototype.definicion="Una persona es una persona";
+    
+    function Profesor(nombre,institucionAcademica){
+        Persona.call(this,nombre);
+        this.institucionAcademica = institucionAcademica || 'Desconocido';
+        
+    }
+    
+    function ProfesorInterino(nombre,institucionAcademica,mesesContratado){
+        Profesor.call(this,nombre,institucionAcademica);
+        this.mesesContratado = mesesContratado;
+    }
+    ProfesorInterino.tipoContrato="temporal";
+    
+    function ProfesorTitular(nombre,institucionAcademica,anyosTrabajados){
+        Profesor.call(this,nombre,institucionAcademica);
+        this.anyosTrabajados=anyosTrabajados;
+    }
+    ProfesorTitular.tipoContrato="indefinido";
+    
+Profesor.prototype=new Persona();
+ProfesorInterino.prototype = new Profesor();
+ProfesorTitular.prototype = new Profesor();
+    
+    function crearObjetos(){
+        var ProfesorTitular1=new ProfesorTitular('Juan','Universidad de Leon',8);
+        var msg1 = ('El profesor '+ProfesorTitular1.nombre+' ha trabajado durante '+ProfesorTitular1.anyosTrabajados+' anyos en '+ProfesorTitular1.institucionAcademica+' y tienen un contrato '+ProfesorTitular.tipoContrato);
+        var ProfesorInterino1=new ProfesorInterino('Pedro','Universidad Politecnica de Valencia',5);
+        var msg2 = ('El profesor '+ProfesorInterino1.nombre+' ha trabajado durante '+ProfesorInterino1.mesesContratado+' meses en '+ProfesorInterino1.institucionAcademica+' y tienen un contrato '+ProfesorInterino.tipoContrato);
+        alert(msg1);
+        alert(msg2);
+        ProfesorTitular1.saludar();
+        ProfesorInterino1.saludar();
+        
+    }
+</script>
+</body>
+</html>

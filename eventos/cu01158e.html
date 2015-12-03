@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var elementos=document.querySelectorAll('window,document,div,p');
+    for (var i=0;i<(elementos.length);i++){
+            elementos[i].addEventListener('click',aviso);
+    }
+    
+    function aviso(){
+        alert('Soy un nodo tipo '+this.tagName+ 'y estoy burbujeando');  
+    }
+}
+</script>
+</head>
+<body>
+    <div id="principal">
+        <div id="secundario">
+            <div id="terciario">
+                <p>Ejemplo de bubbling(burbujeo)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

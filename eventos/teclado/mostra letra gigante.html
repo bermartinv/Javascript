@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    h1 {text-align: center}    
+    #cuadrado{
+        border:groove .5px blue;
+        margin:100px;
+        width:400px;
+        height:400px;
+        font-size:250px;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+<script>
+window.onload=function () {document.onkeypress=escribirLetra}
+
+function escribirLetra(objeto){
+    var letra=String.fromCharCode(objeto.which);
+    cuadrado.innerHTML=letra;
+}
+</script>
+</head>
+<body>
+   <h1>Pulse una tecla</h1>
+   <div id="cuadrado"></div>
+    
+</body>
+</html>

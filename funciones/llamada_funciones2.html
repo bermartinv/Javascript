@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body onload="practica()">
+    <p >hola que tal</p>
+    <p id="dato"></p>
+    <script>
+    function practica(){
+        var importe=prompt("Introduzca el importe del producot");
+        var producto=prompt("Introduzca el producto 1-3:");
+       
+        var total=obtenerImporteConImpuestos(importe,producto);
+        
+        function obtenerImporteConImpuestos(importe,producto){
+           var total;
+            switch(producto){
+               case "1":
+                   total=importe*1.21;
+                   break;
+               case "2":
+                   total=importe*1.10;
+                   break;
+                case "3":
+                    total=importe*1.05;
+                   break;
+           }
+                   document.getElementById("dato").innerHTML=total;
+        }
+        
+    }
+        
+    </script>
+    
+    
+</body>
+</html>

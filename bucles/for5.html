@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <button onclick="introducir()">Presiona</button>
+    
+<script>
+    
+function introducir(){
+    var vector=new Array(5);
+    for (var i=0;i<vector.length;i++){
+        vector[i]=prompt("Introduzca el valor "+(i+1)+" que quiera: ");
+        vector[i]=parseInt(vector[i]);
+        if (isNaN(vector[i])){
+            alert("tiene que introducir solo numeros");
+            break;
+        }
+    }
+    
+    var resultado="";
+    for (i in vector){
+        resultado = resultado+"para el vector "+(i+1)+" que es "+vector[i]+" multiplicamos *3="+(vector[i]*3)+"\n";
+         
+    } 
+    alert("Multiplicamos por 3 los numeros introducidos:\n"+resultado);   
+}
+    
+</script>
+    
+</body>
+</html>

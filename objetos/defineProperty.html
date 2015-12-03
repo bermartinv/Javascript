@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+<script>
+    var gestionDeUsuarios= {};
+    Object.defineProperty(gestionDeUsuarios,'usuario',{value:'',writable:true},'idusuario',{value:0,writable:true});
+    gestionDeUsuarios.preguntarNombre=function(){
+        var nombreUsuario=prompt ('Diganos cual es su nombre:');
+        gestionDeUsuarios.nombre=nombreUsuario;
+        var identificadorUsuario=prompt('Diganos el numero de identificador:');
+        gestionDeUsuarios.idusuario=identificadorUsuario;  
+        
+    }
+    
+    gestionDeUsuarios.despedir=function(){
+        alert("Desde el metodo.Le acabamos de despedir Sr."+gestionDeUsuarios.nombre+" , lo sentimos.");    
+        
+    }
+    
+    function despedir(){
+        alert("Desde la funcion.Le acabamos de despedir Sr."+gestionDeUsuarios.nombre+" , lo sentimos.");    
+    }
+    
+    function testObjetos(){
+        gestionDeUsuarios.preguntarNombre();
+        gestionDeUsuarios.despedir();
+        alert ('Tenemos un objetos con las siguientes características: <br\> '+gestionDeUsuarios.nombre+' y identificador '+gestionDeUsuarios.idusuario);
+        despedir();
+        
+    }
+   
+</script>
+<button onclick="testObjetos()">Nuevo usuario</button> 
+</body>
+</html>

@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+button {margin:10px;}
+
+#cabecera{position:absolute; color:white; margin:5px; font-family:verdana, arial;}
+
+.relleno { width: 50px; height: 20px; background: black; float: left;}
+
+</style>
+
+<script type="text/javascript">
+
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+
+                              window.webkitRequestAnimationFrame || window.oRequestAnimationFrame;
+
+var globalID;
+
+function animacionRepetimos() { 
+
+  var nuevoDiv = document.createElement("div");
+
+  document.getElementById('oculto').appendChild(nuevoDiv);
+
+  nuevoDiv.innerHTML='<div class="relleno"  \> </div>';
+
+  globalID = requestAnimationFrame(animacionRepetimos);
+
+}
+
+function empezar() {globalID = requestAnimationFrame(animacionRepetimos);}
+
+function detener() {  cancelAnimationFrame(globalID);}
+
+</script></head>
+
+<body >
+
+<button id="start" onclick="empezar()">Empezar</button><button id="stop" onclick = "detener()">Detener</button>
+
+<div id="oculto"></div>
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+</body></html>

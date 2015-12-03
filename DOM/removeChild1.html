@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+#nodos {border-style:solid;margin: 30px; padding:25px; display:inline-block;}
+
+.nodo {background-color: yellow; border-style:solid;margin: 20px; padding:15px; display:inline-block;}
+
+#contenedor {width:405px;margin: 0 auto;}
+
+#adelante, #atras {padding:15px; width: 130px; float: left; margin-left:20px;
+
+color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+#adelante:hover, #atras:hover {background: rgb(66, 184, 221);}
+
+</style>
+</head>
+<body>
+    <div id="nodos" onclick="addNodo(this)">Contenido inicial es este texto</div>   
+    <div id="contenedor">
+    <button id="adelante" onclick="addNodo(document.querySelector('#nodos'))">Añadir Nodo</button>
+    <button id="atras" onclick="removeNodo()">Eliminar Nodo</button>
+    </div>
+
+<script>
+var contador=1;
+function addNodo(nodoPadre){
+    var newNodo=document.createElement("div");
+    var textNodo=document.createTextNode("Nodo numero"+contador);
+    newNodo.appendChild(textNodo);
+    newNodo.className="nodo";
+    nodoPadre.appendChild(newNodo);
+    contador++;
+    
+
+
+
+
+}
+    
+function removeNodo(){
+    var nodo=document.querySelectorAll(".nodo");
+    if (nodo.length>0){
+    var nodoEliminar=nodo.length-1;
+    nodoHijo=nodo[nodoEliminar];
+    
+    nodoHijo.parentNode.removeChild(nodoHijo);
+    
+    contador--;
+    }
+
+}
+
+    </script>
+</body>
+</html>

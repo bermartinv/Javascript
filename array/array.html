@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<label>Escriba la cantidad</label>
+<input type="number" id="cantidad"/>
+<button onclick=nombres()>Mandar el resultado</button><br\></br\>
+   <p id="resultado"></p>
+    <script>
+        function nombres(){
+            var cantidad=document.getElementById("cantidad").value;
+            cantidad=Number(cantidad);
+            vector=new Array(cantidad);
+            var i;
+            var num_per=(vector.length)+1;
+            for (i=1;i<num_per;i++){
+                
+                vector[i]=prompt("Nombre del elemento "+i+ " es ");    
+            }
+            document.write("El listado de personas introducidas son: <BR>");
+           for (i=1;i<num_per;i++){
+              document.write("El personaje "+i+" su nombre es "+vector[i]+"<BR>");  
+                
+            } 
+        }
+    </script>
+    
+    
+</body>
+</html>

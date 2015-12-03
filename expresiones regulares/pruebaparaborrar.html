@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<label>Escriba nombre</label>
+<input type="text" onblur="verificar()" size="50"/><img id="imagen" /> 
+<label>escriba apellido</label>
+<input type="text" />
+<script>
+    function verificar(){
+    var imagen=document.getElementById("imagen");
+    imagen.src = "img1.jpg";
+        alert("Hola");
+
+        
+    }
+</script>
+</body>
+</html>

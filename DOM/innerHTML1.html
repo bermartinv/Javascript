@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#cuadrado_central{
+    border:solid 0.5em black;
+    position:absolute;
+    width:304px;
+    height:304px;
+    left:40%;
+    top:30%;
+    
+}
+    
+.cuadrado{
+    float:left;
+    width:150px;
+    height:150px;
+    border:solid thin black;
+    text-align:center;
+    
+    font-size:3em;
+    color:blue;
+    justify-content: center;
+   
+    
+}
+    
+    button{margin-top:2em;}
+    
+</style>    
+</head>
+<body>
+   <div id="cuadrado_central">
+       <div class="cuadrado">?</div>
+       <div class="cuadrado">?</div>
+       <div class="cuadrado">?</div>
+       <div class="cuadrado">?</div>
+       <button onclick="avance()">Avanzar</button>
+       
+   </div>
+   <div id="final"></div>
+<script>
+    var contador=0;
+    function avance(){
+        var cuadrados=document.getElementsByClassName("cuadrado");
+        
+        if (contador==0){
+            cuadrados[0].style.background="black";
+            cuadrados[0].innerHTML="El";
+            cuadrados[0].style.color="white";
+            
+        }
+        
+        else if(contador==1){
+            cuadrados[1].style.backgroundColor="black";
+            cuadrados[1].style.color="white";
+            cuadrados[1].innerHTML="poder";
+        }
+            
+        else if(contador==2){
+            cuadrados[2].innerHTML="de";   
+        }
+            
+        else if(contador==3){
+            cuadrados[3].innerHTML="JavaScript";
+            cuadrados[3].style.backgroundColor="yellow";
+        }
+        
+        else{
+            var final=document.getElementById("final");
+            final.innerHTML="Se ha terminado el avance";
+            final.style.color="blue";
+            final.style.fontSize="3em";
+            final.style.textAlign="center";
+            document.getElementById("cuadrado_central").style.display="none";
+            
+            
+        }
+        
+        
+        
+        
+        contador++;
+    }
+</script>   
+    
+</body>
+
+</html>

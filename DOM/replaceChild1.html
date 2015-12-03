@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nodoRaiz">
+        Contenido incial es este texto
+    </div>   
+   
+    <div id="contenedor">
+        <button id="atras" onclick="crearNodoHijo(document.querySelector('#nodoRaiz'))">Añadir</button>
+        <button id="adelante" onclick="cambiarNodo()">Cambiar</button>
+        
+    </div>
+<script>
+var contador=1;
+function crearNodoHijo(nodoPadre){
+    var nodoHijo=document.createElement("div");
+    var texto=document.createTextNode("Nodo "+contador);
+    nodoHijo.appendChild(texto);
+    nodoHijo.className='nodoHijo';
+    nodoPadre.appendChild(nodoHijo);
+    contador++;
+    
+}
+    
+function cambiarNodo(){
+    var nodosHijos=document.querySelectorAll('.nodoHijo');
+    var nodoPadre=document.querySelector('#nodoRaiz');
+    if (nodosHijos.length>1){
+        var tmpNodo=nodosHijos[0].cloneNode(true);
+        nodoPadre.replaceChild(nodosHijos[nodosHijos.length-1
+    ],nodosHijos[0]);
+        nodoPadre.appendChild(tmpNodo);
+    }
+}
+    
+    
+</script>
+</body>
+</html>

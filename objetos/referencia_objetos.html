@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var objeto_raiz={
+        nombre:'Bernardo',
+        edad:14,
+        sexo:'macho'   
+    }
+    
+    var copia=objeto_raiz;
+        document.write("El nombre de "+copia.nombre+ " que tiene "+copia.edad+ " años es "+copia.sexo);
+        copia.edad=25;
+        document.write("<br/>Modificamos la edad en la copia del objeto <br/>El nombre de "+copia.nombre+ " que tiene "+copia.edad+ " años es "+copia.sexo);
+        document.write("<br/>Y el objeto raiz si se modifica la copia tamnién se modica el objeto raiz <br/> El nombre de "+objeto_raiz.nombre+ " que tiene "+objeto_raiz.edad+ " años es "+objeto_raiz.sexo);
+    </script>
+</body>
+</html>

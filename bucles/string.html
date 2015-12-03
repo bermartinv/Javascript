@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <p id="reemplazo" onclick=reemplazo() >Pulse aquí para sustituir Hola por Que tal</p>
+    <p id="reemplazo2" onclick=reemplazo2()>Pulse aqui para deciros que palabra quieres susituir por Hola</p>
+    <p id="mayusculas" onclick=mayusculas()>Convertimos todo en mayusculas</p>
+    <p id="minusculas" onclick=minusculas()>CONVERTIMOS LA FRASE A MINUSCULAS</p>
+    <p id="value" onclick=value()>Para saber el valor de la variable hola pulse aqui</p>
+    <p id="espacios" onclick=espacios()>Elimina los espacios al principio y al final de los que pongas</p>
+    <p id="sub" onclick=sub()>Indica de que parte a que parte ponemos de este texto</p>
+    <p id="longitud" onclick=longitud()>Escribe la frase que quieres saber la longitud </p>
+    <p id="fusion" onclick=fusion()>Vamos a unir dos frases</p>
+    <p id="enlace" onclick=enlace()>Darle el caracte de link con el metodo string</p>
+<script>
+    function reemplazo(){
+        var frase=document.getElementById("reemplazo").innerHTML="Pulse aquí para sustituir Que tal por Que tal";
+    }
+    
+    function reemplazo2(){
+        var frase=document.getElementById("reemplazo2").innerHTML;
+        var sustituir=prompt("Que palabra quiere sustituir por Hola: ");
+        var resultado=frase.replace("Hola",sustituir);
+        document.getElementById("reemplazo2").innerHTML=resultado;
+    }
+    
+    function mayusculas(){
+        var set=document.getElementById("mayusculas").innerHTML;
+        convertir=set.toUpperCase();
+        document.getElementById("mayusculas").innerHTML=convertir;
+    }
+    
+    function minusculas(){
+        var set=document.getElementById("minusculas").innerHTML;
+        convertir=set.toLowerCase();
+        document.getElementById("minusculas").innerHTML=convertir;
+    }
+    
+    function value(){
+        var frase="Hola BEBE";
+        var resultado=frase.valueOf();
+        alert(resultado);
+    }
+    
+    function espacios(){
+        var frase=prompt("Diganos la frase que quitaremos espacio al principio y al final");
+        var fraseSin=frase.trim();
+        alert(fraseSin);
+    }
+    
+    function sub(){
+        var frase=document.getElementById("sub").innerHTML;
+        var inicio=prompt("Digamos el valor de inicio de corte, en numerico:");
+        var fin=prompt("Hasta que valor cortamos, en numero:");
+        var resultado=frase.substr(inicio,fin);
+        alert(resultado);                    
+    }
+    
+    function longitud(){
+        var frase=prompt("Escriba aquí la frase que quiera saber la longitud: ");
+        var longitudFrase=frase.length;
+        alert ("La longitud de la frase es:" +longitudFrase);
+    }
+    
+    function fusion(){
+        var frase1=prompt("Cuál es la frase1: ");
+        var frase2=prompt("Cuál es la segunda frase:");
+        var fusion=frase1.concat(frase2);
+        alert(fusion);
+    }
+    
+    function enlace(){
+        var textoEnlace="Curso de Internet";
+        var direccion="http://cebi.dia.uned.es";
+        document.write(textoEnlace.link(direccion));
+    }
+    
+</script>   
+   
+   
+   
+    
+</body>
+</html>

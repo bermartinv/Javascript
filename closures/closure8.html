@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function whatAreYouWritingAbout()
+{
+    var subject = "About Closures";
+ 
+    var message = function () { return subject; };
+    return message;
+}
+ 
+ 
+//En otra parte del código...
+ 
+var writingAbout = whatAreYouWritingAbout();
+alert(writingAbout()); //Muestra en pantalla: About Closures
+    </script>
+</body>
+</html>

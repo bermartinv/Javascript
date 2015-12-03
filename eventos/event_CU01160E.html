@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1 {
+            display:inline;
+        }
+        div#pantalla{
+            border:black thin solid;
+            height:400px;
+            width:500px;
+            position:absolute;
+            top:20%;
+            left:20%;
+            
+        }
+    </style>
+    <script>
+        window.onload=function(){
+    document.getElementById("pantalla").onmousemove=situacion; 
+    document.getElementById("pantalla").onmouseout=situacionOut;
+    }
+    function situacion(evento){
+        var x=evento.clientX;
+        var y=evento.clientY;
+        
+        valorX=document.getElementById("valorX");
+        valorY=document.getElementById("valorY");
+        valorX.innerHTML=x;
+        valorY.innerHTML=y;
+        valorX.style.color="red";
+        valorY.style.color="red"
+        
+    }
+        
+    function situacionOut(evento){
+        document.getElementById("valorX").innerHTML='';
+        document.getElementById("valorY").innerHTML='';
+    }
+    
+    </script>
+</head>
+<body>
+    <div id="pantalla">
+        <h1 >Posicion x:<span id="valorX"></span></h1>
+        <h1 >Posicion y:<span id="valorY"></span></h1>
+    </div>
+    
+</body>
+</html>

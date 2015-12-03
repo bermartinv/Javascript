@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+window.onload=function (){
+    calcularDiferencia();
+    
+}
+    
+function calcularDiferencia(){
+    var fechas=getFechas();
+    var diferencia=calcular(fechas);
+    mostrar(diferencia);
+    
+}
+    
+function getFechas(){
+    var valor = false;
+    var fechas =new Array(2);
+    for (var i=0;i<(fechas.length);i++){
+        while (valor == false) {
+            fechas[i] = prompt("Introduzca la fecha numero "+ (i+1) + "  en formato dd-mm-anyo: ");
+            var expReg = /^[0-3][0-9]\-[0-1][0-9]\-(19|20)\d\d$/;
+            valor = expReg.test(fechas[i]);
+        }
+    valor=false;
+        
+    }
+    return fechas;
+}
+    
+function calcular(fechas){
+   var fecha1=fechas[0].split('-');
+   var fecha2=fechas[1].split('-');
+   var fFecha1 = Date.UTC(fecha1[2],fecha1[1]-1,fecha1[0]); 
+   var fFecha2 = Date.UTC(fecha2[2],fecha2[1]-1,fecha2[0]);
+   var auxiliar=fFecha1;
+    if ((fFecha1.valueOf())>(fFecha2.valueOf())){
+        var diferencia = fFecha1 - fFecha2 ;
+        diferencia = (diferencia / (1000 * 60 * 60 * 24)) ;
+        diferencia= Math.floor(diferencia);
+        return diferencia;
+    }else{
+        fFecha1=fFecha2;
+        fFecha2=auxiliar;
+        var diferencia = fFecha1 - fFecha2 ;
+        diferencia = (diferencia / (1000 * 60 * 60 * 24)) ;
+        diferencia= Math.floor(diferencia);    
+        return diferencia;
+    }
+   
+}
+
+
+function mostrar(valor){
+    alert ("Han pasado una diferencia de dias entre las dos fechas de " +valor+ " dias.");
+    
+}
+    
+    
+</script>
+<body>
+    
+</body>
+</html>

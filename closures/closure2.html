@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var contador=function(){
+          var contador_privado=0;
+                function cambiar_valor(val){
+                contador_privado+=val;
+                }
+          return{
+              increment:function(){
+                cambiar_valor(1);
+              },
+              decrement:function(){
+                cambiar_valor(-1);
+              },
+              value:function(){
+                return contador_privado;  
+            }
+                  
+          }
+           
+        };
+        
+        
+        var counter1=contador();
+        var counter2=contador();
+        
+alert(counter1.value()); /* Muestra 0 */
+counter1.increment();
+counter1.increment();
+alert(counter1.value()); /* Muestra 2 */
+counter1.decrement();
+alert(counter1.value()); /* Muestra 1 */
+alert(counter2.value()); /* Muestra 0 */
+alert(counter1.value()); /* Muestra 1 */
+    </script>
+</body>
+</html>

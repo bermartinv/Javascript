@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+ <p id="primer"></p>
+ <p id="segundo"></p>
+  
+   
+    <script>
+    var employee=function(nombre,edad,sexo){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.sexo=sexo;
+    }
+    
+    
+    // Creamos primer empleado
+    
+    var Peter=new employee("Peter",25,"macho");
+         document.getElementById("primer").innerHTML=Peter.nombre+" con la edad de " +Peter.edad+ " y encima es " +Peter.sexo ;
+     
+    // Preguntamos por el segundo empleado
+   var empleado=window.prompt("Segundo empleado:");
+   var edad_empleado=window.prompt("y su edad es :");
+   var sexo_empleado=window.prompt("y su sexo es:");
+   var segund=new employee (empleado,edad_empleado,sexo_empleado);
+        
+document.getElementById("segundo").innerHTML=(segund.nombre+" con la edad de " +segund.edad+ " y encima es " +segund.sexo );
+        
+        // Tercer empleado
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+<button onclick="mostrar()">Medico</button>
+<button onclick="nuevoCurado()">Curar</button>
+<script>
+function constructor(nombre,personasCuradas,especialidad){
+    this.name=nombre;
+    this.persons=personasCuradas;
+    this.curity=especialidad;
+    this.curarPersona=function (){this.persons++};
+    this.mostrarDatos=function (){
+         var msg="El doctor de llama " +this.name;
+         msg = msg +" tiene la especialidad de "+this.curity;
+         msg= msg+" y ha curado a "+this.persons+" pacientes.";
+        alert(msg);
+    }
+}
+    
+function mostrar(){
+    var nombre=prompt("El medico se llama:");
+    var curados=prompt("Cuatos pacientes ha curado:");
+    var especialista=prompt("Que especialidad tiene:");
+    medico1=new constructor(nombre,curados,especialista);
+    medico1.mostrarDatos();  
+}
+    
+function nuevoCurado(){
+    medico1.curarPersona();
+    medico1.mostrarDatos();
+}
+    
+</script>
+</body>
+</html>

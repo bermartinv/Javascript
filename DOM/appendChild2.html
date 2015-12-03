@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+#nodoRaiz{
+    border:solid thin red;
+    background-color:papayawhip;
+    height=200px;
+    width:200px;
+    margin:100px;
+}
+
+#nodoRaiz div{
+    color:red;
+    text-align:center;
+}
+    
+    
+    </style>
+<body>
+    <div id="nodoRaiz">JavaScript aprenderaprogramar.com</div>
+    <div id="fuera"></div>
+    <button onclick="alFinal()">Añadir al final</button>
+    <button onclick="dentroDiv()">Anidar</button>
+    
+<script>
+var contador=1;
+    
+function alFinal(){
+    var nodoFuera=document.createElement("div");
+    document.body.appendChild(nodoFuera);
+    nodoFuera.innerHTML="Nodo creado"+contador;
+    nodoFuera.id="nodoFuera"+contador;
+    contador=contador+1;
+    
+    
+}
+    
+function dentroDiv(){
+    
+    var nodoRaiz=document.getElementById("nodoRaiz");
+    var nodoHijo=document.createElement("div");
+    nodoRaiz.appendChild(nodoHijo);
+    nodoHijo.innerHTML="Nodo creado"+contador;
+    nodoHijo.id="nodoHijo"+contador;
+    contador=contador+1;
+}
+    
+    
+    
+    
+</script>
+    
+</body>
+</html>

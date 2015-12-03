@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body onload="pedirDatos()">
+    <h1>Ejercicio curso aprenderaprogramar.com</h1>
+    <div></div>
+    
+<script>
+
+function pedirDatos(){
+    
+    var vector=new Array(5);
+        
+    for (var i=0;i<vector.length;i++){
+        
+        vector[i]=prompt("Introduzca un numero:");
+        
+        
+        
+        if (isNaN(vector[i])==true){
+            
+            alert("Le recuerdo que tiene que introducir solo numeros");
+            
+            break;
+            
+        };
+        
+        vector[i]=Number(vector[i]);
+        
+        
+    }
+
+    var entraDiv=document.getElementsByTagName("div");
+    
+    var datos="";
+    
+    for (var i=0;i<vector.length;i++){ 
+       
+    datos= datos+"El vector "+(i+1)+" su valor era:"+vector[i]+"*3="+(vector[i]*3)+"\n" ;
+    
+    }
+    
+    entraDiv[0].textContent=datos;
+    
+}
+    
+</script>    
+    
+</body>
+</html>

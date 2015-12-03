@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>h</p>
+    <p>o</p>
+    <p> <span>que si pesao</span></p>
+    
+    
+   
+    <p>l </p>
+    <p>a</p>
+    <button onclick="prueba()">presiona</button>
+    <p id="texto"></p>
+    <script>
+        function prueba(){
+            var poner=document.getElementsByTagName("p");
+                       var res="Hola que tal";
+            poner[0].innerHTML=res;
+            poner[2].firstChild.nextSibling.firstChild.nodeValue="ahorita no";
+        }
+</script>
+</body>
+</html>

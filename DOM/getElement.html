@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Document</title>
+ 
+
+<style type="text/css">
+
+body {text-align: center; font-family: sans-serif;}
+
+div {margin:20px;}
+
+#contenedor {width:405px;margin:auto;}
+
+#adelante, #atras {padding:15px; width: 130px; float: left;
+
+color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+#adelante:hover, #atras:hover {background: rgb(66, 184, 221);}
+
+</style>
+
+
+</head>
+
+<body>
+
+<div >
+
+<p>Pulsa adelante o atrás</p>
+
+<h1 id="numeracion">Camiseta 9</h1>
+
+<img id="imgCarrusel" src="http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_9_humor_informatico_foto.jpg" alt="Camiseta 9 aprenderaprogramar.com" title="Diálogo entre informáticos">
+
+<div id="contenedor">
+
+<div id ="atras" > Atrás </div>
+
+<div id="adelante" >Adelante</div>
+
+</div>
+</div>
+<button onclick="moverImagen()">presiona</button>
+<p id="prueba"></p>
+<script>
+
+
+var contador=0;
+
+    function moverImagen(){
+        
+        
+// var valorSrc=["http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_6_humor_informatico_foto.jpg",
+              //"http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_9_humor_informatico_foto.jpg",
+              //"http://aprenderaprogramar.com/images/thumbs_portada/thumbs_camisetas/camiseta_11_humor_informatico_foto.jpg"];
+
+var valor=new Array();
+        valor=["hola","que","tal"];
+        
+        res=docuemnt.write(valor.length);
+        document.getElementById("prueba").innerHTML=res;
+ 
+/*valorImagen=new Array("Camiseta 6","Camiseta 9","Camiseta 11");
+        
+valorTitle=new Array(3);
+valorTitle=["camiseta6","camiseta9","camiseta11"];
+        
+valorAlt=new Array("imagen1","imagen2","imagen3");
+        
+        i=contador%(imagenes);
+       
+     document.getElementById("imgCarrusel").src=valorSrc[i];
+    document.getElementById("imgCarrusel").alt=valorAlt[i];
+     document.getlElementById("imgCarrusel").title=valorTitle[i];
+       
+
+
+        document.getElementById("numeracion").innerHTML=valorImagen[i];
+       
+        contador++;
+setInterval("moverImagen()",2000);
+*/
+}
+     </script>
+
+
+     
+ </body>
+ </html>

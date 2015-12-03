@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		#caja{
+			text-align: center;
+			font-size: 30px;
+			border: 1px solid black;
+			width: 200px;
+			height: 30px;
+			padding-bottom: 8px;
+		}
+	</style>
+	<script type="text/javascript">
+		var lado;
+		function componer(sentido) {
+			var accion = 'mover';
+			var sobreElemento = 'Imagen';
+			var haciaDonde = sentido;
+			var llamada = accion + sobreElemento+'(\''+haciaDonde+'\')';
+			// alert ('La unión del texto genera ' + llamada);
+			eval(llamada);
+			}
+
+		function moverImagen(sentido) {
+			lado = document.getElementById("caja");
+			var haciaDonde = lado.childNodes[0];
+
+			if (sentido == "adelante") {
+				haciaDonde.nodeValue = sentido;
+
+			} else if (sentido == "atras") {
+				haciaDonde.nodeValue = sentido;
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="caja"> </div>
+	<input id="botonAdelante" type="button" value="Adelante" onclick="componer('adelante')" />
+	<input id="botonAtras" type="button" value="Atras" onclick="componer('atras')" />
+</body>
+</html>

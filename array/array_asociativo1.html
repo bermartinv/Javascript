@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ejemploObjetos()">Calcula</button>
+    <script>
+    var plus= function(x,y){return x+y};
+    var resta=function(x,y){return x-y};
+    
+    
+    var operaciones={
+        '+':plus,
+        '-':resta,
+        variable:"hola"
+    };
+    
+    var calcular=function (x,y,operacion){
+        return operaciones[operacion](x,y);    
+    };
+        
+    function ejemploObjetos(){
+        alert ("El resultado de 3,4, es:"+calcular(3,4,'+'));
+        
+    }
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var Person = function(){
+
+    // Esta variable es privada
+    var savedName="anónimo";
+
+    return {
+        getName: function(){
+            return savedName;
+        },
+        setName: function (name){
+            savedName = name;
+        }
+    }   
+}();
+        //Escribe Hola undefined, porque no tenemos acceso a la variable privada
+document.write("Hola " + Person.savedName);
+
+//Escribe Hola anónimo, porque la variable tiene todavía el valor por defecto
+document.write("Hola " + Person.getName());
+
+//Cambiamos el nuevo valor de la variable privada
+Person.setName("Cylon");
+
+//Escribe Hola Cylon
+document.write("Hola " + Person.getName());
+    </script>
+</body>
+</html>

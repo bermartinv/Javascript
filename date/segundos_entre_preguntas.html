@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+window.onload=function (){    
+    calcularDiferenciaFechas();
+}
+
+function calcularDiferenciaFechas(){
+ prompt ("Diganos su nombre:");
+ var fecha1=new Date();
+ prompt ("Diganos su apellido");
+ var fecha2=new Date();
+ var diferencia= ((fecha2.valueOf())-(fecha1.valueOf()));
+ diferencia = (diferencia / (1000));
+ alert ('Han transcurrido '+diferencia.toFixed()+' segundos, entre rellenar un dato y otro');
+ diferencia = (diferencia / 60 );
+ alert ('Han transcurrido '+diferencia+' minutos, entre rellenar un dato y otro');
+ diferencia = (diferencia / 60 );
+ alert ('Han transcurrido '+diferencia+' horas, entre rellenar un dato y otro');
+ diferencia = (diferencia / 24 );
+ alert ('Han transcurrido '+diferencia.toFixed()+' días, entre rellenar un dato y otro');    
+ 
+}
+
+
+</script>
+<body>
+    
+</body>
+</html>

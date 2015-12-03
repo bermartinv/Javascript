@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    var imagenes=document.getElementById("img1");
+    imagenes.addEventListener('mouseover',cambiarImagen);
+    imagenes.removeEventListener('mouseout',cambiarImagen2);
+    
+    function cambiarImagen(){
+        this.src='img2.jpg';    
+    }
+    function cambiarImagen2(){
+        this.src='img1.jpg';
+    }
+}
+</script>
+</head>
+<body>
+    <h1>La web para aprender programacion</h1>
+    <p>Esta cantidad de eventos puede resultar desconcertante por excesiva. No te preocupes por entender ahora el significado de cada uno de ellos. Simplemente ten unas nociones básicas que te permitan resolver los retos que como programador te puedan ir surgiendo.</p>
+    <p>Para comprobar si tus respuestas y código son correctos puedes consultar en los foros aprenderaprogramar.com.</p>
+    <img id="img1" src="img1.jpg" />
+</body>
+</html>

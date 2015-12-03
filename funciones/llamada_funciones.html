@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculo de impuestos según productos</h1>
+    
+        <label>Introduzca el importe:</label>
+        <input type="number" required id="importe" /><br/>
+        <label>Intorduzca que tipo de producto es:</label>
+        <input type="number" required max="3" min="1" id="producto" /><br/>
+    <button  style="margin-left:200px" onclick=practica()>Ver resultado</button><br/>
+    
+    <p id="resultado"></p>
+    
+    <script>
+    function practica(){
+        var importe=document.getElementById("importe").value;
+        var producto=document.getElementById("producto").value;
+        var total=obtenerImporteConImpuestos(importe,producto);
+        
+        function obtenerImporteConImpuestos(importe,producto){
+           var total;
+            switch(producto){
+               case "1":
+                   total=importe*1.21;
+                   break;
+               case "2":
+                   total=importe*1.10;
+                   break;
+                case "3":
+                    total=importe*1.05;
+                   break;
+           }
+            total=total.toFixed(2);
+            return total; 
+        };
+        
+        document.getElementById("resultado").innerHTML=total;
+        
+        
+        
+        
+    }
+   
+    </script>
+</body>
+</html>

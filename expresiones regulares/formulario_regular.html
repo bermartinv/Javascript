@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<form method="get" name="formulario" onsubmit="validar()">
+   <label>Introduzca su nombre</label>
+   <input type="text" id="nombre" size="20"/><br/>
+   <label>Introduzca su apellido</label>
+   <input type="text" id="apellido" size="20"/><br/>
+   <label>Introduzca su email</label>
+    <input type="text" id="email" size="50" /><br/> 
+   <input type="submit" value="submit" />
+   <input type="reset" value="Reiniciar datos" />
+    
+</form>  
+<script>
+var contador=0;
+function validar(){
+        validarNombre();
+        validarApellido();
+        validarEmail();
+        validarOk();
+}
+    
+function validarNombre(){
+        var nombre=document.getElementById("nombre").value;
+        var expresionRegular=/^\w{3,}$/;
+        if (!(expresionRegular.test(nombre))){
+            alert ("Ha introducido los datos de nombre mal. Deberá indicar un nombre superior a tres letras");
+        }
+        else {
+            contador++;
+        }
+}
+    
+function validarApellido(){
+        var apellido=document.getElementById("apellido").value;
+        var expresionRegular=/^\w{3,}$/;
+        if (!(expresionRegular.test(apellido))){
+            alert ("Ha introducido los datos de apellido mal. Deberá indicar un apellido superior a tres letras");
+        }
+        else {
+            contador++;
+        }
+}
+    
+function validarEmail(){
+        var email=document.getElementById("email").value;
+    email=convertirMinusculas(email);
+    email=comprobarAtEmail(email);
+	if( !(/^([\w-\.]{3,}\@.+\..+)$/.test(email)) ) {
+  alert ("Le recordamos condiciones que debe cumplir su correo electronico:\n\t 1.Su nombre ha de tener almenos 3 caracteres(alfanumericos o el subrayado)\n\t 2.Debe contener la '@' ");
+	}
+	else {
+		contador++;
+        
+	}    
+}
+    
+function validarOk(){
+    if (contador==3){
+            alert ("Introdujo todos los valores correctamente y su formulario será enviado");
+    }
+}
+    
+function convertirMinusculas(email){
+    return email.toLowerCase();    
+    }
+    
+function comprobarAtEmail(email){
+    var expresion=/\sat\s/g;
+    return email.replace(expresion,'@');
+}
+    
+</script>
+</body>
+</html>

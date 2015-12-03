@@ -1,0 +1,31 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+div {border-style:solid;margin: 30px; padding:25px; display:inline-block;}
+
+div div {background-color: yellow;}
+
+</style>
+
+<script type="text/javascript">
+
+function crearNodoHijo(nodoPadre) {
+    var nodoClonado=nodoPadre.cloneNode(nodoPadre);
+    document.body.appendChild(nodoClonado);
+
+    
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="nodoRaiz" onclick="crearNodoHijo(this)">Pulsa aquí para duplicar este nodo</div>
+</body></html>

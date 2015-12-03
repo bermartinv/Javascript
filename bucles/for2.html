@@ -1,0 +1,80 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+
+<title>Ejemplo DOM - aprenderaprogramar.com</title>
+
+<meta charset="utf-8">
+
+<style type="text/css">
+
+body {background-color:white; font-family: sans-serif;}
+
+p {font-size: 24px; color: maroon; float: left; margin:10px; border: solid black; padding:10px;}
+
+.boton{padding:15px; width: 330px;  text-align:center; clear:both;
+
+color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+.boton:hover {background: rgb(66, 184, 221);}
+
+</style>
+
+<script type="text/javascript">
+
+var izqda_dcha = true;
+
+function cambiarColores(elemento) {
+
+var color = ['#FF6633', '#FF9933', '#FFCC33', 'yellow'];
+
+var elementosObtenidos = document.getElementsByTagName(elemento);
+
+if (izqda_dcha == true) {
+
+                for (var i=0; i<elementosObtenidos.length; i++) {
+
+                elementosObtenidos[i].style.backgroundColor = color[i%4];
+
+                }
+
+} else {
+
+                for (var j=elementosObtenidos.length-1; j>=0; j--) {
+
+                elementosObtenidos[j].style.backgroundColor = color[(j+3)%4];
+
+                }
+
+}
+
+if (izqda_dcha == false) { izqda_dcha = true; } else { izqda_dcha = false; }
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Portal web aprenderaprogramar.com</h1>
+
+<h2>Didáctica y divulgación de la programación</h2>
+
+<div style="width:500px; float:left; margin-bottom:30px;">
+
+<p>Manzana</p><p>Pera</p><p>Fresa</p><p>Ciruela</p>
+
+<p>Naranja</p><p>Kiwi</p><p>Pomelo</p><p>Melón</p>
+
+<p>Sandía</p><p>Mango</p><p>Papaya</p><p>Cereza</p>
+
+<p>Nectarina</p><p>Frambuesa</p></div>
+
+<h3 class="boton" onclick="cambiarColores('p')">Pulse aquí para cambiar colores</h3>
+
+</body>
+</html>

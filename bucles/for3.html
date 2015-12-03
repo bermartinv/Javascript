@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <label>Introduzca una palabra</label>
+    <input type="text" name="palabra"/>
+    <button onclick="contador('palabra')">Cuenta letras</button>
+     <p>Manzana</p><p>Pera</p><p>Fresa</p><p>Ciruela</p>
+
+<p>Naranja</p><p>Kiwi</p><p>Pomelo</p><p>Melón</p>
+
+<p>Sandía</p><p>Mango</p><p>Papaya</p><p>Cereza</p>
+
+<p>Nectarina</p><p>Frambuesa</p>
+    <button onclick=cuentaParrafos()>Cuenta parrafos</button>
+
+<script>
+function contador(texto){
+    var palabra=document.getElementsByName(texto);
+    var indice=(palabra[0].value.length);
+    indice=Number(indice);
+    indice=parseInt(indice);       
+    valor=palabra[0].value;
+    
+    for (var i=0;i<=indice-1;i++){
+        valorLetra=valor.charAt(i);
+        document.write("La letra "+(i+1)+" es:"+valorLetra+"<br>");
+        
+    }
+        
+}
+    
+//OTRA FUNCION
+function cuentaParrafos(){
+    var obtener=document.getElementsByTagName('p');
+
+    
+    var msg="Parrafo ";
+    for(i=0;i<obtener.length;i++){
+        
+        msg=msg + (i+1)+ " es:"+obtener[i].childNodes[0].nodeValue+" \nParrafo ";
+    }
+     alert(msg);
+    
+}
+    
+</script>
+
+</body>
+</html>

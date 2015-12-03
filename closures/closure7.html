@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function personalizedGreet(name){
+            var hello="Hello ";
+            
+            function greet(){
+                return hello + name;
+            }
+            
+            return greet;     
+    }
+    
+        var sayHello=personalizedGreet("Peter");
+        document.write(sayHello());
+    
+    
+    </script>
+</body>
+</html>

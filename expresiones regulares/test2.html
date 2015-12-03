@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="mostrar()">Mostrar</button>
+<script>
+    function mostrar(){
+        var miExpReg=/^[A-C]\w+\ses\s\w+/;
+        var msg = 'EL patron es:/^[A-C]\w+\ses\s\w+/ \n';
+        msg = msg + '¿Contiene la frase:"Juan es guapo" la expresion regular?'+miExpReg.test('Juan es guapo')+'\n';
+        alert (msg);
+        miExpReg.test('Juan es guapo')?alert ('verdadero'):alert ('no');
+    }
+</script>
+</body>
+</html>

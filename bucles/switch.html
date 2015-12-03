@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body >
+   <label>Introduzca un valor entre 0-4</label>
+   <input name="valor" required id="valor" type="number"/>
+    <button onclick=motor()> Pulse aqui</button>
+   <p id="resultado">Hola</p>
+<script>
+    function motor(){
+        var variable;
+        var variable=prompt("Escriba el tipo de bomba");
+        var texto=document.getElementById("resultado");
+        variable=Number(variable);
+        variable=parseInt(variable);
+        
+        switch (variable){
+            case 0:texto.innerHTML=("No hay establecido un valor definido para el tipo de bomba");break;
+            case 1:texto.innerHTML=("La bomba es una bomba de agua") ;break;
+            case 2:texto.innerHTML=("La bomba es una bomba de gasolina");break;
+            case 3:texto.innerHTML=("La bomba es una bomba de hormigón");break;    
+            case 4:texto.innerHTML=("La bomba es una bomba de pasta alimenticia");break;
+            default:
+                alert("No existe un valor válido para tipo de bomba");break;
+        }
+        
+    }
+
+    </script>    
+    
+
+    
+</body>
+</html>

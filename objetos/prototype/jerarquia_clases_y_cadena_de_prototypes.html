@@ -1,0 +1,58 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function Persona () { this.nombre = 'Nombre desconocido';
+
+this.saludar = function () {alert('Hola, soy ' + this.nombre);}
+
+}
+
+Persona.prototype.definicion = 'Ser humano';
+
+function Profesor () { this.institucionAcademica = 'Institución desconocida'; }
+
+Profesor.prototype = new Persona();
+
+function ProfesorInterino() { this.mesesContrato = 0;}
+
+ProfesorInterino.prototype = new Profesor();
+
+function ProfesorTitular() { this.añosTrabajados = 0;}
+
+ProfesorTitular.prototype = new Profesor();
+
+function ejemploObjetos() {
+
+var unProfesorTitular = new ProfesorTitular();
+
+alert ('El nombre de unProfesorTitular es ' + unProfesorTitular.nombre);
+
+unProfesorTitular.saludar();
+
+unProfesorTitular.nombre = 'Juan';
+
+unProfesorTitular.institucionAcademica = 'Universidad de Chapingo';
+
+unProfesorTitular.añosTrabajados = 14;
+
+var msg = 'El profesor titular creado tiene nombre ' + unProfesorTitular.nombre + ', trabaja en '
+
+msg = msg + unProfesorTitular.institucionAcademica + ', tiene ' + unProfesorTitular.añosTrabajados + ' años trabajados';
+
+msg = msg + ' y definición de ' + unProfesorTitular.definicion;
+
+alert(msg);
+
+unProfesorTitular.saludar();
+
+}
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+</body></html>

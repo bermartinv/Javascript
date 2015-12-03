@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+
+<html> <head><title>Portal web - aprenderaprogramar.com</title>
+
+<meta name="description" content="Portal web aprenderaprogramar.com">
+
+<meta name="keywords" content="aprender, programar, cursos, libros"><meta charset="utf-8">
+<script>
+window.onload = function(){
+				var elementosH = document.querySelectorAll('h1,h3');
+				var elementosP = document.querySelectorAll('p');
+				for(var i = 0; i < elementosH.length; i++){
+					elementosH[i].onmouseover = onMouseOverCambioTextoColor;
+					elementosH[i].onmouseout = onMouseOutCambioTextoColor;
+				}
+				for(var i = 0; i < elementosP.length; i++){
+					elementosP[i].onmouseover = onMouseOverCambioFondoColor;
+					elementosP[i].onmouseout = onMouseOutCambioFondoColor;
+				}
+				function onMouseOverCambioTextoColor(){return this.style.color = 'orange';}
+				function onMouseOutCambioTextoColor(){return this.style.color = 'brown';}
+				function onMouseOverCambioFondoColor(){return this.style.backgroundColor = 'yellow';}
+				function onMouseOutCambioFondoColor(){return this.style.backgroundColor = 'transparent';}
+			}
+    
+</script>
+</head>
+
+ <body> <p><a href="principal.html" title="Página principal" >Ir a la pagina principal</a></p>
+
+<h1>Novedades</h1>
+
+<p>Aquí presentamos las novedades del sitio.</p>
+
+<h3>Lanzamos el producto X-FASHION</h3>
+
+<p>Este producto permite estirar la piel hasta dejarla como la de un bebé.</p>
+
+<p><img src="http://i.imgur.com/tq5Bs.png" title="Imagen del producto" alt="imagen producto x-fashion" /></p>
+
+<h3>Mejoramos el producto T-MOTION</h3>
+
+<p>Hemos lanzado una nueva versión del producto T-MOTION</p>
+
+<p><img src="http://i.imgur.com/SpZyc.png" title="Imagen del proudcto tmotion" alt="imagen producto tmotion" /></p>
+
+</body>
+</html>
