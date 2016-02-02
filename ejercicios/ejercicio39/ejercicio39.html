@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="stilo.css"/>
+    <script src="funciones.js"></script>
+</head>
+<body>
+<div id="tabla">
+
+   <table>
+        <caption> contenido nutricional por cada 100grms de alimento</caption>
+       <tr>
+           <th>Alimento</th>
+           <th>Calorías<span>(Kcal)</span></th>                      
+           <th>Grasas<span>(g)</span></th>
+            <th>Proteína<span>(g)</span></th>
+            <th>Carbohidratos<span>(g)</span></th>
+            <th>Opciones</th>
+       </tr>
+       <tr class="alimento1">
+           <td>Arándano</td>
+           <td>49</td>
+           <td>0.2</td>
+           <td>0.4</td>
+           <td>12.7</td>
+           <td onclick="editar(this)">Editar</td>
+       </tr>
+       <tr class="alimento2">
+           <td>Plátano</td>
+           <td>90</td>
+           <td>0.3</td>
+           <td>1.0</td>
+           <td>23.5</td>
+           <td>Editar</td>
+       </tr>
+       <tr class="alimento3">
+           <td>Cereza</td>
+           <td>46</td>
+           <td>0.4</td>
+           <td>0.9</td>
+           <td>10.9</td>
+           <td>Editar</td>
+       </tr>
+       <tr class="alimento4">
+           <td>Fresa</td>
+           <td>37</td>
+           <td>0.5</td>
+           <td>0.8</td>
+           <td>8.3</td>
+           <td>Editar</td>
+       </tr>
+
+   </table>
+   <div id="contenedorForm">
+       
+   </div> 
+    <div id="sacar"></div>
+</div>
+</body>
+</html>

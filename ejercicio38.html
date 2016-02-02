@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#cuadrado{
+    position:absolute;
+    width:204px;
+    height:204px;
+    border:solid thin red;
+    top:30%;
+    left:30%;
+    }
+div.cuadrante{
+    border:solid thin red;
+    text-align: center;
+    width:100px;
+    height:100px;
+    float:left;
+    line-height: 100px;
+    
+}
+input{
+    float:right;
+    margin-top:2em;
+}
+
+</style>
+</head>
+<body>
+    <div id="cuadrado">
+        <div class="cuadrante">
+            <span>?</span>                                                                                      
+        </div>
+        <div class="cuadrante">
+            <span>?</span>
+        </div>
+        <div class="cuadrante">
+            <span>?</span>
+        </div>        
+        <div class="cuadrante">
+            <span>?</span>
+        </div>
+        <input type="button" onclick="avanzar()" value="Avanzar">
+    </div>
+</body>
+<script>
+var contador=0;
+var cuadrante=document.querySelectorAll(".cuadrante");
+function avanzar(){
+ 
+    
+    switch (contador){
+        case 0: cuadrante[contador].style.backgroundColor="black";
+                cuadrante[contador].style.color="white";
+                cuadrante[contador].innerHTML="El";
+            break;
+        case 1:
+                cuadrante[contador].innerHTML="poder ";
+            break;
+        case 2:
+                cuadrante[contador].innerHTML="de";
+            break;
+        case 3: cuadrante[contador].style.backgroundColor="yellow";
+                cuadrante[contador].innerHTML="JavaScript";
+            break;
+        default: alert ("No es posible hacer mas ");
+    }
+    contador++;
+    
+}
+</script>
+</html>
