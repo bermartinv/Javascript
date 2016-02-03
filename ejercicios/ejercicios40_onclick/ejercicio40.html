@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#cuadrado{
+    border:solid thin blue;
+    width:300px;
+    height:300px;
+    margin-left:50px;
+    margin-top:10px;
+   
+}
+    
+#botones{
+    
+    left:100px;
+    margin: 30px;
+}
+
+input{
+    text-align:center;
+    margin:10px ;
+}
+</style>
+<script>
+var contador =0;    
+    
+    function añadirFila(donde){
+    var nodocuadrado=document.getElementById("cuadrado");
+    var nodobody=document.body;
+    var nodohijo=document.createElement("span");
+    nodohijo.style.color="green";
+    nodohijo.id="elemento"+(contador+1);
+    nodohijo.innerHTML="Nodo creado "+contador+ "<br/>";
+    if (donde=="caja"){
+        nodocuadrado.appendChild(nodohijo);
+        contador++       
+    }
+    else {
+    nodobody.appendChild(nodohijo);
+    contador++;    
+    }
+</script>
+</head>
+<body>
+    <div id="cuadrado">
+        <p>Curso JavaScript aprender a programar</p>    
+    </div>
+    <div id="botones">
+        <input type="button" value="Añadir fila" onclick="anyadir('caja')" />
+        <input type="button" value="Anidar" onclick="anyadir('fuera')" />
+    </div>
+</body>
+</html>
