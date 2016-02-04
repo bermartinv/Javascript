@@ -1,74 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-<style>
-#cuadrado{
-    position:absolute;
-    width:204px;
-    height:204px;
-    border:solid thin red;
-    top:30%;
-    left:30%;
-    }
-div.cuadrante{
-    border:solid thin red;
-    text-align: center;
-    width:100px;
-    height:100px;
-    float:left;
-    line-height: 100px;
-    
-}
-input{
-    float:right;
-    margin-top:2em;
-}
-
-</style>
-</head>
-<body>
-    <div id="cuadrado">
-        <div class="cuadrante">
-            <span>?</span>                                                                                      
-        </div>
-        <div class="cuadrante">
-            <span>?</span>
-        </div>
-        <div class="cuadrante">
-            <span>?</span>
-        </div>        
-        <div class="cuadrante">
-            <span>?</span>
-        </div>
-        <input type="button" onclick="avanzar()" value="Avanzar">
-    </div>
-</body>
-<script>
-var contador=0;
-var cuadrante=document.querySelectorAll(".cuadrante");
-function avanzar(){
- 
-    
-    switch (contador){
-        case 0: cuadrante[contador].style.backgroundColor="black";
-                cuadrante[contador].style.color="white";
-                cuadrante[contador].innerHTML="El";
-            break;
-        case 1:
-                cuadrante[contador].innerHTML="poder ";
-            break;
-        case 2:
-                cuadrante[contador].innerHTML="de";
-            break;
-        case 3: cuadrante[contador].style.backgroundColor="yellow";
-                cuadrante[contador].innerHTML="JavaScript";
-            break;
-        default: alert ("No es posible hacer mas ");
-    }
-    contador++;
-    
+<title>Curso JavaScript aprenderaprogramar.com</title> <meta charset="utf-8">
+<script type="text/javascript">
+function dimeTipoMotor() {
+    var TipoDeMotor = Number(prompt("Inserte el tipo de motor."));
+    if (TipoDeMotor == "") { alert("Error: No escribiste el tipo de motor."); } else {
+            switch (TipoDeMotor) {
+            case 0: alert ("No hay establecido un valor definido para el tipo de bomba."); break;
+            case 1: alert ("La bomba es una bomba de agua."); break;
+            case 2: alert ("La bomba es una bomba de gasolina."); break;
+            case 3: alert("La bomba es una bomba de hormigón."); break;
+            case 4: alert("La bomba es una bomba de pasta alimenticia."); break;
+            default: alert ("No existe un valor válido para tipo de bomba"); 
+        }
+        }
 }
 </script>
+</head>
+<body>
+<div>
+<p>Aquí un párrafo de texto situado antes de la imagen, dentro de un div contenedor</p>
+<img onclick="dimeTipoMotor()" src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" title="Notepad++, un útil editor de texto">
+<p onclick ="alert('Alerta JavaScript')" style="color: #D2691E;">Aquí otro párrafo de texto. JavaScript es un lenguaje utilizado para dotar de efectos dinámicos a las páginas web.
+</p>
+</div>
+</body>
 </html>
