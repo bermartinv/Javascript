@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    form{
+        border:solid thin yellow;
+        background-color:coral;
+        width: 500px;
+        height:220px;
+    }
+
+    input {
+        display:block;
+        margin-left:30px;
+    }    
+    
+    .enviar{
+         border:solid thin aqua;
+        display:inline;
+        margin: 10px 10px 5px 50px;
+        position: relative;
+        top:50px; 
+    }
+    
+</style>
+<script>
+function validar(){
+    var nombre=document.getElementById("nombre").value;
+    var email=document.getElementById("email").value;
+    validarNombre(nombre);
+    email=minusculasEmail(email);
+    email=atEmail(email);
+    validarEmail(email);  
+}
+    
+function validarNombre(nombre){   
+    if ((nombre.length)<3){
+        alert("El nombre no cumple tener al menos tres letras");
+        }
+}
+    
+function validarEmail(email){
+    var contadorArroba=false;
+    var contadorPunto=false;
+    for (var i=0;i<(email.length);i++){
+         if (email[i]=='@'){
+                contadorarroba=true;
+            }
+        if (email[i]=='.'){
+                contadorpunto=true;   
+            }
+         }
+    if (contadorarroba==false || contadorpunto==false){
+        alert ("Su correo electronico deberia tener un \'@\' y un \'.' ");
+    }
+}
+
+    function minusculasEmail(correo){
+        return correo.toLowerCase();
+    }
+    
+    function atEmail(correo){
+        return correo.replace(/at/g,'@');    
+    }
+    
+
+</script>
+</head>
+<body>
+    <form method="get" onsubmit="validar()" name="formulario">
+        <label>Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Introduzca su nombre" size="30"/>
+        <label>Apellidos</label>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Introduzca sus apellidos" size="60"/>
+        <label>Correo electrónico</label>
+        <input type="text" name="email" id="email" placeholder="Introduzca email" size="60"/>
+        <input class="enviar" type="submit" value="Enviar" />
+        <input class="enviar" type="reset" value="Reset"/>
+    </form>
+    <div id="solucion"></div>
+</body>
+</html>

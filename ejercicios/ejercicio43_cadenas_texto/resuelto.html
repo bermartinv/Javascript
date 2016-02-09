@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Ejemplo curso aprenderaprogramar.com</title><meta charset="utf-8">
+		<style type="text/css">
+			body {background-color:yellow; font-family: sans-serif;}
+			label {color: maroon; display:block; padding:5px;}
+		</style>
+		<script type="text/javascript">
+			function validar(){
+				var nodoNombre = document.getElementById('nombre');
+				var nodoEmail = document.getElementById('email');
+				var msg = comprobarNombre(nodoNombre.value);
+				if(msg!=''){alert(msg);}
+				nodoEmail.value = pasarEmailAMinusculas(nodoEmail.value);
+				nodoEmail.value = comprobrarAtEnEmail(nodoEmail.value);
+				msg = comprobarEmail(nodoEmail.value);
+				if(msg!=''){alert(msg);}				
+			}
+			function comprobrarAtEnEmail(email){
+				return email.replace(/at/g,'@');
+			}
+			function pasarEmailAMinusculas(email){
+				return email.toLowerCase();
+			}
+			function comprobarNombre(nombre){
+				if(nombre.length<3){
+					var msg = 'El nombre no cumple tener al menos tres letras.';
+					return msg;
+				}else{
+					return msg='';
+				}
+			}
+			function comprobarEmail(email){
+				var msg = '';
+				var hayArroba = false;
+				var hayPunto = false;
+				for(var i=0; i<email.length; i++){					
+					if(email[i]=='@'){hayArroba = true;}
+					if(email[i]=='.'){hayPunto = true;}
+				}
+				if(hayArroba==false && hayPunto==false){
+					msg = 'Faltan el símbolo \'@\' y el \'.\'';
+				}else{
+					if(hayArroba==false){msg = 'Falta el símbolo \'@\' en el correo electrónico.';}
+					if(hayPunto==false){msg = 'Falta el símbolo \'.\' en el correo electrónico.';}
+				}
+				return msg;
+			}
+		</script>
+	</head>
+	<body>
+		<form name ="formularioContacto" class="formularioTipo1" method="get" onsubmit="validar()">
+			<label for="nombre"><span>Nombre:</span> <input id="nombre" type="text" name="nombre"></label>
+			<label for="apellidos"><span>Apellidos:</span> <input id="apellidos" type="text" name="apellidos"></label>
+			<label for="email"><span>Correo electrónico:</span> <input id="email" type="text" name="email"></label>
+			<label><input type="submit" value="Enviar" ><input type="reset" value="Cancelar"></label>
+		</form>
+	</body
+</html>
