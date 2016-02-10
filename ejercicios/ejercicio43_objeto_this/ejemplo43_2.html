@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+var usuario = [];
+var i = 0;
+    
+    function cuenta_Bancaria(nombre,apellidos,saldo){
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.saldo = saldo;
+        this.mostrarDatos = function (){
+                var msg = 'Los datos de la cuenta nueva son: <br/>'+this.nombre+' '+this.apellidos+' con un saldo de '+this.saldo+' euros';
+            document.getElementById("datos_Usuarios").innerHTML = msg;
+            
+        }
+    }
+    
+    function nuevoCliente(){
+        var nombre = prompt ("Introduzca el nombre de cliente:");
+        var apellidos = prompt("Introduzca apellidos del cliente\:");
+        var saldo = prompt ("Cuál es el saldo de la cuenta:");
+        usuario[i] = new cuenta_Bancaria(nombre,apellidos,saldo);
+        usuario[i].mostrarDatos();
+        i++;
+    }
+    
+    function mostrarClientes(){
+        if ( i == 0 ){
+            alert ("No se ha creado todavia ningún cliente");   
+        } else {
+            
+            for (var contador = 0 ;contador<usuario.length;contador++){
+                var msg = 'Los datos de la cuenta nueva son: <br/>'+usuario[contador].nombre+' '+usuario[contador].apellidos+' con un saldo de '+usuario[contador].saldo+' euros';
+            var texto=document.createElement("p");
+                texto.innerHTML=msg;
+                document.body.appendChild(texto);
+                
+                
+            }
+        }
+        
+    }
+    
+    
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Crear cliente" onclick="nuevoCliente()">
+    <input type="button" value="Mostrar clientes" onclick="mostrarClientes()">
+    <div id="datos_Usuarios"></div>
+    <br/><br/>
+    <div id="datos_todos_Usuarios"></div>
+    
+</body>
+</html>
