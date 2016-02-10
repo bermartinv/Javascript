@@ -27,11 +27,11 @@
 </style>
 <script>
 function validar(){
-    var nombre=document.getElementById("nombre").value;
-    var email=document.getElementById("email").value;
+    var nombre = document.getElementById("nombre").value;
+    var email = document.getElementById("email").value;
     validarNombre(nombre);
-    email=minusculasEmail(email);
-    email=atEmail(email);
+    email = minusculasEmail(email);
+    email = atEmail(email);
     validarEmail(email);  
 }
     
@@ -46,13 +46,13 @@ function validarEmail(email){
     var contadorPunto=false;
     for (var i=0;i<(email.length);i++){
          if (email[i]=='@'){
-                contadorarroba=true;
+                contadorArroba=true;
             }
         if (email[i]=='.'){
-                contadorpunto=true;   
+                contadorPunto=true;   
             }
          }
-    if (contadorarroba==false || contadorpunto==false){
+    if (contadorArroba==false || contadorPunto==false){
         alert ("Su correo electronico deberia tener un \'@\' y un \'.' ");
     }
 }

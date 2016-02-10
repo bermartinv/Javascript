@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+	function sumar(){
+	   var datos=[];
+        var msg = '';
+        for (var i = 0;i < 5;i++){
+            datos[i]=Number(prompt ('Introduzca los datos:'));
+            
+        }
+        var key;
+        for (key in datos){
+            var msg =msg + 'Sumesmoles 5 a '+ datos[key]+ '+5='+(datos[key]+5)+'\n';    
+        }
+        alert (msg);
+	}
+	</script>
+<body>
+   <input type="button" onclick="sumar()" value="Sumar">
+    
+</body>
+</html>

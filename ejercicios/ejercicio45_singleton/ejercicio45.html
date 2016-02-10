@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+var GestionDeUsuarios = {};
+    
+Object.defineProperty(GestionDeUsuarios,'nombreUsuario',{value:'',writable:true},'idUsuario',{value:0,writable:true});
+    
+GestionDeUsuarios.preguntarNombre = function (){
+    var usuario = prompt("Cuál es el nombre de usuario:");
+    var identificador = prompt ("Introduzca identificador de usuario");
+    GestionDeUsuarios.nombreUsuario = usuario;
+    GestionDeUsuarios.idUsuario = identificador;
+}
+
+GestionDeUsuarios.despedir = function () {
+    alert ("Hasta luego "+GestionDeUsuarios.nombreUsuario);
+}
+
+function despedir(){
+						alert('(Desde función despedir()) ... Hasta luego ' + gestionDeUsuarios.usuario);
+					}    
+function Objetos(){
+    GestionDeUsuarios.preguntarNombre();
+    GestionDeUsuarios.despedir();
+    alert ('Tenemos un objeto gestionDeUsuarios con propiedades nombre:'+GestionDeUsuarios.nombreUsuario + 'e id: '+GestionDeUsuarios.idUsuario);
+    despedir();
+   
+}
+
+    
+</script>
+</head>
+<body>
+<input type="button" value="Usuario" onclick="Objetos()"/>    
+</body>
+</html>
+ 

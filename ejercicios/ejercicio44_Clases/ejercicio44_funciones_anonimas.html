@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>   
+    function crearMedico(nombre,curados,especialidad){
+     this.nombre = nombre;
+     this.curados = curados;
+     this.especialidad = especialidad;
+     this.curarPersona=function (){
+            curados--;  
+     }
+     this.mostrarDatos=function(){
+         var msg = "El nombre del medico "+this.nombre+" lleva "+this.curados+" curados y su especialidad es "+this.especialidad;
+         alert (msg);
+     }
+    }
+    
+function crearObjeto(){
+    var medico1 = new crearMedico("Pep",3,"urologo");
+    var medico2=new crearMedico("Paco",5,"traumatólogo");
+    medico1.mostrarDatos();
+    medico2.mostrarDatos();
+    }
+     
+     
+     
+</script>
+<body>
+    <input type="button" value="Añadir medico" onclick="crearObjeto()"/>
+</body>
+</html>

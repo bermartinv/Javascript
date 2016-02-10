@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+<style>
+    .estilo{
+        font-size:19px;
+        color:bisque;
+        padding-left:12px;
+    }
+</style>
 <script>
 var usuario = [];
 var i = 0;
@@ -36,6 +43,7 @@ var i = 0;
                 var msg = 'Los datos de la cuenta nueva son: <br/>'+usuario[contador].nombre+' '+usuario[contador].apellidos+' con un saldo de '+usuario[contador].saldo+' euros';
             var texto=document.createElement("p");
                 texto.innerHTML=msg;
+                texto.className='estilo';
                 document.body.appendChild(texto);
                 
                 
