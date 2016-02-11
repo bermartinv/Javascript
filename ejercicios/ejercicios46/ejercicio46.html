@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+var plus = function(x,y){ return x + y };
+
+var minus = function(x,y){ return x - y };
+
+var operaciones = {
+
+  '+': plus,
+
+  '-': minus
+
+};
+
+var calcular = function(x, y, operacion){ return operaciones[operacion](x, y); }
+
+function ejemploObjetos() {
+
+alert ('Resultado de calcular(3, 15, \'+\') es '+ calcular(3,15, '+'));
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+
+</body>
+</html>

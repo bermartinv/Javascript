@@ -1,38 +1,53 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
-		<style>
-			#pulsador {padding:15px; width: auto; display: inline-block; margin: 25px; cursor: pointer; color: yellow; border-radius: 40px; background: purple;}
-		</style>
-		<script type="text/javascript">
-					var gestionDeUsuarios = {};
-					Object.defineProperty(gestionDeUsuarios,'usuario',{value:'',writable:true},'idUsuario',{value:0,writable:true});
-					gestionDeUsuarios.preguntarNombre = function(){
-										var usuario = prompt('Introduzca el nombre del usuario: ');
-										var idUsuario = prompt('Introduzca el id del usuario: ');
-										gestionDeUsuarios.usuario=usuario;
-										gestionDeUsuarios.idUsuario=idUsuario;
-								}
-					gestionDeUsuarios.despedir = function(){
-										alert('(Desde método despedir) Hasta luego ' + gestionDeUsuarios.usuario);
-								}		
-					
-					function despedir(){
-						alert('(Desde función despedir()) ... Hasta luego ' + gestionDeUsuarios.usuario);
-					}
-					
-					function testObjetos() {
-					gestionDeUsuarios.preguntarNombre();
-					gestionDeUsuarios.despedir();
-					alert ('Tenemos un objeto gestionDeUsuarios con propiedades nombre: '+gestionDeUsuarios.usuario + 'e id: '+gestionDeUsuarios.idUsuario);
-					despedir();
-					}
-					
-		</script>
-	</head>
-	<body>
-		<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2></div>
-		<div id ="pulsador" onclick="testObjetos()"> Probar </div>
-	</body>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="description" content="Curso JavaScript"/>
+	<meta name="keywords" content="programar,cursos,JavaScript,aprenderaprogramar.com"/>
+<style>
+   body{
+	font-family: sans-serif;
+	text-align: center;
+	background-color: grey;
+	font-size: 2em;
+}
+label{
+	display: block;
+	margin: 5px;
+} 
+</style>	
+	
+
+<script>
+function validar(){
+	var datos=document.getElementsByTagName('input');
+	if(datos[0].value.length<3){
+		alert('El nombre no cumple tener al menos tres letras');
+	}
+	if((datos[2].value.indexOf('@')==-1)&&(datos[2].value.indexOf('.')==-1)){
+		alert('Falta el símbolo @ y . en el correo electrónico');
+	}else if(datos[2].value.indexOf('@')==-1){
+		alert('Falta el símbolo @ en el correo electrónico');
+	}else if(datos[2].value.indexOf('.')==-1){
+		alert('Falta el símbolo . en el correo electrónico');
+	}
+	datos[2].value=datos[2].value.toLowerCase();
+	datos[2].value=datos[2].value.replace(/at/g,'@');
+	datos[2].value=datos[2].value.replace(/ /g,'');
+	alert(datos[2].value); //comprobar si los valores del campo "correo electrónico" se envían bien.
+}
+    </script>
+    </head>
+<body>
+	<div id="contenedor">
+		<form name="formulario1" method="get" onsubmit="validar()">
+			<h2>Formulario ejemplo cadenas Texto</h2>
+			<label for="nombre"><span>Nombre:</span><input type="text" id="nombre" name="nombre"></input></label>
+			<label for="apellidos"><span></span>Apellidos:<input type="text" id="apellidos" name="apellidos"></input></label>
+			<label for="email"><span>Correo Electrónico:</span><input type="text" id="email" name="email"></input></label>
+			<label><input type="submit" value="Enviar"></input><input type="reset" value="Cancelar"></input></label>
+		</form>
+	</div>
+	
+</body>
 </html>

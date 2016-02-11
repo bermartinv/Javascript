@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+
+function meteorito(diametro,temperaturaC,nombre){
+    
+    this.diametro = diametro;
+    
+    this.temperaturaC = temperaturaC;
+    
+    this.nombre = nombre;
+    
+}
+    
+meteorito.definicion = "Un meteorito es muy bonito";
+    
+meteorito.obtenerRadio = function (diametro){ 
+    
+                        return  diametro /2;
+    
+                            }
+
+meteorito.obtenerTemperaturaF = function(temperaturaC){
+        
+                            return temperaturaC * (9/5) + 32;
+                            
+                                }
+    
+function crearObjetos(){
+    var meteorito1 = new meteorito(200,25,"Amparo");
+      
+    alert ('El cometa '+meteorito1.nombre+' tiene un diametro de '+meteorito1.diametro+' y un radio '+meteorito.obtenerRadio(meteorito1.diametro)+'. La temperatura a la que orbita es de '+meteorito1.temperaturaC+' grados centigrados y de '+meteorito.obtenerTemperaturaF(meteorito1.temperaturaC)+' grados Farenheit. Y si no lo sabe un meteorito es '+meteorito.definicion);
+    
+}
+   
+			
+	
+			
+			     
+</script>
+
+
+
+<body>
+    <input type="button" value="cometa" onclick="crearObjetos()" />
+</body>
+</html>

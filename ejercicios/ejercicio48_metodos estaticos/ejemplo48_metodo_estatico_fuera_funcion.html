@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+function TaxiRenault (tipoMotor, numeroPasajeros, carga, velocidad) {
+
+this.tipoMotor = tipoMotor; this.numeroPasajeros = numeroPasajeros;
+
+this.carga = carga; this.velocidad = velocidad;
+
+}
+
+ 
+
+TaxiRenault.fabricante = 'Renault, S.A.'; //Propiedad estática
+
+TaxiRenault.mostrarMensaje = function () {alert('Soy un taxi Renault');} //Método estático
+
+ 
+
+function ejemploObjetos() {
+
+var taxi1 = new TaxiRenault(1, 4, 300, 90);
+
+alert ('La velocidad del taxi 1 es ' + taxi1.velocidad);
+
+TaxiRenault.mostrarMensaje(); //Invocamos el nombre del tipo de objeto
+
+alert ('La propiedad estática fabricante vale ' + TaxiRenault.fabricante);
+
+alert ('Si intentamos obtener la propiedad fabricante para una instancia obtenemos: ' + taxi1.fabricante); //undefined
+
+taxi1.mostrarMensaje(); //ERROR las instancias no tienen acceso a los métodos estáticos
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+
+</body>
+</html>

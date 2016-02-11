@@ -14,16 +14,16 @@
     input {
         display:block;
         margin-left:30px;
-    }    
-    
+    }   
+   
     .enviar{
          border:solid thin aqua;
         display:inline;
         margin: 10px 10px 5px 50px;
         position: relative;
-        top:50px; 
+        top:50px;
     }
-    
+   
 </style>
 <script>
 function validar(){
@@ -32,15 +32,16 @@ function validar(){
     validarNombre(nombre);
     email = minusculasEmail(email);
     email = atEmail(email);
-    validarEmail(email);  
+    validarEmail(email); 
+    document.getElementById("email").value = email;
 }
-    
+   
 function validarNombre(nombre){   
     if ((nombre.length)<3){
         alert("El nombre no cumple tener al menos tres letras");
         }
 }
-    
+   
 function validarEmail(email){
     var contadorArroba=false;
     var contadorPunto=false;
@@ -60,11 +61,11 @@ function validarEmail(email){
     function minusculasEmail(correo){
         return correo.toLowerCase();
     }
-    
+   
     function atEmail(correo){
-        return correo.replace(/at/g,'@');    
+        return correo.replace(/at/g,'@');   
     }
-    
+   
 
 </script>
 </head>
@@ -81,4 +82,3 @@ function validarEmail(email){
     </form>
     <div id="solucion"></div>
 </body>
-</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+
+function cometa(diametro,temperaturaC,nombre){
+    
+    this.diametro = diametro;
+    
+    this.temperaturaC = temperaturaC;
+    
+    this.nombre = nombre;
+    
+}
+    
+cometa.prototype={
+    
+    definicion : "Un cometa es muy bonito",
+    
+    obtenerRadio : function (){ 
+    
+                        return  this.diametro / 2;
+    
+                            },
+
+    obtenerTemperaturaF : function(){
+    
+                            var fahrenheit = this.temperaturaC * (9/5) + 32;
+        
+                            return fahrenheit;
+                            
+                            }
+}
+    
+function crearObjetos(){
+    cometa1 = new cometa(200,25,"Amparo");
+    cometa2 = new cometa(10,2150,"pepe");
+    cometa3 = new cometa(123,12344,"Saturnino");
+     
+        alert ('El cometa '+cometa2.nombre+' tiene un diametro de'+cometa2.diametro+' y un radio '+cometa2.obtenerRadio()+'. La temperatura a la que orbita es de '+cometa2.temperaturaC+' y de '+cometa2.obtenerTemperaturaF()+'. Y si no lo sabe un cometa es '+cometa2.definicion);
+        
+               alert ('El cometa '+cometa1.nombre+' tiene un diametro de'+cometa1.diametro+' y un radio '+cometa1.obtenerRadio()+'. La temperatura a la que orbita es de '+cometa1.temperaturaC+' y de '+cometa1.obtenerTemperaturaF()+'. Y si no lo sabe un cometa es '+cometa1.definicion);
+                      
+                      alert ('El cometa '+cometa3.nombre+' tiene un diametro de'+cometa3.diametro+' y un radio '+cometa3.obtenerRadio()+'. La temperatura a la que orbita es de '+cometa3.temperaturaC+' y de '+cometa3.obtenerTemperaturaF()+'. Y si no lo sabe un cometa es '+cometa3.definicion);
+    
+}
+        
+</script>
+
+
+
+<body>
+    <input type="button" value="cometa" onclick="crearObjetos()" />
+</body>
+</html>

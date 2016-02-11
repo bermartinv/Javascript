@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+    function vegetal(){
+        this.nombre = '';    
+    }
+    vegetal.prototype.movilidad = '<<Ser vivo sin movilidad>>';
+    
+    function plantaCultivada(){
+        this.nombreCientifico = 'desconocido';
+    }
+    plantaCultivada.prototype = new vegetal;        
+    
+    function hortaliza(){
+        this.tipoHortaliza = 'indefinido';    
+    }
+    
+    hortaliza.prototype.componentePrincipal = '<<Agua>>';
+    hortaliza.prototype = new plantaCultivada;
+    
+    function Zanahoria(){
+        this.podCalorias = 45;    
+    }
+    Zanahoria.prototype = new hortaliza;
+    
+    function Lechuga(){
+        this.podCalorias = 31;    
+    }
+    Lechuga.prototype = new hortaliza;
+    
+    function Tomate(){
+        this.podCalorias = 39;    
+    }
+    Tomate.prototype = new hortaliza;
+    
+    
+    
+    function plantas(){
+        tomate1 = new Tomate;
+        tomate1.nombre  = 'tomatito';
+        tomate1.nombreCientifico = 'tomate rojito';
+        tomate1.tipoHortaliza = 'tomatus';
+        msg = 'El nombre del tomate1 es '+tomate1.nombre;
+        msg = msg + ' que corresponde a ' +tomate1.movilidad;
+        msg = msg + ' con nombre cientifico '+tomate1.nombreCientifico;
+        msg = msg + ' y es del tipo de hortaliza '+tomate1.tipoHortaliza;
+        msg = msg + 'cuyo componente principal es el '+tomate1.componentePrincipal;
+        alert (msg);
+    }
+</script>
+<body>
+    <input type="button" value="Plantas" onclick="plantas()" />
+</body>
+</html>

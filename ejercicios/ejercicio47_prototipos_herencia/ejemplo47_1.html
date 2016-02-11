@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function TaxiRenault (tipoMotor, numeroPasajeros, carga, velocidad) {
+
+this.fabricante = 'Renault, S.A.'; this.direccionFabricante = 'c/R, Paris';
+
+this.tipoMotor = tipoMotor; this.numeroPasajeros = numeroPasajeros;
+
+this.carga = carga;      this.velocidad = velocidad;
+
+this.getCapacidad = function () { if (tipoMotor == 'Diesel') { return 40;} else {return 35;} }
+
+this.variarCarga = function (variacion) { this.carga = this.carga + variacion; }
+
+this.variarVelocidad = function (variacion) { this.velocidad = this.velocidad + variacion; }
+
+}
+
+function ejemploObjetos() {
+
+var taxi1 = new TaxiRenault(1, 4, 300, 90); var taxi2 = new TaxiRenault(2, 6, 350, 80);
+
+var taxi3 = new TaxiRenault(1, 5, 340, 110);
+
+alert ('La velocidad del taxi 2 es ' + taxi2.velocidad);
+
+taxi2.variarVelocidad(-10);
+
+alert ('El taxi 2 ha reducido su velocidad y ahora es ' + taxi2.velocidad);
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+</body></html>
