@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <script>   
-    function crearMedico(nombre,curados,especialidad){
+    function Medico(nombre,curados,especialidad){
      this.nombre = nombre;
      this.curados = curados;
      this.especialidad = especialidad;
@@ -14,7 +14,7 @@
     }
     
 function disminuir(){
-            this.curados--;  
+            this.curados++;  
      }
 function muestrear(){
          var msg = "El nombre del medico "+this.nombre+" lleva "+this.curados+" curados y su especialidad es "+this.especialidad;
@@ -23,8 +23,12 @@ function muestrear(){
     
     
 function crearObjeto(){
-    var medico1 = new crearMedico("Pep",3,"urologo");
-    var medico2=new crearMedico("Paco",5,"traumatólogo");
+    var medico1 = new Medico("Pep",3,"urologo");
+    var medico2=new Medico("Paco",5,"traumatólogo");
+    medico1.curarPersona();
+    medico1.curarPersona();
+    medico1.curarPersona();
+    medico2.curarPersona();
     medico1.mostrarDatos();
     medico2.mostrarDatos();
     }
