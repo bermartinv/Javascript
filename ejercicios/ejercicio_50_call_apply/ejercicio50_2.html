@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    
+function persona(nombre){
+    this.nombre = nombre || 'desconocido';
+    this.saludar = function(mastexto){
+        alert ('Te saluda ' +this.nombre+ ' que trabaja en '+this.institucionAcademica+mastexto);
+    }
+}
+persona.prototype.definicion = 'Una persona es un ser vivo que tiene conocimiento';
+    
+function profesor(institucionAcademica,nombre){
+    persona.call(this,nombre);
+    this.institucionAcademica = institucionAcademica || 'desconocida';
+}
+    
+function profesorInterino(mesesContrato,institucionAcademica,nombre){
+    profesor.call(this,institucionAcademica,nombre);
+    this.meseContrato = mesesContrato || 0;
+}
+
+function profesorTitular(anyosTrabajados,institucionAcademica,nombre){
+    profesor.call(this,institucionAcademica,nombre);
+    this.anyosTrabajados = anyosTrabajados || 0;
+}
+
+profesor.prototype = new persona();
+profesorInterino.prototype = new profesor();
+profesorTitular.prototype = new profesor();
+
+
+function crearObjeto(){
+    profesorTitular1 = new profesorTitular(8,'Universidad de Leon','Juan');
+    alert(profesorTitular1.definicion);
+    profesorTitular1.saludar(' y lleva '+profesorTitular1.anyosTrabajados+' anyos trabajados');
+}
+
+    </script>
+</head>
+<body>
+   <button onclick="crearObjeto()">Profesor Titular</button> 
+    
+</body>
+</html>

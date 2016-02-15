@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+<script>
+// Objeto super clase
+    
+    function vehiculo(tipomotor,ruedas,traccion){
+    this.tipomotor = tipomotor || 'gasolina';
+    this.ruedas = ruedas || 4;
+    this.traccion = traccion || '4*4';
+}
+
+vehiculo.prototype.caracteristicasMotor = function (){
+    alert ('Este vehiculo es el motor de '+this.tipomotor+' tiene '+this.ruedas+' ruedas, y su tracción es '+this.traccion);   
+}
+    
+// Objeto que hereda del superclase
+function coche(){
+        this.estilo = 'bonito';
+    }
+coche.prototype.definicion = "Es un vehiculo que nos transporta";
+
+coche.prototype = new vehiculo();
+    
+//objeto que heredad de coche y mas por encima de vehiculo
+function crearObjeto(){
+    var turismo = new coche();
+    turismo.traccion = '2*2';
+    turismo.caracteristicasMotor();
+    todo_terreno=Object.create(turismo);
+    todo_terreno=Object.create(coche.prototype);
+    alert (todo_terreno.definicion);
+    todo_terreno.tipomotor='diesel';
+    todo_terreno.caracteristicasMotor();
+}
+    
+</script>
+    </head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="crearObjeto()"> Probar </div>
+
+</body>
+</html>

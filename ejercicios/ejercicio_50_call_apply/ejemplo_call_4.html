@@ -1,0 +1,47 @@
+  <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+function Profesor (institucion) { this.institucion = institucion || 'Desconocida';
+
+this.salarioBase = 1200; }
+
+Profesor.prototype.saludar = function() {alert('Hola trabajo en '+ this.institucion + ' y mi salario base es '+this.salarioBase);}
+
+ 
+
+function ProfesorInterino(mesesContrato, institucion) { Profesor.call(this, institucion);
+
+this.mesesContrato = mesesContrato || -1;};
+ /* Para que los objetos de tipo ProfesorInterino dispongan de todo lo que dispone Profesor nos falta hacer que el prototipo de todo objeto ProfesorInterino sea un objeto Profesor. De este modo, cuando se busque el método saludar se buscará en primer lugar como método intrínseco de ProfesorInterino, al no encontrarse se buscará en el prototipo, que al ser un objeto Profesor sí podrá responder cuando se invoque el método saludar.*/
+   // ProfesorInterino.prototype =  new Profesor();
+    
+
+ 
+
+function ejemploObjetos() {
+
+var unProfesor = new Profesor(); unProfesor.saludar();
+
+var unProfesorInterino = new ProfesorInterino(4, 'Universidad de Chapingo');
+
+var msg = 'El objeto unProfesorInterino tiene ' + unProfesorInterino.mesesContrato + ' meses de contrato';
+
+msg = msg + ' y pertenece a la institución '+unProfesorInterino.institucion;
+
+alert(msg);
+
+unProfesorInterino.saludar();
+
+}
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+</body></html>

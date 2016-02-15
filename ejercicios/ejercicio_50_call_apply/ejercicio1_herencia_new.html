@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+function Persona(nombre,nacionalidad){
+    this.nombre = nombre || 'Desconocido';
+    this.nacionalidad = nacionalidad || 'Desconocido';
+}
+
+Persona.prototype.mostrarNacionalidad=function (){
+    var msg =   ('La nacionalidad de '+this.nombre+' es '+this.nacionalidad);
+    return msg;
+}
+
+function Medico(centro_Trabajo){
+    this.centro_Trabajo = centro_Trabajo || 'desconocido';
+}
+Medico.prototype=new Persona();
+
+function Medico_especialista(especialidad){
+    this.especialidad=especialidad;
+}
+Medico_especialista.prototype=new Medico();
+    
+
+function objetos(){
+doctor1 = new Medico_especialista('traumatologo');
+doctor1.nombre = 'Paco';
+alert (doctor1.mostrarNacionalidad()+' y es especialista en '+doctor1.especialidad);   
+}
+</script>    
+</head>
+<body>
+    <input type="button" value="Objeto" onclick="objetos()"/>
+</body>
+</html>

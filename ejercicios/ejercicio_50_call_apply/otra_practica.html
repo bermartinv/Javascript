@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function edificio(altura){
+    this.altura = altura || 20;
+}
+edificio.prototype={
+    definicion_ed : 'El edificio es le lugar donde te puedes resguardar del tiempo',
+    mostrar_def : function (){
+        alert('La altura del edificio es de '+this.altura);    
+    }
+    
+}
+
+
+function casa(habitaciones,baños){
+    this.habitaciones = habitaciones;
+    this.baños = baños;
+}
+casa.definicion = 'La casa es el lugar donde se reside';
+casa.prototype = new edificio();
+casa.prototype.mostrar_datos = function (){
+    alert ('Esta casa tiene '+this.habitaciones+' habitaciones y tiene tambien '+this.baños+' baños.');
+}
+
+function ejemploObjetos(){
+    apartamento = new casa();
+    alert (apartamento.definicion_ed);
+    apartamento2 = new casa(3,2);
+    apartamento2.mostrar_datos();
+    apartamento2.altura = 35;
+    alert(casa.definicion);
+    alert(apartamento2.definicion_ed);
+    apartamento2.mostrar_def();
+}
+    
+    
+    
+    
+</script>
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+</body></html>

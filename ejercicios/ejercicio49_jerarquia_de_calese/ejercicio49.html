@@ -13,29 +13,29 @@
     function plantaCultivada(){
         this.nombreCientifico = 'desconocido';
     }
-    plantaCultivada.prototype = new vegetal;        
+    plantaCultivada.prototype = new vegetal();        
     
     function hortaliza(){
         this.tipoHortaliza = 'indefinido';    
     }
     
     hortaliza.prototype.componentePrincipal = '<<Agua>>';
-    hortaliza.prototype = new plantaCultivada;
+    hortaliza.prototype = new plantaCultivada();
     
     function Zanahoria(){
         this.podCalorias = 45;    
     }
-    Zanahoria.prototype = new hortaliza;
+    Zanahoria.prototype = new hortaliza();
     
     function Lechuga(){
         this.podCalorias = 31;    
     }
-    Lechuga.prototype = new hortaliza;
+    Lechuga.prototype = new hortaliza();
     
     function Tomate(){
         this.podCalorias = 39;    
     }
-    Tomate.prototype = new hortaliza;
+    Tomate.prototype = new hortaliza();
     
     
     

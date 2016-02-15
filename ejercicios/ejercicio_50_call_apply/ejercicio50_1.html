@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+function Persona(nombre,nacionalidad){
+    this.nombre = nombre || 'desconocido';
+    this.nacionalidad = nacionalidad || 'desconocido';
+}    
+Persona.prototype.mostrarNacionalidad = function (){
+    alert ('La nacionalidad de '+this.nombre+' es '+this.nacionalidad);
+}
+
+function Medico(nombre,nacionalidad,centro){
+    Persona.call(this,nombre,nacionalidad);      
+     this.centro = centro || 'desconocido';      
+}
+
+function Medicoespecialista(especialidad,centro,nombre,nacionalidad){
+    Medico.call(this,nombre,nacionalidad,centro);      
+     this.especialidad = especialidad || 'desconocida';
+}
+Medico.prototype = new Persona();
+Medicoespecialista.prototype=new Medico();
+
+    
+function crearObjeto(){
+    var especialista1 = new Medicoespecialista('traumatologo','Valencia','Paco','Español');
+    
+    especialista1.mostrarNacionalidad();
+    var msg = 'La informacion del medico especialista es:\n';
+    msg = msg + 'Su nombre es '+especialista1.nombre+' con nacionalidad '+especialista1.nacionalidad;
+    msg = msg + ', su centro de trabajo es en '+especialista1.centro;
+    msg = msg +'y su especialidad es la de '+especialista1.especialidad;
+    alert(msg);
+}
+
+    </script>
+</head>
+<body>
+   <button onclick="crearObjeto()">Medico</button>
+    
+</body>
+</html>
