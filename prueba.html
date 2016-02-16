@@ -1,41 +1,36 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
-		<script type="text/javascript">
-			Persona.prototype.definicion = 'Individuo de la especie humana.';
-			function Persona(nombre){
-				this.nombre = nombre || 'desconocido';
-			}
-			Persona.prototype.saludar = function(tipoProfesor){
-				alert('Hola, me llamo ' + this.nombre + ' y trabajo en ' + this.institucionAcademica + tipoProfesor);
-			}
-			Profesor.prototype = new Persona();
-			function Profesor(nombre, institucionAcademica){
-				this.institucionAcademica = institucionAcademica || 'desconocida';
-				Persona.call(this, nombre);
-			}
-			ProfesorInterino.prototype = new Profesor();
-			ProfesorTitular.prototype = new Profesor();
-			function ProfesorInterino(mesesContrato, nombre, institucionAcademica){
-				this.mesesContrato = mesesContrato || 0;
-				Profesor.call(this, nombre, institucionAcademica);
-			}
-			function ProfesorTitular(annosTrabajados, nombre, institucionAcademica){
-				this.annosTrabajados = annosTrabajados || 0;
-				Profesor.call(this, nombre, institucionAcademica);
-			}
-			function ejemploObjetos(){
-				var profesorTitular1 = new ProfesorTitular(8, 'Juan', 'Universidad de León');
-				profesorTitular1.saludar(' desde hace ' + profesorTitular1.annosTrabajados + ' años.');
-				var profesorInterino1 = new ProfesorInterino(12, 'Luis', 'Universidad Autónoma de Madrid');
-				profesorInterino1.saludar(' durante ' + profesorInterino1.mesesContrato + ' meses.');
-				
-			}
-		</script>
-	</head>
-	<body>
-	<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
-	<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
-	</body>
+<head>
+	<meta charset="utf-8"/>
+	<title>Ejemplo aprenderarpogramar.com</title>
+	<script type="text/javascript">
+
+		function meteorito(diametro,temperatura,nombre){
+			this.diametro=diametro;
+			this.temperatura=temperatura;
+			this.nombre=nombre;
+		}	
+
+		meteorito.definicionSegunDiccionario='Es un meteoroide que alcanza la superficie de un planeta debido a que no se desintegra por completo en la atmósfera. La luminosidad dejada al desintegrarse se denomina meteoro.';
+		meteorito.obtenerRadio=function(diametro){return diametro / 2;};
+		meteorito.obtenerTemperaturaFarenheit=function(temperatura){return temperatura+32;};
+
+
+		function ejemploObjetos(){
+			var meteo=new meteorito(400,690,'Giovanni');
+			var msg='La definición de un meteorito es: '+meteorito.definicionSegunDiccionario;
+			msg=msg+'\nEl radio del meteorito: '+meteo.nombre+'es de: '+meteorito.obtenerRadio(meteo.diametro)+'m.';
+			msg=msg+'\nY su temperatura en Farenheit es de: '+meteorito.obtenerTemperaturaFarenheit(meteo.temperatura)+'F.';
+		alert(msg);
+		}
+
+	</script>
+</head>
+<body>
+	<div id="cabecera" style="text-align: center;">
+		<h2>Cursos Aprenderaprogramar.com</h2>
+		<h3>Ejemplo JavaScript</h3>
+	</div>
+	<input style="margin-left: 45%;" type="button" value="Info Meteorito" onclick="ejemploObjetos()"/>
+</body>
 </html>

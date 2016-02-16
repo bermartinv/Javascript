@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+   function compareIgnoreCase(a,b) {
+        return (normalize(a) > normalize(b));
+    }
+    function normalize(a) {
+        return a.toLowerCase()
+                 .replace(/[Áá]/gi,"a").replace(/[Éé]/gi,"e").replace(/[Íí]/gi,"i")
+                 .replace(/[Óó]/gi,"o").replace(/[Úú]/gi,"u").replace(/[Ññ]/gi,"nzz");
+    }
+    
+    
+    function ordenarVector(){
+        var miArray = ['Moto', 'soto', 'Abaco', 'abeja', 'Sapo','nieve','Zumba','barco'];
+        var ordMiArray = miArray.sort(compareIgnoreCase);
+        var mostrar = document.createElement('p');
+        document.body.appendChild(mostrar);
+        mostrar.innerHTML =  ordMiArray.valueOf();
+        
+       
+        
+    }
+</script>
+
+</head>
+<body>
+    
+</body>
+<button onclick="ordenarVector()">Ordenar</button>
+</html>
+
+
+    
+   
