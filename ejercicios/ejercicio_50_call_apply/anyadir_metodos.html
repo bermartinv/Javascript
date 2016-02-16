@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+Function.prototype.method = function(name,func){
+    this.prototype[name] = func;
+    return this;
+}
+    Number.method('integer',function(){
+    return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
+    document.writeln((-10/3).integer());
+
+String.method('trim',function(){
+    return this.replace(/^\s+|\s+$/g, '');
+})
+    
+document.writeln('"'+"   neat   ".trim()+'"');
+    
+    
+</script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

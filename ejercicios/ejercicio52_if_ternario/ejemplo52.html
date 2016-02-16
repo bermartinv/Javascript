@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function ejemplo() {
+
+var A=5; var B=3; C=-7; D=5;
+
+var msg = '';
+
+A==5 ? msg=msg+'A es 5\n': msg=msg+'A no es 5\n';
+
+A<B ? msg=msg+'A es menor que B\n': msg=msg+'B es mayor o igual que A\n';
+
+B<C ? msg=msg+'B es menor que C\n': msg=msg+'C es mayor o igual que B\n';
+
+A<B && B>C ? msg=msg+'Se cumple A<B y B>C\n': msg=msg+'No se cumple A<B y B>C\n';
+
+A<B && B>C || B==3 ? msg=msg+'Se cumple la condición\n': msg=msg+'No se cumple la condición\n';
+
+A==5 ? A=20: msg=msg+'A no es 5\n';
+
+msg = msg + 'Si A valía 5 ahora A vale 20, si no sigue valiendo lo que valía\n';
+
+msg = msg + 'Ahora A vale '+A+'\n';
+
+A==5 ? k(): t();
+
+B = B==3 ? B*10: B*100;
+
+msg = msg + 'Después de ejecutar B = B==3 ? B*10: B*100; resulta que B vale ' + B + '\n';
+
+for (var i = A==5 ? k(): t(); i<8; i++) { msg = msg + 'Bucle: '+i+' \n'; }
+
+alert(msg);
+
+}
+
+function k() {alert('Ha Sido llamada la función k'); return 3;}
+
+function t() {alert('Ha Sido llamada la función t'); return 5;}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemplo()"> Probar </div>
+
+</body>
+</html>

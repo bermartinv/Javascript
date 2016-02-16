@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+function ordenar(){
+    var miVector = [33, 2, 36, 55, 4, 1];
+    var deMenorAMayor = [33, 2, 36, 55, 4, 1];
+    
+    var deMayorAMenor = miVector.sort(function (elem1,elem2){return elem2-elem1;});
+    
+    var deMenorAMayor = deMenorAMayor.sort(function (elem1,elem2){return elem1-elem2;});
+    
+    var texto1 = document.createElement('p');
+    
+    document.body.appendChild(texto1);
+    
+    texto1.innerHTML= miVector.valueOf();
+    
+    var texto2 = document.createElement('p');
+    
+    document.body.appendChild(texto2);
+    
+    texto2.innerHTML = 'El resultado de ordenar de mayor a menor es : '+deMayorAMenor.valueOf();
+    
+    var texto3 = document.createElement('p');
+    
+    document.body.appendChild(texto3);
+    
+    texto3.innerHTML= 'El resultado de ordenar de menor a mayor es: '+deMenorAMayor.valueOf();
+    
+}
+</script>
+
+</head>
+<body>
+    <button onclick="ordenar()">Ordenar</button>
+</body>
+</html>
