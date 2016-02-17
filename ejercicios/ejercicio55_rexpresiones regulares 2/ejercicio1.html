@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    form{
+        border:solid thin yellow;
+        background-color:coral;
+        width: 500px;
+        height:220px;
+    }
+
+    input {
+        display:block;
+        margin-left:30px;
+    }   
+   
+    .enviar{
+         border:solid thin aqua;
+        display:inline;
+        margin: 10px 10px 5px 50px;
+        position: relative;
+        top:50px;
+    }
+    
+</style>
+<script>
+var contador=0;
+function validacionConExpReg(){
+        validarNombre();
+        validarApellido();
+        validarEmail();
+        validarOk();
+}
+   
+function validarNombre(){
+        var nombre=document.getElementById("nombre").value;
+        var expresionRegular=/^\w{3,}$/;
+        if (!(expresionRegular.test(nombre))){
+            alert ("Ha introducido los datos de nombre mal. Deberá indicar un nombre superior a tres letras");
+        }
+        else {
+            contador++;
+        }
+}
+   
+function validarApellido(){
+        var apellido=document.getElementById("apellido").value;
+        var expresionRegular=/^\w{3,}$/;
+        if (!(expresionRegular.test(apellido))){
+            alert ("Ha introducido los datos de apellido mal. Deberá indicar un apellido superior a tres letras");
+        }
+        else {
+            contador++;
+        }
+}
+   
+function validarEmail(){
+        var email=document.getElementById("email").value;
+    email=convertirMinusculas(email);
+    email=comprobarAtEmail(email);
+	if( !(/^([\w-\.]{3,}\@.+\..+)$/.test(email)) ) {
+  alert ("Le recordamos condiciones que debe cumplir su correo electronico:\n\t 1.Su nombre ha de tener almenos 3 caracteres(alfanumericos o el subrayado)\n\t 2.Debe contener la '@' ");
+	}
+	else {
+		contador++;
+       
+	}   
+}
+   
+function validarOk(){
+    if (contador==3){
+            alert ("Introdujo todos los valores correctamente y su formulario será enviado");
+    }
+}
+   
+function convertirMinusculas(email){
+    return email.toLowerCase();   
+    }
+   
+function comprobarAtEmail(email){
+    var expresion=/\sat\s/g;
+    return email.replace(expresion,'@');
+}
+   
+</script>
+
+</head>
+<body>
+    <form method="get" onsubmit="validacionConExpReg()" name="formulario">
+        <label>Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Introduzca su nombre" size="30"/>
+        <label>Apellidos</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Introduzca sus apellidos" size="60"/>
+        <label>Correo electrónico</label>
+        <input type="text" name="email" id="email" placeholder="Introduzca email" size="60"/>
+        <input class="enviar" type="submit" value="Enviar" />
+        <input class="enviar" type="reset" value="Reset"/>
+    </form>
+</body>
+</html>

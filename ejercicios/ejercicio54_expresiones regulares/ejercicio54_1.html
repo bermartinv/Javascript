@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+function comprobar(){
+var expresionRegular = /^[A-C]\w+\ses\s\w+/;
+var vector = ['Juan es guapo','Adriano no es feo','Adriano deja de ser guapo','Adriano ya es guapo','No es ahora','Ahora es no','Adriano es guapo']
+    for (var i=0;i<vector.length;i++){
+        var coincidencias =vector[i].match(expresionRegular);
+        coincidencias == null ?'No tiene':coincidencias.valueOf();
+        var sino = expresionRegular.test(vector[i])? 'si ':' no ';
+        msg = "El texto \'"+vector[i]+"\' "+sino+ ' cumple la expresion regular\n y la coincidencia a la expresion regular es :'+coincidencias;
+        alert (msg);
+    }
+}    
+    
+    
+    </script>
+
+</head>
+<body>
+   <p>La expresion regular es /^[A-C]\w+\ses\s\w+/</p>
+    <button onclick="comprobar()">Expresion Regular</button>
+</body>
+</html>
+
+

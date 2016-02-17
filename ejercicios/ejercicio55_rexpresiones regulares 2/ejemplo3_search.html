@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+function usarSearch(){
+    
+var miExpReg = /p.sto/g
+
+var txt = 'el pasto es pisto pero no pesto';
+
+msg = ''; var posicion = txt.search(miExpReg);
+
+if (posicion != -1) {
+
+msg = msg + 'Encontrado patrón en posición: '+posicion+'\n';
+
+} else {msg = 'No se encontraron coincidencias';}
+
+alert(msg);
+
+// Encontrado patrón en posición: 3    
+    
+}
+    
+</script>
+</head>
+<body>
+    <p>La expresion regular es : /p.sto/g</p>
+   <p> y la frase es 'el pasto es pisto pero no pesto'</p>
+    <button onclick="usarExec()">Usar exec</button>
+</body>
+</html>

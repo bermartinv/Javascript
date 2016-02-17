@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+ function usarMatch(){
+    var miExpReg = /p.sto/g
+
+var txt = 'el pasto es pisto pero no pesto';
+
+msg = ''; var matches = txt.match(miExpReg);
+
+if (matches != null) {
+
+for (var i=0; i<matches.length; i++){
+
+msg = msg + 'Encontrado: '+matches[i]+'\n'; }
+
+} else {msg = 'No se encontraron coincidencias';}
+
+alert(msg);
+
+// Encontrado: pasto, Encontrado: pisto, Encontrado: pesto    
+
+ }
+    
+</script>
+</head>
+<body>
+   <p>La expresion regular es : /p.sto/g</p>
+   <p> y la frase es 'el pasto es pisto pero no pesto'</p>
+    <button onclick="usarExec()">Usar exec</button>
+    
+</body>
+</html>

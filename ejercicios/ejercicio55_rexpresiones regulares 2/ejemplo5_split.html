@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    function usarSplit(){
+ var miExpReg = /\d/g
+
+var txt = 'un 3 de bastos gana a un 5 de copas pero no a un 7 de oros';
+
+msg = ''; var splits = txt.split(miExpReg);
+
+msg = 'splits contiene ' + splits;
+
+alert(msg);
+
+// splits contiene un , de bastos gana a un , de copas pero no a un , de oros    
+// si tras split no se pone nada split(), no se separa nada
+// si tras split se pone split(""), se podrá detrás de cada letra una coma
+// si tras split se pone split("o"), se pondrá la cadena donde haya o pondra ,
+        
+    }
+</script>
+</head>
+<body>
+    <p>La expresion regular es : /p.sto/g</p>
+   <p> y la frase es 'el pasto es pisto pero no pesto'</p>
+    <button onclick="usarSplit()">Usar exec</button>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+function usarExec(){
+    var miExpReg = /p.sto/g;
+
+var txt = 'el pasto es pisto pero no pesto'; var msg = '';
+
+while ((matches = miExpReg.exec(txt)) !== null ) {
+
+msg = msg + 'Encontrado: '+matches[0]+'\n'; }
+
+alert(msg);
+
+// Encontrado: pasto, pisto, pesto
+
+//var miExpReg = /p(.)sto/
+
+//var matches = miExpReg.exec(txt); 
+    //daría lugar a que matches[0] contenga <<pasto>> y matches[1] contenga <<a>>
+}
+</script>
+
+</head>
+<body>
+   <p>La expresion regular es : /p.sto/g</p>
+   <p> y la frase es 'el pasto es pisto pero no pesto'</p>
+    <button onclick="usarExec()">Usar exec</button>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    function usarReplace(){
+ var miExpReg = /p.sto/g
+
+var txt = 'el pasto es pisto pero no pesto';
+
+msg = ''; var nuevoTxt = txt.replace(miExpReg, 'coco');
+
+msg = 'txt vale ' + txt + ' y nuevoTxt vale ' +nuevoTxt;
+
+alert(msg);
+
+// txt vale el pasto es pisto pero no pesto y nuevoTxt vale el coco es coco pero no coco    
+    }
+</script>
+</head>
+<body>
+    <p>La expresion regular es : /p.sto/g</p>
+   <p> y la frase es 'el pasto es pisto pero no pesto'</p>
+    <button onclick="usarReplace()">Usar exec</button>
+</body>
+</html>
