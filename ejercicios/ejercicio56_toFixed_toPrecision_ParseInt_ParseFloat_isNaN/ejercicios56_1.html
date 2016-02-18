@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+
+function numero(){
+    
+    var number = 0;
+    
+    do {
+    
+    var number = Number ( prompt ("Introduzca un numero superior a 10000000"));
+    
+    }while ((number<10000000) | (isNaN(number) == true));
+    
+    alert ('Ese numero introducido expresado con 3 numeros significativos es :'+number.toPrecision(3));
+}    
+    
+function dosDecimales(){
+    
+    var expRegular = /^\d{1,}\.\d{4,}$/ ;
+    
+    do{
+        
+    var numero = Number (prompt('Introduzca un numero con al menos 4 decimales:'));
+    
+    } while (expRegular.test(numero) !== true);
+        
+    alert ('Su numero con solo dos decimales es : '+numero.toFixed(2));
+}
+    
+function fraseNumero(){
+    
+    var expRegular = /^(\d{1,}|\d{1,}.\d{1,})\w{1,}$/ ;
+    
+    do{
+        
+    var frase = prompt ("Introduzca una frase que comience por un numero:");
+        
+    } while (expRegular.test(frase) !== true);
+    
+    alert ('El numero entero introducido al comienzo de la frase es'+parseInt(frase)+'\n y el numero en decimal es :'+parseFloat(frase));
+}
+    
+</script>
+</head>
+<body>
+    <button onclick="numero()">Introducir número >10000000</button>
+    <button onclick="dosDecimales()">Introducir número con 4 decimales</button>
+    <button onclick="fraseNumero()">Frase que empiece por numero</button>
+</body>
+</html>

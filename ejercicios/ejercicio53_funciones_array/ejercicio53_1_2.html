@@ -9,15 +9,17 @@ function ordenar(){
     
     var deMenorAMayor = [33, 2, 36, 55, 4, 1];
     
+    var deMayorAMenor = [33, 2, 36, 55, 4, 1];
+    
+    deMayorAMenor = deMayorAMenor.sort(function (elem1,elem2){return elem2-elem1;});
+    
+    deMenorAMayor = deMenorAMayor.sort(function (elem1,elem2){return elem1-elem2;});
+    
     var texto1 = document.createElement('p');
     
     document.body.appendChild(texto1);
     
     texto1.innerHTML= miVector.valueOf();
-    
-    deMayorAMenor = miVector.sort(function (elem1,elem2){return elem2-elem1;});
-    
-    deMenorAMayor = deMenorAMayor.sort(function (elem1,elem2){return elem1-elem2;});
     
     var texto2 = document.createElement('p');
     
