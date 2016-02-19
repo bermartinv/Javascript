@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload=function(){
+    document.querySelector('p').addEventListener('click',ventana);
+    document.getElementById('terciario').addEventListener('click',ventana);
+    document.getElementById('secundario').addEventListener('click',ventana);
+    document.getElementById('principal').addEventListener('click',ventana);
+    document.addEventListener('click',ventana);
+    window.addEventListener('click',ventana);
+    
+    function ventana(){
+        alert ('Soy un nodo de tipo '+this.nodeName+' y estoy burbujeando');
+    }
+    
+    
+}    
+    
+</script>
+</head>
+<body>
+    <div id="principal">
+        <div id="secundario">
+            <div id="terciario">
+                <p>Ejemplo de bubbling(burbujeo)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

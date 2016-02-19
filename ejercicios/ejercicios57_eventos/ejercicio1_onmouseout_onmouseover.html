@@ -14,16 +14,16 @@ window.onload = function(){
     
     for (var i = 0; i<haches.length ;i++){
       
-        haches[i].onmouseover = function(){return this.style.color = "orange"};
+        haches[i].onmouseover = function(){ this.style.color = "orange"};
         
-        haches[i].onmouseout = function(){return this.style.color = "brown"};
+        haches[i].onmouseout = function(){ this.style.color = "brown"};
     }
     
     for (var i = 0;i<pes.length;i++){
         
-        pes[i].onmouseover = function(){return this.style.backgroundColor = "yellow"};
+        pes[i].onmouseover = function(){this.style.backgroundColor = "yellow"};
         
-        pes[i].onmouseout = function(){return this.style.backgroundColor = "transparent"};
+        pes[i].onmouseout = function(){this.style.backgroundColor = "transparent"};
     }
    
 }    
