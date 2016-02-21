@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #pizarra{
+        border:solid 5px black;
+        margin:100px;
+        
+        font-size: 250px;
+        height:400px;
+        width:400px;
+        color:yellowgreen;
+        text-align: center;
+    }    
+</style>
+<script>
+window.onload =function(){document.onkeypress = mostrarCodigo;
+                          document.onkeyup = mostrarCodigo2;
+                          
+   } 
+
+function mostrarCodigo(evento){
+    var caracter = (evento.which);
+    var pizarra = document.getElementById("pizarra") ;
+    pizarra.innerHTML = caracter;
+}
+    
+function mostrarCodigo2(evento){
+    var caracter = (evento.keyCode);
+    var pizarra = document.getElementById("pizarra") ;
+    pizarra.innerHTML = caracter;
+}
+
+
+</script>
+</head>
+<body>
+   <h1>Pulsa una tecla</h1>
+    <div id="pizarra"></div>
+</body>
+</html>
