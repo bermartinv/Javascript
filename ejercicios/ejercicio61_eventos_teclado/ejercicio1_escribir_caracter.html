@@ -21,7 +21,7 @@ window.onload =function(){document.onkeypress = mostrarCodigo;
    } 
 
 function mostrarCodigo(evento){
-    var caracter = String.fromCharCode(evento.which);
+    var caracter = String.fromCharCode (evento.which);
     var pizarra = document.getElementById("pizarra") ;
     pizarra.innerHTML = caracter;
 }

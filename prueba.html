@@ -1,25 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Ejemplo aprenderaprogramar.com</title>
-	<script type="text/javascript">
-		function ejemplo(){
-			var miExpReg = /^[A-C]\w+\ses\s\w+/;
-			var msg = 'Patrón: ^[A-C]\w+\ses\s\w+]\n';
-			var texto = ['Juan es guapo','Adriano no es feo','Adriano deja de ser guapo','Adriano ya es guapo','No es ahora','Ahora es no','Adriano es guapo'];
-			for(var i=0;i<texto.length;i++){
-				msg = msg + 'El valor del método match para el texto ' + [i+1] + ' es: ' +texto[i].match(miExpReg) + '\n';
-			}
-			alert(msg);	
-			alert('Como vemos, sólo los últimos 2 arrays cumplen con el patrón.');
-		}
-	</script>
+<title>Ejemplo DOM - aprenderaprogramar.com</title>
+<meta charset="utf-8">
+<style type="text/css">
+body { font-family: sans-serif;}
+.boton{padding:15px; width: 330px;  text-align:center; clear:both;
+color: white; border-radius: 40px; background: rgb(202, 60, 60); margin: 10px auto;}
+.boton:hover {background: rgb(66, 184, 221); cursor:pointer;}
+    p {font-size: 24px; color: maroon; display: inline-block; margin:10px; border: solid black; padding:10px;}
+</style>
+<script type="text/javascript">
+
+function mostrarLetras() {
+var palabra = prompt("Escribe la primera palabra que se te venga a la mente.");
+var msg = 'Primeras letras: \n\n';
+
+for (var i=1; i<=palabra.length; i++){
+    msg = msg + palabra.charAt(i-1) + '\n'; }
+    alert (msg);
+}
+
+    function mostrarContParrafos() {
+        var elementosObtenidos = document.getElementsByTagName('p');
+       
+        var parrafos = elementosObtenidos.length;
+       
+        var msg = 'Párrafos\n';
+        for (i=1; i<=parrafos; i++) {
+            var contenido = elementosObtenidos[i-1].firstChild.nodeValue;
+            msg = msg + 'Párrafo número: ' + i + '\nContenido: ' + contenido + '\n\n';
+        }
+        alert(msg);
+    }
+   
+</script>
 </head>
 <body>
-	<div id="cabecera">
-		<p>El patron: /^[A-C]\w+\ses\s\w+/ significa que la subcadena de texto tiene que empezar por A, B o C, le tiene que seguir uno o más caracteres (sólo números o letras), seguido de un espacio en blanco, después de las letras "es", otro espacio en blanco y seguido de uno o más carácteres cualquier (letra o número). </p>
-	</div>
-	<div style="color:blue; text-align: center;" id ="pulsador" onclick="ejemplo()"> Probar Ejercicio</div>
+<h3 class="boton" onclick="mostrarLetras()">Pulse aquí para separar una palabra</h3>
+    <h3 class="boton" onclick="mostrarContParrafos('p')">Pulse aquí para contar los parrafos.</h3>
+    <p>Manzana</p>
+    <p>Pera</p>
+    <p>Fresa</p>
+    <p>Ciruela</p>
+    <p>Naranja</p>
+    <p>Kiwi</p>
+    <p>Pomelo</p>
+    <p>Melón</p>
+    <p>Sandía</p>
+    <p>Mango</p>
+    <p>Papaya</p>
+    <p>Cereza</p>
+    <p>Nectarina</p>
+    <p>Frambuesa</p>
+   
 </body>
 </html>

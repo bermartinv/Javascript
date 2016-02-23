@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #pizarra{
+        margin: 200px;
+        height:300px;
+        width:300px;
+        border:solid 5px black;
+        position: absolute;
+    }    
+</style>
+<script>
+window.onload = function (){
+    document.onkeyup = moverPizarra;    
+}    
+
+function moverPizarra(evento){
+    var tecla = (evento.keyCode);
+    var pizarra = document.getElementById("pizarra");
+    var posicionY = pizarra.offsetTop;
+    var posicionX = pizarra.offsetLeft;
+    switch (tecla){
+        case 39:pizarra.style.left=posicionX-180+'px';break;
+        case 37:pizarra.style.left=posicionX-220+'px';break;
+        case 38:pizarra.style.top=posicionY-220+'px';break;
+        case 40:pizarra.style.top=posicionY-180+'px';break;
+        default: alert ("No has pulsado una flecha de teclado");
+        
+    }
+    
+}
+</script>
+</head>
+<body>
+    <h1>Pulse una tecla</h1>
+    <div id="pizarra"></div>
+</body>
+</html>
+
+
+ 
