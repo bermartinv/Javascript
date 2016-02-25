@@ -1,58 +1,33 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<title>Ejemplo DOM - aprenderaprogramar.com</title>
-<meta charset="utf-8">
-<style type="text/css">
-body { font-family: sans-serif;}
-.boton{padding:15px; width: 330px;  text-align:center; clear:both;
-color: white; border-radius: 40px; background: rgb(202, 60, 60); margin: 10px auto;}
-.boton:hover {background: rgb(66, 184, 221); cursor:pointer;}
-    p {font-size: 24px; color: maroon; display: inline-block; margin:10px; border: solid black; padding:10px;}
-</style>
-<script type="text/javascript">
-
-function mostrarLetras() {
-var palabra = prompt("Escribe la primera palabra que se te venga a la mente.");
-var msg = 'Primeras letras: \n\n';
-
-for (var i=1; i<=palabra.length; i++){
-    msg = msg + palabra.charAt(i-1) + '\n'; }
-    alert (msg);
-}
-
-    function mostrarContParrafos() {
-        var elementosObtenidos = document.getElementsByTagName('p');
-       
-        var parrafos = elementosObtenidos.length;
-       
-        var msg = 'Párrafos\n';
-        for (i=1; i<=parrafos; i++) {
-            var contenido = elementosObtenidos[i-1].firstChild.nodeValue;
-            msg = msg + 'Párrafo número: ' + i + '\nContenido: ' + contenido + '\n\n';
-        }
-        alert(msg);
-    }
-   
-</script>
-</head>
-<body>
-<h3 class="boton" onclick="mostrarLetras()">Pulse aquí para separar una palabra</h3>
-    <h3 class="boton" onclick="mostrarContParrafos('p')">Pulse aquí para contar los parrafos.</h3>
-    <p>Manzana</p>
-    <p>Pera</p>
-    <p>Fresa</p>
-    <p>Ciruela</p>
-    <p>Naranja</p>
-    <p>Kiwi</p>
-    <p>Pomelo</p>
-    <p>Melón</p>
-    <p>Sandía</p>
-    <p>Mango</p>
-    <p>Papaya</p>
-    <p>Cereza</p>
-    <p>Nectarina</p>
-    <p>Frambuesa</p>
-   
-</body>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<script type="text/javascript">
+		var milisegundos = 60000;
+		function reloj() {
+			if(milisegundos>-1000){
+				var fecha=new Date(milisegundos);
+				var m=fecha.getMinutes();
+				var s=fecha.getSeconds();
+				m = actualizarHora(m);
+				s = actualizarHora(s);
+				document.getElementById('displayReloj').innerHTML = m+":"+s;
+				milisegundos = milisegundos - 1000;
+				var t = setTimeout(function(){reloj()},1000);
+			}else{
+				alert('Tu tiempo ha terminado');
+			}
+		}
+		function actualizarHora(i) {
+			if (i<10) {i = "0" + i};  // Añadir el cero en números menores de 10
+			return i;
+		}
+		</script>
+	</head>
+	<body onload="reloj()" >
+		<div style="text-align:center;">
+			<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Cuenta atrás</h3></div>
+			<div style="color:blue; font-family: verdana, arial; font-size:30px; padding:15px;" id ="displayReloj" >   </div>
+		</div>
+	</body>
 </html>

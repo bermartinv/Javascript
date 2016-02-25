@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<style>
+			
+		</style>
+		<script type="text/javascript">
+			var usuarios =[];
+            var contador = 0;
+			
+            window.onload = function(){
+                document.getElementById("pulsador").addEventListener('click',nuevoUsuario);
+                document.getElementById("mostrar_usuarios").addEventListener('click',mostrarUsuarios);
+                
+            }
+           
+			function usuario(nombre,pais){
+				this.nombre = nombre;
+                this.pais = pais;
+			}
+           
+			function nuevoUsuario(){
+				var nombre = prompt('Introduzca su nombre: ');
+                var pais = prompt ('Introduzca pais de procedencia :');
+                usuarios[contador] = new usuario(nombre,pais);
+				contador++;
+			}
+			
+            function mostrarUsuarios(){
+				for(var i=0; i<usuarios.length; i++){
+					var datosUsuario = '';
+					for(x in usuarios[i]){
+						datosUsuario += usuarios[i][x] + ', ';
+					}
+					document.getElementById("datos").innerHTML += datosUsuario + '<br/>';					
+				}
+            }
+           
+		</script>
+	</head>
+	<body>		
+		<button id ="pulsador"> Nuevo usuario </button>
+		<button id="mostrar_usuarios"> Mostrar usuarios</button>
+		<div id='datos'></div>
+	</body>
+</html>
+
+

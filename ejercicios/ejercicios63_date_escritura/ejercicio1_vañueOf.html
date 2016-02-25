@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+window.onload = function(){
+    document.getElementById("ejercicio1").addEventListener('click',ejercicio1);
+    document.getElementById("ejercicio2").addEventListener('click',ejercicio2);
+}    
+
+function ejercicio1(){
+    var nombre = prompt ("Introduzca su nombre:");
+    var fecha1 = new Date();
+    var pais = prompt ("intorduzca pais:");
+    var fecha2 = new Date();
+    alert ("El tiempo transcurrido en introducir un dato y el segundo ha sido:\n"+Number(((fecha2.valueOf()-fecha1.valueOf())/1000)/60)+ ' minutos');   
+}
+
+function ejercicio2(){
+    
+       var  fecha1 = prompt ("Introduzca una fecha1 \'dd-mm-yyyy\'");
+    
+        var fecha2 = prompt ("Introduzca una fecha2 \'dd-mm-yyyy\'");
+   
+    
+    fecha1Date = new Date(fecha1.substring(6)+','+(fecha1.substring(3,5))+','+(fecha1.substring(0,2)));
+    fecha2Date = new Date(fecha2.substring(6)+','+(fecha2.substring(3,5))+','+(fecha2.substring(0,2)));
+   
+    if (fecha1Date.valueOf() > fecha2Date.valueOf()){
+        var dias = ((fecha1Date.valueOf() - fecha2Date.valueOf())/(1000*60*60*24));
+        
+    }else{
+        var dias = ((fecha2Date.valueOf() - fecha1Date.valueOf())/(1000*60*60*24));
+    }
+    alert ('Han transcurrido entre las dos fechas:'+(dias)+' dias');
+    
+
+}
+</script>
+<body>
+    <button id="ejercicio1">Ejercicio1</button>
+    <button id="ejercicio2">Ejercicio2</button>
+</body>
+</html>
