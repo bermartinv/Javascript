@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+window.onload = function (){
+    var radio = prompt ("Introduzca radio del cilindro");
+    var altura = prompt ("Introduzca altura de un cilindro");
+    var volumen = calcularVolumen(radio,altura);
+    var area = calcularArea(radio);
+    alert ("El resutado es:\nVolumen:"+volumen+"\nArea:"+area);
+}
+
+function calcularVolumen(radio,altura){
+    var volumen = Math.PI*Math.pow(radio,2)*altura;
+    return volumen;
+}
+    
+function calcularArea(radio){
+    var area = Math.PI*Math.pow(radio,2);
+    return area;
+}
+    </script>
+<body>
+    
+</body>
+</html>

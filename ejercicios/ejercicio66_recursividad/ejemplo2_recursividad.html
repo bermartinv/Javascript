@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function ejemplo(numero) { alert ('El factorial de '+numero+' es '+factorialRecursivo(numero)); }
+
+ 
+
+function factorialRecursivo(numero){
+
+if (numero==0) {return 1;} //caso base
+
+else {return numero*factorialRecursivo(numero-1);} //caso recursivo
+
+}
+
+ 
+
+</script></head>
+
+<body onload="ejemplo(5)" >
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+</body></html>

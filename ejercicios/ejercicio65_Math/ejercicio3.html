@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #volador{
+        display:inline-block;
+        background-color:crimson;
+        border:solid thin black;
+        border-radius:12px;
+        position:absolute;
+        top: 300px;
+        padding:10px;
+        width: 65px;
+    }    
+</style>
+<script>
+    var globalID;
+    var sentido = true;
+    var coordenadaX = 0;
+    var coordenadaY = 300;
+   
+window.onload = function(){
+    anchoVentana();
+}
+    
+    function anchoVentana(){ 
+        var ancho = window.innerWidth;
+        // Condicion para rebote pared
+        if (coordenadaX == (ancho - 95 )){
+              sentido = false;
+         }
+        if (coordenadaX == 0){
+            sentido = true;
+        }
+        
+        // Condicion para sentido volador
+        if (sentido == true){
+            coordenadaX++;
+        }else{
+            coordenadaX--;
+        }
+        
+        // Formula para sentido
+        coordenadaY = coordenadaY+(Math.sin(coordenadaX*0.03));
+        
+        // Uso del DOM
+        var volador = document.getElementById("volador");
+        volador.style.top=coordenadaY+'px';;
+        volador.style.left=coordenadaX+'px';
+      
+        // Llamada recursiva requestanimationFrame
+        globalID=requestAnimationFrame(anchoVentana);
+    
+       
+    }
+     
+    
+    </script>
+</head>
+
+<body >
+   <div id="volador">Javascript</div>
+    
+</body>
+</html>
+

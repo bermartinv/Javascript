@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+window.onload = function (){
+    numeroAleatorio();
+}    
+
+function numeroAleatorio(){
+
+    var numeroAleatorio = Math.floor((Math.random()*(101-1))+1); 
+    alert (numeroAleatorio);
+    var contador = 1;
+    var numeroUsuario = prompt ("Introduzca un numero : ");
+   while (numeroAleatorio!=numeroUsuario){
+    if (numeroUsuario<numeroAleatorio){
+        numeroUsuario= prompt ("El numero es mayor.Intentelo de nuevo:");
+    }
+    else {
+        numeroUsuario = prompt ("El numero es menor. Intentelo de nuevo:");
+    }
+   }
+    contador++;
+    if(contador>30){
+         alert ("Ha superado 30 intentos.El programa termina");
+    }else {
+       
+        alert ("Enhorabuena");
+    }
+    
+
+}
+    
+
+</script>
+<body>
+    
+</body>
+</html>
