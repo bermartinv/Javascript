@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
 <style>
-    #volador{
+    #volador1{
         display:inline-block;
         background-color:crimson;
         border:solid thin black;
@@ -14,12 +14,24 @@
         padding:10px;
         width: 65px;
     }    
+    #volador2{
+        display:inline-block;
+        background-color:crimson;
+        border:solid thin black;
+        border-radius:12px;
+        position:absolute;
+        top: 400px;
+        padding:10px;
+        width: 65px;
+    }    
+    
 </style>
 <script>
     var globalID;
     var sentido = true;
     var coordenadaX = 0;
-    var coordenadaY = 300;
+    var coordenadaY1 = 300;
+    var coordenadaY2 = 300;
    
 window.onload = function(){
     anchoVentana();
@@ -43,12 +55,17 @@ window.onload = function(){
         }
         
         // Formula para sentido
-        coordenadaY = coordenadaY+(Math.sin(coordenadaX*0.03));
+        coordenadaY1 = coordenadaY1+(Math.sin(coordenadaX*0.03));
+        coordenadaY2 = coordenadaY2+(Math.cos(coordenadaX*0.03));
         
         // Uso del DOM
-        var volador = document.getElementById("volador");
-        volador.style.top=coordenadaY+'px';;
-        volador.style.left=coordenadaX+'px';
+        var volador1 = document.getElementById("volador1");
+        //var volador2 = document.getElementById("volador2");
+        
+        volador1.style.top=coordenadaY1+'px';
+        volador1.style.left=coordenadaX+'px';
+        volador2.style.top=coordenadaY2+'px';
+        volador2.style.left=coordenadaX+'px';
       
         // Llamada recursiva requestanimationFrame
         globalID=requestAnimationFrame(anchoVentana);
@@ -61,7 +78,9 @@ window.onload = function(){
 </head>
 
 <body >
-   <div id="volador">Javascript</div>
+   <div id="volador1">Seno</div>
+   <div id="volador2">Coseno</div>
+ 
     
 </body>
 </html>

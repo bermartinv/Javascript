@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #pantalla{
+        
+        height:700px;
+    
+        
+    }    
+    .nubes{
+        border-radius: 20px;
+        position:absolute;
+        background-color:darkgray;
+        height: 40px;
+        width:40px;
+        top:30px;
+        left:-50px;
+    }
+</style>
+<script>
+    var anchoPantalla= window.innerWidth;
+window.onload = function(){
+    nubes();
+    
+}    
+
+function nubes(){
+    var posicionX = 20;
+    
+    setTimeout(function(){dibujarNubes(posicionX,anchoPantalla)},10);
+    
+}
+    
+function dibujarNubes(posicionX,anchoPantalla){
+        var contador = 0;
+    // comprobar que la coordenadaX es menor que el ancho de la pantalla
+    if (posicionX<(anchoPantalla-40)){
+    // dibuja mininube;    
+        //crea el div
+    var nube = document.createElement('div');
+    //le da estilo nubes
+    nube.className = "nubes";
+    //lo añade al body
+    document.body.appendChild(nube);
+    //y lo coloca en su luga
+        nube.style.left = posicionX +'px';
+        posicionX += 20;
+    setTimeout(function(){dibujarNubes(posicionX,anchoPantalla)},10);
+    }else{
+        setTimeout(function(){trueno(contador)},15);
+    }
+    }
+
+function trueno(contador){
+   if  (contador<4){
+    
+    if (contador%2==0){
+         document.body.style.backgroundColor='yellow';   
+    }else{
+       document.body.style.backgroundColor='white';
+    }
+    contador++;
+    }else{}
+    setTimeout(function(){trueno(contador)},15); 
+   
+    
+}
+    
+</script>
+
+<body>
+    <div id="pantalla">
+        <did class="nubes"></did>
+    </div>
+</body>
+</html>

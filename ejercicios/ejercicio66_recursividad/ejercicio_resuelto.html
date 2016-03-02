@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<style type="text/css">
+		button {margin:10px;}
+		.volador{border: solid 1px; width: 20px; text-align: center; padding:15px;
+			color: yellow; border-radius: 40px; background: purple; position: absolute; }
+		#volador0{top: 300px; left: 200px;}
+		.contenedor{border: solid 2px; width: 100%; background-color: grey;}
+		#contenedor1{height: 400px;}
+		#contenedor2{height: 100px;}
+		#palo{width: 200px; border: solid 4px black; position: absolute; top: 320px; left: -50px;}
+		#agujero{width: 0; height: 0; text-align: center; padding:15px; border-radius: 40px; background: black; position: absolute; display:none;}
+		</style>
+		<script type="text/javascript">
+			window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+									  window.webkitRequestAnimationFrame || window.oRequestAnimationFrame;
+			var nodoBola;
+			var animacionColocaBolas, animacionMuevePalo, animacionMueveBola, animacionEvitaGolpe, animacionAgujeroDesaparece, animacionCreceTexto;
+			var moverPalo, cambiaColor;
+			var ejeXInicial = [];var ejeYInicial = [];var contadorX = [];var contadorY = [];var posicionX = [];var posicionY = [];
+			var posicionXPalo = -50;
+			var direccionPalo = false;
+			var posicionXBolaBlanca = 200;
+			var sizeAgujero = 0;
+			var sizeTexto = 0;
+			function comenzarAnimacion(){
+				nodoBola = document.querySelectorAll('.volador');
+				posicionInicialBolas();
+				colocarBolas();
+				moverPalo = setTimeout(function(){muevePalo()}, 14000);
+				cambiaColor = setTimeout(function(){cambiaColorBolas()}, 3000);
+			}
+			function detener() {
+				cancelAnimationFrame(animacionColocaBolas);
+				cancelAnimationFrame(muevePalo);
+				cancelAnimationFrame(evitaGolpe);
+				cancelAnimationFrame(mueveBolas);
+				cancelAnimationFrame(animacionMuevePalo);
+				clearTimeout(cambiaColor);
+				//clearInterval(cambiaColor);
+			}
+			function animacionTexto(){ // Función que se encarga de la animacion que hace aparecer el texto 'game over' haciendolo cecer.
+				document.getElementById('contenedor1').style.fontSize = sizeTexto + 'px';
+				document.getElementById('contenedor1').style.color = 'white';
+				document.getElementById('contenedor1').style.textAlign = 'center';
+				document.getElementById('contenedor1').innerHTML = 'Game over!!';
+				sizeTexto++;
+				animacionCreceTexto = requestAnimationFrame(animacionTexto);
+				if(sizeTexto==100){
+					cancelAnimationFrame(animacionCreceTexto);
+				}
+			}
+			function posicionInicialBolas(){ // esta función asigna las coordenadas a cada bola
+				for(var i=1; i<nodoBola.length; i++){
+					var coordenadas = coordenadasAleatorias();
+					nodoBola[i].style.left = coordenadas[0] + 'px';
+					nodoBola[i].style.top = coordenadas[1] + 'px';
+					ejeXInicial[i-1] = coordenadas[0];
+					ejeYInicial[i-1] = coordenadas[1];
+				}
+				function coordenadasAleatorias(){ //  aquí se generan las coordenadas aleatoriamente
+					var eje = [];
+					eje[0] = Math.round(Math.random()*(100-700)+parseInt(700));
+					eje[1] = Math.round(Math.random()*(120-480)+parseInt(480));
+					return eje;
+				}
+			}
+			function colocarBolas(){ // esta función contiene las coordenadas hasta donde tendrán que moverse las bolas, para quedar colocadas.
+				var posX = Number(document.body.clientWidth) - 100;
+				posicionX = [(posX-200), (posX-150), (posX-150), (posX-100), (posX-100), (posX-100), (posX-50), (posX-50), (posX-50), (posX-50),
+								posX, posX, posX, posX, posX];
+				posicionY = [300, 275, 325, 250, 300, 350, 225, 275, 325, 375, 200, 250, 300, 350, 400];
+				for(var i=0; i<15; i++){
+					contadorX[i] = ejeXInicial[i];
+					contadorY[i] = ejeYInicial[i];
+				}
+				animacionColocaBolas = requestAnimationFrame(mueveBolas);// desde aquí empzamos a mover las bolas llamando a la función mueveBolas
+			}
+			function cambiaColorBolas(){ // funcion que se encarga de cambiar el color de las bolas aleatoriamente.
+				var colores = ['maroon', 'red', 'orange', 'Gold', 'olive', 'Crimson', 'aqua', 'lime', 'green', 'navy',
+								'blue', 'LawnGreen','salmon', 'teal', 'silver', 'gray'];
+				var indice = Math.round(Math.random()*(0-14)+parseInt(14));
+				for(i=1; i<16; i++){
+					nodoBola[i].style.backgroundColor = colores[indice];
+					if(indice<(colores.length-2)){
+						indice++;
+					}else{
+						indice = 0;
+					}
+				}
+				cambiaColor = setTimeout(function(){cambiaColorBolas()}, 3000);
+			}
+			function muevePalo(){ // esta función se encarga de la animación que mueve el palo.
+				if(posicionXPalo == -150){direccionPalo=true;}
+				if(direccionPalo){
+					posicionXPalo+=2;
+				}else{
+					posicionXPalo--;
+				}
+				if(posicionXPalo==0){
+					cancelAnimationFrame(muevePalo);
+				}else{
+					document.getElementById('palo').style.left = posicionXPalo + 'px';
+					animacionMuevePalo = requestAnimationFrame(muevePalo);
+				}
+				if(posicionXPalo == -6){animacionMueveBola = requestAnimationFrame(mueveBolaBlanca);}
+			}
+			function agujeroDesaparece(){ // función que hace desaparer el supuesto agujero que se traga la bola 'JS'.
+				if(sizeAgujero>0){
+					document.getElementById('agujero').style.width = sizeAgujero + 'px';
+					document.getElementById('agujero').style.height = sizeAgujero + 'px';
+					sizeAgujero--;
+					animacionAgujeroDesaparece = requestAnimationFrame(agujeroDesaparece);
+				}else{
+					document.getElementById('agujero').style.display = 'none';
+					clearInterval(cambiaColor);
+					setTimeout(function(){animacionTexto()}, 2000);
+					
+					cancelAnimationFrame(agujeroDesaparece);
+				}
+			}
+			function mueveBolaBlanca(){ // función que hace moverse la bola 'JS'
+				if(posicionXBolaBlanca>(Number(document.body.clientWidth)-50)){
+					nodoBola[0].style.display = 'none';
+					animacionAgujeroDesaparece = requestAnimationFrame(agujeroDesaparece);
+					cancelAnimationFrame(animacionMueveBola);
+				} else {
+					posicionXBolaBlanca+=2;
+					nodoBola[0].style.left = posicionXBolaBlanca + 'px';
+					animacionMueveBola = requestAnimationFrame(mueveBolaBlanca);
+				}
+				if(posicionXBolaBlanca==Number(document.body.clientWidth)-200 || posicionXBolaBlanca==Number(document.body.clientWidth)-199){
+					document.getElementById('agujero').style.left = (Number(document.body.clientWidth)-48) + 'px';
+					document.getElementById('agujero').style.top = 300 + 'px';
+					document.getElementById('agujero').style.display = 'block';
+					sizeAgujero++;
+				}
+				if(sizeAgujero>0 && sizeAgujero<23){
+					document.getElementById('agujero').style.width = sizeAgujero + 'px';
+					document.getElementById('agujero').style.height = sizeAgujero + 'px';
+					sizeAgujero++;
+				}
+				if(posicionXBolaBlanca==(Number(document.body.clientWidth)-450) || posicionXBolaBlanca==(Number(document.body.clientWidth)-449)){
+					animacionEvitaGolpe = requestAnimationFrame(evitaGolpe); // iniciamos la animacion que aparta las bolas.	
+					setTimeout(pararAnimacion, 1000); // cuando pasa un segundo ejecutamos la función que para la animación anterior.
+					setTimeout(mueveBolas, 3000); // cuando pasan 3 segundos llamamos a la función mueveBolas para que se vuelvan a colocar las bolas en su sitio.
+				}
+				function pararAnimacion(){cancelAnimationFrame(animacionEvitaGolpe);}
+			}
+			function evitaGolpe(){ // función que hace que las bolas del 1 al 15 dejen paso a la bola 'JS' desplazandose verticalmente.
+				var sumaOResta = [-1, -1, 1, -1, -1, 1, -1, -1, 1, 1, -1, -1, -1, 1, 1];
+				for (var i = 0; i<sumaOResta.length; i++){
+					contadorY[i] = contadorY[i] + sumaOResta[i]
+					nodoBola[i+1].style.top = contadorY[i] + 'px';
+				}
+				animacionEvitaGolpe = requestAnimationFrame(evitaGolpe);
+			}
+			function mueveBolas() { // esta función mueve las bolas de la 1 a la 15
+				for(var i=1; i<16; i++){
+					if(posicionX[i-1]!=contadorX[i-1]){
+						if(posicionX[i-1]<contadorX[i-1]){
+							contadorX[i-1]--;
+						}else{
+							contadorX[i-1]++;
+						}
+					}
+					if(posicionY[i-1]!=contadorY[i-1]){
+						if(posicionY[i-1]<contadorY[i-1]){
+							contadorY[i-1]--;
+						}else{
+							contadorY[i-1]++;
+						}
+					}
+					nodoBola[i].style.left = contadorX[i-1] + 'px';
+					nodoBola[i].style.top = contadorY[i-1] + 'px';
+				}
+				var bolasColocadas = 0;
+				for(var i=0; i<posicionX.length; i++){ // este bucle es usado para comprobar que las bolas están colocadas
+					if(posicionX[i]==contadorX[i]){bolasColocadas++;}
+					if(posicionY[i]==contadorY[i]){bolasColocadas++;}
+				}
+				if(bolasColocadas==30){ // si todas las bolas estan colocadas.
+					detener(); // pararemos la animación.
+				}else{
+					animacionColocaBolas = requestAnimationFrame(mueveBolas); // sino, volvemos a ejecutar la animación de forma recursiva.
+				}
+			}
+		</script>
+	</head>
+	<body >
+		<div class="contenedor" id="contenedor2">
+			<div><button id="start" onclick="comenzarAnimacion()">Empezar</button><button id="stop" onclick = "detener()">Detener</button></div>
+			<div id="posicionDiv" ></div><div id="posicionDiv1"></div><div id="displayReloj"></div>
+		</div>
+		<div class="contenedor" id="contenedor1">
+			<div id="volador0" class="volador">JS</div>
+			<div id="volador1" class="volador">1</div>
+			<div id="volador2" class="volador">2</div>
+			<div id="volador3" class="volador">3</div>
+			<div id="volador4" class="volador">4</div>
+			<div id="volador5" class="volador">5</div>
+			<div id="volador6" class="volador">6</div>
+			<div id="volador7" class="volador">7</div>
+			<div id="volador8" class="volador">8</div>
+			<div id="volador9" class="volador">9</div>
+			<div id="volador10" class="volador">10</div>
+			<div id="volador11" class="volador">11</div>
+			<div id="volador12" class="volador">12</div>
+			<div id="volador13" class="volador">13</div>
+			<div id="volador14" class="volador">14</div>
+			<div id="volador15" class="volador">15</div>
+			<div id="agujero"></div>
+			<div id="palo"></div>
+		</div>	
+	</body>
+</html>

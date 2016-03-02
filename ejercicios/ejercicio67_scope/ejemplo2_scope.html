@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+var idGlobal=33;
+
+var msg = 'Variable global';
+
+ 
+
+function ejemplo(numero) {
+
+var miVarLocal = 'Soy una variable local';
+
+var msg = 'idGlobal es conocido en la función ejemplo. idGlobal vale: '+idGlobal;
+
+msg = msg + '\n\nEn ejemplo el valor de numero es recibido como parametro (local). numero es: '+numero;
+
+msg = msg + '\n\n La variable local miVarLocal contiene: '+miVarLocal;
+
+alert(msg); //msg es local a esta función, aunque exista otra variable con este nombre se reconoce sólo la más próxima
+
+ejemplo2();
+
+}
+
+ 
+
+function ejemplo2(){
+
+var msg = 'idGlobal es conocido en la función ejemplo2. idGlobal vale: '+idGlobal;
+
+//msg = msg + '\n\nEjemplo2 desconoce qué es numero porque es local a otra función: aquí numero es '+numero;
+
+//msg = msg + '\n\nEjemplo2 desconoce qué es miVarLocal porque es local a otra función: aquí miVarLocal es '+MiVarLocal;
+
+if (typeof miVarLocal != 'undefined') { msg=msg+'\n\nEjemplo2 desconoce qué es miVarLocal porque es local a otra función: aquí miVarLocal es '+miVarLocal }
+
+else {msg=msg+'\n\nmiVarLocal No existe en el ámbito de la función ejemplo2\n\n';}
+
+alert(msg); //msg es local a esta función
+
+}
+
+ 
+
+</script>
+
+</head>
+
+<body onload="ejemplo(5)" >
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+</body></html>

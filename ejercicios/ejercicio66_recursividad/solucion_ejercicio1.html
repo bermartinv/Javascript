@@ -1,0 +1,142 @@
+//etiqueta para que los navegadores sepan que se trata de un documento html
+  <!DOCTYPE html>
+// etiquetamos nuestro documento html y el documento está definido por head y body. En head definiremos caracteristicas de la pagina
+<html><head>
+//titulo de la pagina web que saldrá en la etiqueta del navegador
+<title>Cursos aprende a programar</title>
+//definiremos los metadatos para facilitar la recogida de informacion de nuestra pagina web por el navegador
+// definimos el codigo de escritura del codigo html
+<meta charset="utf-8">
+//definimos metadatos descripcion para el navegador
+<meta name="description" content="Aprende a programar con cursos reconocidos por su calidad didáctica">
+//definimos metadatos palabras clave
+<meta name="keywords" content="HTML, CSS, JavaScript, Java, Visual Basic, Joomla, PHP">
+//etiqueta para darle el estilo a la pagina web
+<style type="text/css">
+/*todo el documento tendrá el texto estilo verdana, si no lo puede editar el navegador, usará el estilo sans-serif */
+*{font-family: verdana, sans-serif;}
+/* la etiqueta con identificador principal , alinea el texto en su interior centrado, definimos el ancho con width usando % y
+    definimos el margen de la etiqueta, al tener todal las etiquetas dentro de este identificador estamos definiendo la etiqueta
+    que contendrá todo el contenido de nuestra web */
+#principal{text-align:center;width:95%; margin: 0 auto;}
+/* definimos el estilo de todas las etiquetas que esten identificadas con el class="tituloCurso" */
+.tituloCurso {color: white; float:left; padding: 36px 44px; font-size: 2.65em; font-style:bold; text-decoration:none;}
+/* estilo para las etiqutas a cuando pasemos por encima con el raton, además añade !important porque como una etiqueta superior puede
+    estar definiendo una caracteristica de esta, le decimos que haga casa al estilo que le hemos definido aquí */
+a:hover{color:orange !important;}
+/*cerramos etiqueta style
+</style>
+<!-- introducimos codigo javascript para que la pagina sea más dinamica, le indicamos al navegador que es codigo javascript
+metiendo todo el codigo entre la etiqueta script -->
+<script type="text/javascript">
+//definimos un funcion llamada ejemplo
+function ejemplo(){
+// definimos una variable que contendrá un array con todos los nodos que tengan la class tituloCurso   
+var nodosTituloCurso = document.querySelectorAll(".tituloCurso");
+// definimos otra variable, inicializandola con el valor 0;
+var contador = 0;
+// definimos otra variable que es un array
+var nodosCambiados = new Array();
+// definimos otra variable que es de tipo boolean y la inicializamos a true
+var tocaCambiar = true;
+// mandamos la ejecucion de la funcion ejemploAccion tras pasar un 1,5 segundos, y le mandamos en la llamada los valores de las variables
+//nodosTituloCurso, nodosCambiados, contador, tocaCambiar
+setTimeout(function() {ejemploAccion(nodosTituloCurso, nodosCambiados, contador, tocaCambiar)}, 1500);
+//cerramos la ejecucion de la funcion
+}
+
+ 
+// definimos la funcion que necesitará ser llamada con las variables nodosTituloCurso, nodosCambiados, contador, tocaCambiar con algun
+// valor y que es llamada por la funcion que se ejecuta al abrir la pagina
+function ejemploAccion(nodosTituloCurso, nodosCambiados, contador, tocaCambiar) {
+//condicionamos los datos introducidos en la funcion. Si el valor del contador es menos al tamaño de array nodosTituloCurso devolvera true
+                if (contador<nodosTituloCurso.length){
+// empezamos a realizar operaciones tras la condicion. Definimos la variable indice,multiplica el tamaño del vector nodosTituloCurso por un valor aleatorio que calcula la coputatadora y redondea al numero inferior
+                var indice = Math.floor((Math.random() * (nodosTituloCurso.length)));
+// metemos otra condicional, si la longitud del vector es distinto a cero, si es cero salta la condicion
+                if (nodosCambiados.length!=0) {
+// metemos un bucle for para que recorra todos los valores del rango que queremos,desde 0 hasta que i sea menor a la longitud de nodosCambiados
+                                for (var i=0; i<nodosCambiados.length; i++) { 
+//metemos un condicional if para que todos los valores que recorremos pase cada valor por una condicion. Aquella etiqueta con clase .titulocurso que haya obtenido tendrá todoCambiar false asi lo tendran todos aquellos que ya hayan recibido el estilo
+                                               if(nodosCambiados[i]==indice) {tocaCambiar = false;}
+
+                               }
+//si hemos modificado ya la etiqueta lo metemos en el vector nodosCambiados y volvemos a hacer la llamada a la funcion , haciendo que sea recvursivo
+                }
+
+                if (tocaCambiar==true) {
+// llamamos a la funcion para que cambie el estilo al elemento que aleatoriamente haya salido
+                cambiarNodo(nodosTituloCurso[indice]);
+
+                nodosCambiados.push(indice);
+
+                contador = contador+1;
+
+                setTimeout(function() {ejemploAccion(nodosTituloCurso, nodosCambiados, contador, tocaCambiar)}, 1500);
+
+                } else {tocaCambiar=true; ejemploAccion(nodosTituloCurso, nodosCambiados, contador, tocaCambiar);}
+
+                }
+
+                else { //Caso base fin de la recursión cuando ya todas las etiquetas le hemos dado caracteristica al body con fondo negro y a
+                    // todos los elementos que se encuentran dentro del div con identificador principal, le damos color a su texto blanco
+                    // menos a los elementos que tienen como clase=tituloCurso que seran de color amarillo su texto.
+
+                               document.body.style.backgroundColor='black';
+
+                               document.getElementById('principal').style.color='white';
+
+                               for (var i=0; i<nodosTituloCurso.length; i++) {
+
+                                               nodosTituloCurso[i].style.color='yellow';
+
+                               }             
+
+                }
+
+}
+
+ 
+
+function cambiarNodo(elNodo){elNodo.style.backgroundColor = 'black'; }
+// cerramos el codigo javascript y luego sigue la ejecucion de codigo html
+</script>
+<!-- cerramos la cabecera de nuestro codigo html -->
+</head>
+<!-- empezamos a definir el codigo html en su cuerpo, en lo que va a ver el usuario y le indicamos que encuanto este cargado el documento
+se abra del codigo javascript la funcion ejemplo() -->
+<body onload="ejemplo()">
+<!-- definimos el div donde contendra los elementos que vamos a definir -->
+<div id="principal"><h1>Cursos de programación</h1>
+
+<h3>Reconocidos por su calidad didáctica</h3>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=28&Itemid=59"> Fundamentos</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=68&Itemid=188"> Java</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=69&Itemid=192"> HTML</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=75&Itemid=203"> CSS</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=78&Itemid=206"> JavaScript</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=70&Itemid=193"> PHP</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=38&Itemid=152"> Joomla</a></div>
+
+<div ><a class="tituloCurso"
+
+href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=37&Itemid=61"> Visual Basic</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=category&id=28&Itemid=59"> Pseudocódigo</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=section&layout=blog&id=7&Itemid=26"> Libros/ebooks</a></div>
+
+<div ><a class="tituloCurso" href="http://aprenderaprogramar.com/index.php?option=com_content&view=article&id=64&Itemid=87">Cursos tutorizados</a></div>
+</div>
+<!-- cerramos el cuerpo de la pagina -->
+    </body>
+<!-- cerramos el codigo html -->
+</html>
+

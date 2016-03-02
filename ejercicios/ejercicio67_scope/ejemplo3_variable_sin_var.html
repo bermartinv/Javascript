@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+function ejemplo() {miVarLocal = 'Soy una variable local'; ejemplo2();}
+
+ 
+
+function ejemplo2(){
+
+var msg= '';
+
+if (typeof miVarLocal != 'undefined') { msg=msg+'\n\nEjemplo2 conoce qué es miVarLocal porque se'+
+
+' declaró en otra función sin var: aquí miVarLocal es '+miVarLocal+ ' y es de tipo '+(typeof miVarLocal) }
+
+else {msg=msg+'\n\nmiVarLocal No existe en el ámbito de la función ejemplo2\n\n';}
+
+alert(msg); //msg es local a esta función
+
+}
+
+</script>
+
+</head>
+
+<body onload="ejemplo()" >
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+</body></html>

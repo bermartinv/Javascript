@@ -14,27 +14,29 @@ function numeroAleatorio(){
     var numeroAleatorio = Math.floor((Math.random()*(101-1))+1); 
     alert (numeroAleatorio);
     var contador = 1;
-    var numeroUsuario = prompt ("Introduzca un numero : ");
-   while (numeroAleatorio!=numeroUsuario){
-    if (numeroUsuario<numeroAleatorio){
-        numeroUsuario= prompt ("El numero es mayor.Intentelo de nuevo:");
-    }
-    else {
-        numeroUsuario = prompt ("El numero es menor. Intentelo de nuevo:");
-    }
-   }
+    
+    while (contador <= 30 ){
+       var numeroUsuario = prompt ("Introduzca un numero : ");
+        if (numeroUsuario<numeroAleatorio){
+        alert ("El numero es mayor");
+        }else if(numeroUsuario>numeroAleatorio){    
+        alert ("El numero es menor");
+        }
+        else{
+           alert ("Enhorabuena");
+            break;
+        }
     contador++;
-    if(contador>30){
-         alert ("Ha superado 30 intentos.El programa termina");
-    }else {
        
-        alert ("Enhorabuena");
+    }    
+     if (contador > 30){
+        alert ("Ha utilizado las 30 posibilidades para acertar el numero");
+        
     }
-    
+   
 
-}
     
-
+    }
 </script>
 <body>
     
