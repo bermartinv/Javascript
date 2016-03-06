@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function ejemplo() {
+
+var cabecera = document.querySelector('#cabecera');
+
+var respuestaCabecera = function () {
+
+  alert(this);
+    
+  var that = this;
+    
+  setTimeout(function () { alert(that);}, 2000);
+
+};
+
+cabecera.addEventListener('click', respuestaCabecera, false);
+
+}
+
+</script>
+
+</head>
+
+<body onload="ejemplo()"><div id="cabecera"><h2>Cursos aprenderaprogramar.com HAZ CLICK AQUÍ</h2><h3>Ejemplos JavaScript</h3></div>
+
+</body>
+</html>
+
+

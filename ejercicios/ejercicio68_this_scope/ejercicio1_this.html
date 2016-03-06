@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function ejemplo() {
+
+var cabecera = document.querySelector('#cabecera');
+
+var respuestaCabecera = function () {
+
+  alert(this);
+
+  setTimeout(function () { alert(this);}, 2000);
+
+};
+
+cabecera.addEventListener('click', respuestaCabecera, false);
+
+}
+
+</script>
+
+</head>
+
+<body onload="ejemplo()"><div id="cabecera"><h2>Cursos aprenderaprogramar.com HAZ CLICK AQUÍ</h2><h3>Ejemplos JavaScript</h3></div>
+
+</body>
+</html>
+
+
+<!-- Aunque usamos la misma palabra this, como la usamos en diferentes sitios hace referencia a distintos sitios. El primer this hace referencia al evento que es asignado de la variable cabecera, que esta proviene de la etiqueta que tiene el identificador #cabecera.Por eso al hacer alert de este this nos sale:
+            object HTMLDivElement
+El segundo this lo encontramos en una función que está dentro de otra función. Por lo que este this hace referencia a la definicion de esta funcion. Por eso al hacer alert de este this nos sale:
+           objectWindow
+    -->
