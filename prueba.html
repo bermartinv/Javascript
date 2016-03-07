@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>For, for in</title>
+    <title>Ejercicio textContent</title>
     <script>
-        window.onload = function (){
-    
-            var coleccion = [];
-            var msg = 'Numeros multiplicado por 5 = ';
-
-            for (i = 0; i<5; i++){
-                coleccion[i] = Number(prompt('Introducir numero'));
+        function ejemplo () {
+            var introducNumeros = [];
+            for (i = 0; i<5; i++) {
+                introducNumeros[i] = Number(prompt("Introduce un número"));
             }
 
-            for (j in coleccion) {
-                var multiplicar = coleccion[j] * 5;
-                msg += multiplicar + ', ';
+            var numMultiplicados = "Tus numeros se han multiplicado por 3: ";
+            var lugar = document.getElementById('place');
+            for (j in introducNumeros) {
+                var calc = introducNumeros[j] * 3;
+                numMultiplicados = numMultiplicados + introducNumeros[j] + ' X 3 = ' + calc + ', ';
             }
-            alert('Numeros introducidos = ' + coleccion + '\n' + msg);
+            lugar.textContent = numMultiplicados;
         }
-        
+        window.addEventListener('load', ejemplo, false);
     </script>
 </head>
 <body>
+   <h1>Ejercicio curso aprenderaprogramar.com</h1>
+   <div id="place"></div>
    
 </body>
 </html>

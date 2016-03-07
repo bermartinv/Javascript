@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body { font-family: Helvetica, Arial, sans-serif;}
+
+h2 {  font-size: 1.5em;} h3 { font-size: 1.2em;}
+
+div div {color:blue; margin:10px;}
+
+</style>
+
+<script type="text/javascript">
+
+function cambiarDimensionFuente(size) {   return function() { document.body.style.fontSize = size + 'px';};
+
+}
+
+var size8 = cambiarDimensionFuente(8);
+
+var size16 = cambiarDimensionFuente(16);
+
+var size24 = cambiarDimensionFuente(24);
+
+ 
+
+function setClicks(){
+
+document.getElementById('fuente-8').onclick = size8;
+
+document.getElementById('fuente-16').onclick = size16;
+
+document.getElementById('fuente-24').onclick = size24;
+
+}
+
+</script></head>
+
+<body onload="setClicks()">
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<div id ="fuente-8" > Poner texto a 8 </div> <div id ="fuente-16" > Poner texto a 16 </div>
+
+<div id ="fuente-24" > Poner texto a 24 </div> </div>
+
+<p>En las praderas de la estepa de la Tierra del Fuego suele hacer frío</p>
+</body></html>
+
+
+<!--
+a) la closure sstá en la funcion interna de cambiarDimensionFuente, esta función interna usa la variable global 'size' que se obtiene de la definición de la funcion.
+b) en la funcion setClicks define todos los eventos onclick que queremos que realice. 
+'document.getElementById('fuente-8').onclick=size8;
+esta definicion del evento onclick, nos lleva a la variable global que está definida por la llamada de otra función cambiarDimensionFuente/size) y que define el tamaño de la fuente del texto que se encuentra dentro de una etiqueta con un id='fuente-8'.
+c) si no tenemos la funcion setClicks no está definido los eventos onclick. ada variable global tendrá un fontSize definido pero no se asigna a las etiquetas del codigo existentes.
+ReferenceError: setClicks is not defined
+d)Si lo escribimos de esta manera 'document.getElementById.('fuente-8').onclick=size8();', se tomaría size8() como una función y se ejecutaría nada más cargar la página. Sin necesidad de hacer click sobre el texto. Es decir, el tamaño de letra pasaría a ser 8px.
+e)size8();
+Porque de esa manera usamos size8 como una función, si pusiésemos solo size8; no pasaría nada.
+f)Como ventaja veo que se pueden definir elementos denuestras paginas como si la closure fuese el constructor de un objeto permitiendote la reusabilidad.
+Como desventaja que tienes que tener muy claro su funcionamiento.
+
+-->

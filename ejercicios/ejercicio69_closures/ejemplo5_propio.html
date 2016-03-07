@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-size: 15px;
+    }
+    
+    div{
+        float:left;
+        margin: 20px;
+        border:solid thin black;
+        width:300px;
+        height:300px;
+    }
+    
+    button{
+        margin:10px;
+        
+    }
+    
+    #caja1,#caja2,#caja3{
+        width:250px;
+        height:200px;
+        text-align: center;
+        
+        
+    }
+</style>
+<script>
+window.onload=function(){
+    document.getElementById('primero').onclick=size20;
+    document.getElementById('segundo').onclick=size30;
+    document.getElementById('tercero').onclick=function (this,40);
+   
+}    
+ var size20 = tamanyoText(this,20);
+    var size30 = tamanyoText(this,30);
+    var size40 = tamanyoText(this,40);
+    
+function tamanyoText(remitente,size){
+    alert (remitente);
+    return function(){
+        document.remitente.style.fontSize = size +'px';
+    };
+}
+    
+</script>
+<body>
+<div>
+    <button id='primero'>20px Texto Caja 1</button>
+    <div id='caja1'><p id="texto1">Texto Caja 1</p></div>
+</div>
+<div>
+    <button id='segundo'>30px Texto Caja 1</button>
+    <div id='caja2'><p id="texto2">Texto Caja 2</p></div>
+</div>
+<div>
+    <button id='tercero'>40px Texto Caja 1</button>
+    <div id='caja3'><p id="texto3">Texto Caja 3</p></div>
+</div>
+</body>
+</html>
