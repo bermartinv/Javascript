@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #mensaje{
+        position:relative;
+        top:200px;
+        left:20%;
+    }   
+    
+    #texto{
+        position:absolute;  
+        color:crimson;
+        font-size: 20px;
+    }
+    
+    #cuentaAtras{
+        position: absolute;
+        font-size: 500px;
+        color :cadetblue;
+        left:15%;
+        top:30px;
+    }
+    
+</style>
+
+<script>
+    var contador = 0;
+window.onload=function(){
+    contar(5);
+    
+   
+    
+    function contar(numero){
+       
+        document.getElementById('cuentaAtras').innerHTML=numero;
+        if (contador==5 && numero==0){
+            clearTimeout(llamada);
+            newDirection();
+        }
+    contador++;
+         var llamada = setTimeout(function(){contar(numero-1)},1000);
+    
+    }
+    
+    function newDirection(){
+        window.location.replace('http://aprenderaprogramar.com');
+    }
+    
+}    
+    
+</script>
+</head>
+<body>
+   <div id="mensaje">
+    <div id='texto'>Hemos cambiado de ubicación esta página. En breves momentos será redireccionado…</div>
+    <div id='cuentaAtras'></div>
+    </div>
+</body>
+</html>

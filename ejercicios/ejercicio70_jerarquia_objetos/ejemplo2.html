@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+window.onload=function(){
+    var navegador = window.navigator.userAgent;
+    var msg = "El navegador en uso es : ";
+    var navegadorMozilla = /Firefox/;
+    var navegadorOpera = /Opera/;
+    var navegadorSafari = /Safari/;
+    var navegadorChrome = /Chrome/;
+    var navegadorIE = /Trident/;
+    if (navegadorMozilla.test(navegador)){
+        msg += 'Mozilla';
+    }else if (navegadorOpera.test(navegador)){
+        msg += 'Opera';
+    }else if (navegadorSafari.test(navegador) && navegadorChrome.test(navegador)){
+        msg += 'Google Chrome';
+     }else if (navegadorSafari.test(navegador) && !navegadorChrome.test(navegador)){
+        msg += 'Safari';
+    }else if (navegadorIE.test(navegador)){
+        msg += 'Internet Explorer';
+    }else{
+        msg += 'Desconocido';
+    }
+    alert (msg);
+}    
+</script>
+<body>
+    
+</body>
+</html>
+
+
