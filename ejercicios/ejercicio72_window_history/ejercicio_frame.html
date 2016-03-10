@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #principal{
+        margin:auto;
+        width:90%;
+        height:800px;
+        border: solid thin black;
+    }   
+    
+    #izquierda,#derecha{
+        margin:10px;
+        width: 45%;
+        height:90%;
+    }
+    
+    #izquierda{
+        float:left;
+    }
+    
+    #derecha{
+        float:right;
+    }
+    
+    #botones{
+        
+    }
+    
+    .boton{
+        margin:10px;
+        height:30px;
+        width:200px;
+        padding-top:10px;
+        text-align: center;
+        border:solid thin blue;
+        background-color:aquamarine;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor:pointer; 
+    }
+    
+    .frame{
+        margin:18px;
+        width:90%;
+        height:500px;
+    }
+</style>
+<script>
+window.onload = function(){ 
+    
+    var enlaces = document.getElementsByClassName("boton");
+    
+    var left = document.getElementById('iframeleft');
+    
+    var right = document.getElementById('iframeright');
+    
+    enlaces[0].onclick = function (){left.src = 'http://www.clarin.com'};
+                                   
+    enlaces[1].onclick = function(){left.src = 'http://impresa.elmercurio.com/'};
+                                   
+    enlaces[2].onclick = function(){left.src = 'http://www.elespectador.com'};
+                                   
+    enlaces[3].onclick = function(){right.src = 'http://www.universal.com'};
+                                   
+    enlaces[4].onclick = function(){right.src = 'http://www.elcomercio.pe'};
+                                   
+    enlaces[5].onclick = function(){right.src = 'http://www.elmundo.es/'};
+    
+}    
+</script>
+</head>
+<body>
+<div id='principal'>
+    <div id='izquierda'>
+        <div class='botones'>
+            <div class='boton'>clarin.com</div>
+            <div class='boton'>elmercurio.cl</div>
+            <div class='boton'>elespectador.com</div>
+        </div>
+        <iframe class='frame' name='iframeleft' id='iframeleft' src=''></iframe>
+    </div>
+    <div id='derecha'>
+        <div class='botones'>
+            <div class='boton'>universal.com.mx</div>
+            <div class='boton'>elcomercio.pe</div>
+            <div class='boton'>elmundo.es</div>
+        </div>       
+        <iframe class='frame' name='iframeright' src='' id='iframeright'></iframe>
+    </div>
+</div>
+</body>
+</html>

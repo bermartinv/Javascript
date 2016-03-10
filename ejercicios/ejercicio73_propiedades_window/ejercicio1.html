@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+			window.onload = function () {
+							var ejemplo = document.getElementById('ejemplo');
+							ejemplo.addEventListener("click", ejecutarEjemplo);
+			}
+			
+			function ejecutarEjemplo () {
+							var nuevaVentana = window.open ('http://aprendeaprogramar.es', 'miNombre', 'width=300, height=300, resizable=true, menubar=yes');
+							nuevaVentana.focus();
+							rellenaDatos(nuevaVentana);
+			}
+			function rellenaDatos(nuevaVentana){
+				if(nuevaVentana.closed){
+					var ventana = "cerrado"
+				}else{ ventana = 'abierto'
+                }   
+                    var msg = 'La ventana que hemos '+ventana+' tienes las siguientes caracteristicas<br/>'
+                    msg +=  'Las medidas del viewport son '+nuevaVentana.innerHeight+' para la altura y '+nuevaVentana.innerWidth+' para el ancho<br/> ';
+                    msg += 'Hay '+nuevaVentana.frames.length+ ' frames abiertos<br/>';
+                    msg += 'La url a la que apunta es '+nuevaVentana.location.href+'<br/>';
+                    msg += 'El name que tiene la ventana es '+nuevaVentana.name+'<br\>';
+                    msg += 'Las dimesiones hasta los bordes exteriores son de '+nuevaVentana.outerHeight+'X'+nuevaVentana.outerWidth+'<br\>';
+                    msg += 'y la posicion de la ventana es respecto al eje x de '+nuevaVentana.screenX+' y respecto al eje y '+nuevaVentana.screenY;
+                    informacion.innerHTML = msg;
+                    
+            }
+		</script>
+	</head>
+	<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue; margin:20px;" id ="ejemplo">Pulsa aquí</div>
+
+<div id="informacion"></div>
+
+</body>
+</html>

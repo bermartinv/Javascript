@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #slider{
+        border:thin solid black;
+        position:relative;
+        margin: 0 auto;
+        height:500px;
+        width: 700px;
+    }
+   
+   
+    #resumencomida {
+        color:black;
+        width:80%;
+        min-height:25%;
+        font-size:12px;
+        background-color:yellow;
+        margin-top: 30px;
+        margin-left:6%;
+        padding: 18px 20px 6px;
+}
+
+    #images{
+        margin:0 120px;
+    }   
+
+    .fotos{
+    margin:20px 20px;
+    padding:0 auto;
+    border:solid thin black;
+    border-radius: 50%;
+}
+
+     #flechas{
+        clear:both;
+        margin-top:50px;
+    }
+   
+    #siguiente{
+        display: block;
+        margin:5px;
+        float:right;
+        cursor:pointer;
+        height:50px;
+        width:50px;
+    }
+   
+    #anterior{
+        margin: 5px;
+        left:0px;
+        float:left;
+        width:50px;
+        height:50px;
+        cursor:pointer;
+    }
+
+   
+    #pie{
+        font-size: 13px;
+        text-align: center;
+        clear: both;
+    }
+   
+</style>
+<script>
+   
+window.onload=function(){
+   
+imagesVector= ['http://lorempixel.com/100/100/food/1/', 'http://lorempixel.com/100/100/food/2/', 'http://lorempixel.com/100/100/food/3/'];
+
+var texto1 = '<h2>NUESTRA COMIDA.</h2><p>En Dicamino ofrecemos platos conbinados.está diseñado en torno a los conceptos clave del café de excepcional calidad y accesibilidad para los comensales ocasionales. Durante todo el día el desayuno. cocina italiana distintivo. Y un café: resueltamente sin diluir por flaca o descafeinado, se ha convertido en un símbolo de excelencia inflexible</p>';
+   
+var texto2 = '<h2>DESAYUNO.</h2><p>Izquierda: Marios Muesli y Ensalada de fruta fresca</p><p>Derecha: Huevos florentina - escalfado Rango huevos libres, que se presentan en inglés tostado molletes con salteado de espinacas y salsa bearnesa Marios</p>';
+   
+var texto3 = '<h2>DESAYUNO.</h2><p>Izquierda: salmón ahumado y aguacate con su opción de multi-grano, masa fermentada o tostadas Sin Gluten</p><p>Derecha: caramelizado de melocotón y pistacho crepes con crema doble</p>';
+
+var imagenes = document.querySelectorAll('.fotos');
+   
+var contador = 0;
+   
+imagenes[contador].style.borderWidth = 10+'px';
+   
+imagenes[contador].style.borderColor = 'blue';   
+
+document.getElementById("siguiente").onclick=fotoSiguiente;
+   
+document.getElementById("anterior").onclick=fotoAnterior;
+
+function fotoSiguiente(){
+   
+    contador++;
+   
+    if (contador>=2){
+	
+        contador = 2;
+   
+    }
+   
+    imagenes[contador-1].style.borderWidth = 'thin';
+   
+    imagenes[contador-1].style.borderColor = 'black';
+   
+    imagenes[contador].style.borderWidth = 10+'px';
+   
+    imagenes[contador].style.borderColor = 'blue';
+   
+    switch (contador){
+       
+        case 0: texto = texto1;
+                break;
+        case 1: texto = texto2;
+                break;
+        case 2: texto = texto3;
+                break;
+    }
+   
+    resumencomida.innerHTML = texto;
+}
+   
+
+function fotoAnterior(){
+
+    contador--;
+   
+    if (contador <= 0){
+	
+        contador = 0;
+   
+    }
+   
+    imagenes[contador+1].style.borderWidth = 'thin';
+   
+    imagenes[contador+1].style.borderColor = 'black';
+   
+    imagenes[contador].style.borderWidth = 10+'px';
+   
+    imagenes[contador].style.borderColor = 'blue';
+   
+    switch (contador){
+       
+        case 0: texto = texto1;
+                break;
+        case 1: texto = texto2;
+                break;
+        case 2: texto = texto3;
+                break;
+    }
+   
+    resumencomida.innerHTML = texto;
+}   
+
+}
+</script>
+</head>
+<body>
+    	<div id="slider">
+					<div id="images">	
+                        <img class="fotos" src="http://lorempixel.com/100/100/food/1/" alt="comida dicamino" id="visor" name="visor">
+				        <img class="fotos" src="http://lorempixel.com/100/100/food/2/" alt="comida dicamino" id="visor" name="visor">		
+		                <img class="fotos" src="http://lorempixel.com/100/100/food/3/" alt="comida dicamino">
+                    </div>
+				<div id="resumencomida">
+					<h2>NUESTRA COMIDA.</h2>
+					<p>En Dicamino ofrecemos platos conbinados.está diseñado en torno a los conceptos clave del café de excepcional calidad y accesibilidad para los comensales ocasionales. Durante todo el día el desayuno. cocina italiana distintivo. Y un café: resueltamente sin diluir por flaca o descafeinado, se ha convertido en un símbolo de excelencia inflexible</p>
+					
+				</div>
+				
+        <div id="flechas">
+    	<img  id="anterior" src="http://www.cruzeirofutebolclube.com.br/imgs/seta%20verde.jpg">
+		<img  id="siguiente" src="http://www.iconarchive.com/download/i7964/hopstarter/soft-scraps/Button-Next.ico">
+        </div>
+	   
+	    <div id='pie'>
+	       <p>Utilice las flechas de navegación para navegar a través de una selección de nuestros platos de .</p>
+	    </div>
+	   
+		
+    </div>
+
+    	
+</body>
+</html>
+
+

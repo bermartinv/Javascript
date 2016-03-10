@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<script type="text/javascript">
+			window.onload = function () {
+							var ejemplo = document.getElementById('ejemplo');
+							ejemplo.addEventListener("click", ejecutarEjemplo);
+			}
+			var nuevaVentana;
+			function ejecutarEjemplo () {
+							nuevaVentana = window.open ('http://aprendeaprogramar.es', 'miNombre', 'width=300, height=300, resizable=true, menubar=yes');
+							nuevaVentana.focus();
+							rellenaDatos();
+			}
+			function rellenaDatos(){
+				if(nuevaVentana.closed==true || nuevaVentana.closed==undefined){
+					document.getElementById('cerradoOAbierto').innerHTML = 'La ventana está cerrada';
+				}else{
+					document.getElementById('cerradoOAbierto').innerHTML = 'La ventana está abierta';
+					document.getElementById('dimensionesViewport').innerHTML = 'La altura del viewport es: ' + nuevaVentana.innerHeight + ' y la anchura es: ' + nuevaVentana.innerWidth;
+					document.getElementById('numFrames').innerHTML = 'Hay ' +  nuevaVentana.frames.length + ' frames.';
+					document.getElementById('apuntaA').innerHTML = 'url a la que apuntar: ' + nuevaVentana.location.href;
+					document.getElementById('valorName').innerHTML = 'El name es: ' + nuevaVentana.name;
+					document.getElementById('dimensionesVentana').innerHTML = 'La altura de la ventana completa hasta el límite exterior de sus bordes' +
+							' es: ' + nuevaVentana.outerHeight + ' y su anchura es: ' + nuevaVentana.outerWidth;
+					document.getElementById('desplazamineto').innerHTML = 'El desplazamiento lateral izquierdo es: ' + nuevaVentana.screenX +
+							'px, y el desplazamiento desde el borde superior es: ' +  nuevaVentana.screenY + 'px.'
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+		<div style="color:blue; margin:20px;" id ="ejemplo">Pulsa aquí</div>
+		<div id="cerradoOAbierto"></div>
+		<div id='dimensionesViewport'></div>
+		<div id='numFrames'></div>
+		<div id='apuntaA'></div>
+		<div id='valorName'></div>
+		<div id='dimensionesVentana'></div>
+		<div id='desplazamineto'></div>
+	</body>
+</html>

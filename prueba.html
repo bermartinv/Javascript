@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ejercicio textContent</title>
-    <script>
-        function ejemplo () {
-            var introducNumeros = [];
-            for (i = 0; i<5; i++) {
-                introducNumeros[i] = Number(prompt("Introduce un número"));
-            }
-
-            var numMultiplicados = "Tus numeros se han multiplicado por 3: ";
-            var lugar = document.getElementById('place');
-            for (j in introducNumeros) {
-                var calc = introducNumeros[j] * 3;
-                numMultiplicados = numMultiplicados + introducNumeros[j] + ' X 3 = ' + calc + ', ';
-            }
-            lugar.textContent = numMultiplicados;
-        }
-        window.addEventListener('load', ejemplo, false);
-    </script>
+	<meta charset="utf-8">
+	<title>Ejercicio 1063</title>
+	<style type="text/css">
+	*{margin:0; padding:0; font-family: sans-serif;}
+	.bloquePub{border:5px solid; width:260px;
+	float:left;
+	margin:60px 0 0 90px; background-color:yellow;
+	font-size:20px; text-align:center;
+	padding-top:20px;word-wrap:break-word;
+	border-radius:40px;}
+	h2{width:25%; text-align:center; margin:15px auto;}
+	img{padding:10px;}
+	
+	#transEj1 div{transition:all 2s ease-in-out; perspective:800px; perspective-origin:50% 100px;}
+	#transEj1:hover #rotateX{transform:rotateX(180deg);}
+	#transEj1:hover #rotateY{transform:rotateY(180deg);}
+	#transEj1:hover #rotateZ{transform:rotateZ(180deg);}
+	
+	</style>
 </head>
 <body>
-   <h1>Ejercicio curso aprenderaprogramar.com</h1>
-   <div id="place"></div>
-   
+	
+<div id="transEj1" style="border-style:none; border-width:0;">
+	<h2>CSS transition</h2>
+	<div class="bloquePub" id="rotateX">aprenderaprogramar.com<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" ></div>
+	<div class="bloquePub" id="rotateY">aprenderaprogramar.com<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" ></div>
+	<div class="bloquePub" id="rotateZ">aprenderaprogramar.com<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" ></div>
+</div>
 </body>
 </html>

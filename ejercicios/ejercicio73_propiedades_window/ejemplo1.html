@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ window.onload = function () {
+
+                var ejemplo = document.getElementById('ejemplo');
+
+                ejemplo.addEventListener("click", ejecutarEjemplo);
+
+}
+
+function ejecutarEjemplo () {
+
+                var nuevaVentana = window.open ('http://aprendeaprogramar.es', 'miNombre', 'width=300, height=300, resizable=true, menubar=yes');
+
+                nuevaVentana.focus();
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue; margin:20px;" id ="ejemplo">Pulsa aquí</div>
+
+</body>
+</html>

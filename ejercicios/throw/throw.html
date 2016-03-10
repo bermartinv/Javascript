@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+var getMonth = (function() {
+    var months = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+        "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+ 
+    return function(n) {
+        if (n < 1 || n > 12)
+            throw new RangeError("Mes incorrecto");
+        return months[n-1];
+    };
+ 
+}()); //end IIFE
+ 
+alert( getMonth(12) );
+</script>
+</head>
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<style>
+			#cabecera{text-align: center;}
+			.pulsador{ width: 20%;}
+			#pulsadorIzq{float: left;}
+			#pulsadorDcha{float: right;}
+			#contenedorFrames{width: 100%;}
+			li{padding:10px; width: auto; display: inline-block; margin: 10px; cursor: pointer; color: yellow; border-radius: 40px; background: purple;}
+			iframe{margin:20px; padding:20px; width: 40%; height: 600px;}
+			.limpiador{clear:both;}
+		</style>
+		<script type="text/javascript">
+			function ejemplo(destino){
+				iframe = document.getElementsByTagName('iframe');
+				switch (destino){
+					case 1:
+						iframe[0].src = 'http://clarin.com';
+						break;
+					case 2:
+						iframe[0].src = 'http://elmercurio.cl';
+						break;
+					case 3:
+						iframe[0].src = 'http://elespectador.com';
+						break;
+					case 4:
+						iframe[1].src = 'http://eluniversal.com.mx';
+						break;
+					case 5:
+						iframe[1].src = 'http://elcomercio.pe';
+						break;
+					case 6:
+						iframe[1].src = 'http://elmundo.es';
+						break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+		<div id ="pulsadorIzq" class="pulsador">
+			<ul>
+				<li onclick="ejemplo(1)">clarin.com</li>
+				<li onclick="ejemplo(2)">elmercurio.cl</li>
+				<li onclick="ejemplo(3)">elespectador.com</li>
+			</ul>
+		</div>
+		<div id ="pulsadorDcha" class="pulsador">
+			<ul>
+				<li onclick="ejemplo(4)">eluniversal.com.mx</li>
+				<li onclick="ejemplo(5)">elcomercio.pe</li>
+				<li onclick="ejemplo(6)">elmundo.es</li>
+			</ul>
+		</div>
+		<div class="limpiador" id = "contenedorFrames">
+			<iframe name="aprende1" src="http://clarin.com" >
+				<p>Tu navegador no admite iframes.</p>
+			</iframe>
+			<iframe name="aprende2" src="http://eluniversal.com.mx">
+				<p>Tu navegador no admite iframes.</p>
+			</iframe>
+		</div>
+	</body>
+</html>
