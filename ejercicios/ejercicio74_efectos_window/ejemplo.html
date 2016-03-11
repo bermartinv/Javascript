@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+var start = 0;
+
+var positionY = window.innerHeight/2-125;
+
+var nuevaVentana;
+
+var controlSinusoidal=0;
+
+ window.onload = function () {
+
+                var ejemplo = document.getElementById('ejemplo');
+
+                ejemplo.addEventListener("click", ejecutarEjemplo);
+
+}
+
+ 
+
+function ejecutarEjemplo () {
+
+                nuevaVentana = window.open ('', 'miNombre', 'width=250, height=250, resizable=true, menubar=yes');
+
+                nuevaVentana.document.write('<h1>Aprenda a programar ahora. Aproveche la oportunidad</h1>');
+
+                nuevaVentana.focus();
+
+                nuevaVentana.moveTo(0,positionY);
+
+                nuevaVentana.setInterval( sine, 1000/30 );
+
+}
+
+ 
+
+function sine(){
+
+  controlSinusoidal = controlSinusoidal + Math.PI/256;
+
+  positionY = 100*Math.sin(controlSinusoidal);
+
+  start += 2;
+
+  nuevaVentana.moveTo(start, window.innerHeight/2-100+positionY);
+
+}
+
+ 
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue; margin:20px;" id ="ejemplo">Pulsa aquí</div>
+
+</body>
+</html>

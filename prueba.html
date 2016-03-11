@@ -1,33 +1,116 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-	<meta charset="utf-8">
-	<title>Ejercicio 1063</title>
-	<style type="text/css">
-	*{margin:0; padding:0; font-family: sans-serif;}
-	.bloquePub{border:5px solid; width:260px;
-	float:left;
-	margin:60px 0 0 90px; background-color:yellow;
-	font-size:20px; text-align:center;
-	padding-top:20px;word-wrap:break-word;
-	border-radius:40px;}
-	h2{width:25%; text-align:center; margin:15px auto;}
-	img{padding:10px;}
+<meta name="description" content="portal web - Aprenprenderaprogramar.com">
+<meta name="keywords" content="diseño web CSS con varias columnas con float "><meta charset="utf-8">
+<style>
+*{font-family: arial;}
+
+body{
+	width: 900px;
+	border-style: dotted;
+	border-width: 1px;
+}
+    
+div{
+	text-align: center;
+    
+}
+    
+#cabecera{
+	background-color: #ADD8E6;
+	height: 30px;
 	
-	#transEj1 div{transition:all 2s ease-in-out; perspective:800px; perspective-origin:50% 100px;}
-	#transEj1:hover #rotateX{transform:rotateX(180deg);}
-	#transEj1:hover #rotateY{transform:rotateY(180deg);}
-	#transEj1:hover #rotateZ{transform:rotateZ(180deg);}
+}
+    
+#col_izq{
+	width: 25%;
+	background-color: yellow;
+	float: left;
+	height: 150px;
+}
+
+#cajas{
+        float:left;
+        width: 50%;
+        background-color: #90EE90;
+    }
+    
+#caja1,#caja2{
+	float: left;
+    height:75px;	
+}
+    
+#col_der{
+	width: 25%;
+	height: 150px;
+	background-color: yellow;
+	float: left;
+    
 	
-	</style>
+}
+    
+#caja_contacto{
+	width: 50%;
+	height: 50px;
+	background-color: #DDA0DD;
+	float: left;
+	clear: both;
+}
+    
+#footer{
+	width: 50%;
+	height: 50px;
+	background-color: pink;
+	float: right;
+	
+}
+.limpiador{
+	clear: both;
+	
+	border-style: none;
+}
+</style>
+<title>Diseño web con CSS con varias columnas con float.</title>
 </head>
 <body>
+
+	<!--cabecera de la página-->
+	<div id="cabecera">Bienvenidos a aprenderaprogramar.com</div>
+
+	<!--columna izquierda-->
+	<div id="col_izq">
+	Menú<br/>
+	<ul>
+		<li>Cursos</li>
+		<li>Humor</li>
+		<li>Divulgación</li>
+	</ul>
+		
+	</div>
 	
-<div id="transEj1" style="border-style:none; border-width:0;">
-	<h2>CSS transition</h2>
-	<div class="bloquePub" id="rotateX">aprenderaprogramar.com<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" ></div>
-	<div class="bloquePub" id="rotateY">aprenderaprogramar.com<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" ></div>
-	<div class="bloquePub" id="rotateZ">aprenderaprogramar.com<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" ></div>
-</div>
+	<div id='cajas'>
+	
+	    <!--1ª caja central (arriba)-->
+	    <div id="caja1">Conoce las últimas novedades del lenguaje Javascript.</div>
+	
+	
+	    <!--2ª caja central (abajo)-->
+	    <div id="caja2">Articulo sobre Gimp, un programa sobre software libre para el diseño gráfico.</div>
+	
+	 </div>
+	
+	<!--columna derecha-->
+	<div id="col_der">Espacio reservado para publicidad</div>
+	
+   
+	<!--caja izquierda-->
+	<div id="caja_contacto">Contacta con nosotros</div>
+	
+	<!--caja derecha-->
+	<div id="footer">Aviso legal</div>
+	<div class="limpiador"></div>
 </body>
 </html>
