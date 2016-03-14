@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<script type="text/javascript">
+			function comprobarDatosFormulario(){
+				var comprobacion = false;
+				var expReg = /[\s\S]{3}/;		
+				var nombre = document.getElementById('nombreFormUsuario').value;
+				if(!expReg.test(nombre)){
+					alert('Datos incorrectos, el formulario NO se enviará');
+					return false;
+				}else{
+					alert('Datos correctos, el formulario SI se enviará');
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name ="formularioUsuario" method="get" onsubmit="return comprobarDatosFormulario()">
+			<h2>Formulario ejemplo</h2>
+			<label>Nombre:<input id="nombreFormUsuario" type="text" name="nombre" /></label>
+			<label><input id ="botonEnvio1" type="submit" value="Enviar"></label>
+		</form>
+	</body>
+</html>

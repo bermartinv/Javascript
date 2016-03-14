@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    label{
+        display:block;
+        margin:10px;
+    }    
+    
+    input{
+        margin:10px;
+    }
+</style>
+<script>
+var envioFormulario = true;
+function validar(){
+    var formulario = document.forms['formularioContacto'];
+    var expReg = /^\S{3,}$/;
+    
+    var msg= 'Los elementos que no tienen almenos tres caracteres son:';
+   
+       
+       
+     if (!expReg.test(formulario.nombre.value)){
+            envioFormulario = false;
+            msg += '\n'+formulario.nombre.name;
+        }
+     if (!expReg.test(formulario.apellidos.value)){
+            envioFormulario = false;
+            msg += '\n'+formulario.apellidos.name;
+        }
+     if (!expReg.test(formulario.email.value)){
+            envioFormulario = false;
+            msg += '\n'+formulario.email.name;
+        }
+     if (!expReg.test(formulario.ciudad.value)){
+            envioFormulario = false;
+            msg += '\n'+formulario.ciudad.name;
+        }
+     if (!expReg.test(formulario.pais.value)){
+            envioFormulario = false;
+            msg += '\n'+formulario.pais.name;
+        }
+                
+    
+            if (!envioFormulario){
+                alert (msg);
+                return false;
+            }else{
+                alert ('OK.Procedemos a enviar el formulario');
+                return true;
+                
+            }
+                
+}    
+
+</script>
+</head>
+<body>
+<form name="formularioContacto" method="get" onsubmit="return validar()">
+    <label>Nombre<input name="nombre" id="nombre"/></label>
+    <label>Apellidos<input name="apellidos" id="apellidos"/></label>
+    <label>Email<input name="email" id="email"/></label>
+    <label>Ciudad<input name="ciudad" id="ciudad"/></label>
+    <label>Pais<input name="pais" id="pais"/></label>    
+    <label><input type="submit" value="Enviar" id="botonEnvio"></label>
+</form>
+</body>
+</html>
