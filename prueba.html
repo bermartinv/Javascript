@@ -1,116 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-<meta name="description" content="portal web - Aprenprenderaprogramar.com">
-<meta name="keywords" content="diseño web CSS con varias columnas con float "><meta charset="utf-8">
-<style>
-*{font-family: arial;}
+<meta name="description" content="portal web - Aprenderaprogramar.com">
+<meta name="keywords" content="z-index control de superposición de elementos como capas, div, o imágenes">
+<meta charset="utf-8">
+<title>Ejemplo Aprenderaprogramar.com</title>
 
-body{
-	width: 900px;
-	border-style: dotted;
-	border-width: 1px;
+<style type="text/css">
+
+*{font-family: sans-serif;}
+#cajagris{
+	width:225px;
+	height: 225px;
+	border: solid 1px #ccc;
+	background: #ddd;
+	margin-top: 20px;
+	z-index: 10;
+	position: absolute;
 }
-    
-div{
-	text-align: center;
-    
+#cajaazul{
+	width: 225px;
+	height: 225px;
+	border: solid 3px #4a7497;
+	background: #8daac3;
+	margin-top: -50px;
+	margin-left: 50px;
 }
-    
-#cabecera{
-	background-color: #ADD8E6;
-	height: 30px;
-	
-}
-    
-#col_izq{
-	width: 25%;
-	background-color: yellow;
-	float: left;
-	height: 150px;
+#cajaocre{
+	width: 225px;
+	height: 225px;
+	border: solid 2px #8b6125;
+	background: #ba945d;
+	margin-top: -50px;
+	margin-left: 100px;
+	margin-bottom: 20px;
+
 }
 
-#cajas{
-        float:left;
-        width: 50%;
-        background-color: #90EE90;
-    }
-    
-#caja1,#caja2{
-	float: left;
-    height:75px;	
-}
-    
-#col_der{
-	width: 25%;
-	height: 150px;
-	background-color: yellow;
-	float: left;
-    
-	
-}
-    
-#caja_contacto{
-	width: 50%;
-	height: 50px;
-	background-color: #DDA0DD;
-	float: left;
-	clear: both;
-}
-    
-#footer{
-	width: 50%;
-	height: 50px;
-	background-color: pink;
-	float: right;
-	
-}
-.limpiador{
-	clear: both;
-	
-	border-style: none;
-}
+
 </style>
-<title>Diseño web con CSS con varias columnas con float.</title>
+
 </head>
 <body>
 
-	<!--cabecera de la página-->
-	<div id="cabecera">Bienvenidos a aprenderaprogramar.com</div>
+	<div id="cajagris">
+	
+		Caja Gris
+	
+				</div>
 
-	<!--columna izquierda-->
-	<div id="col_izq">
-	Menú<br/>
-	<ul>
-		<li>Cursos</li>
-		<li>Humor</li>
-		<li>Divulgación</li>
-	</ul>
-		
-	</div>
-	
-	<div id='cajas'>
-	
-	    <!--1ª caja central (arriba)-->
-	    <div id="caja1">Conoce las últimas novedades del lenguaje Javascript.</div>
-	
-	
-	    <!--2ª caja central (abajo)-->
-	    <div id="caja2">Articulo sobre Gimp, un programa sobre software libre para el diseño gráfico.</div>
-	
-	 </div>
-	
-	<!--columna derecha-->
-	<div id="col_der">Espacio reservado para publicidad</div>
-	
-   
-	<!--caja izquierda-->
-	<div id="caja_contacto">Contacta con nosotros</div>
-	
-	<!--caja derecha-->
-	<div id="footer">Aviso legal</div>
-	<div class="limpiador"></div>
+				
+				<div id="cajaazul">
+				
+					Caja Azul
+				
+							</div>
+							
+							
+							<div id="cajaocre">
+							
+								Caja Ocre
+							
+											</div>
 </body>
 </html>
