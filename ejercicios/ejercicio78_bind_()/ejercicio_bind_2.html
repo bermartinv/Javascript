@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+ function conversor(toUnit, factor, offset, fromUnit, input) {
+
+    offset = offset || 0;
+
+    return [((offset+input)*factor).toFixed(2), toUnit].join(" ");
+
+}
+
+ 
+
+var milesToKm = conversor.bind(undefined, 'km', 1.60936, 0, 'millas');
+
+var poundsToKg = conversor.bind(undefined, 'kg', 0.45460, 0, 'pounds');
+
+var farenheitToCelsius = conversor.bind(undefined, 'gradosC',0.5556, -32, 'farenheit');
+
+ 
+
+alert(milesToKm(10));           
+
+alert(poundsToKg(2.5));         
+
+alert(farenheitToCelsius(98));    
+</script>
+</head>
+<body>
+    
+</body>
+</html> 

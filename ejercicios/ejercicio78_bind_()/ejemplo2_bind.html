@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function ejemplo() {
+
+function suma3(x, y, z) {return x+y+z;}
+
+var suma3Primos = suma3.bind(undefined, 2, 3, 5);
+
+alert (suma3Primos());
+
+alert(suma3Primos()+15);
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue; margin:20px;" id ="pulsador" onclick="ejemplo()">Pulsa aquí</div>
+
+</body>
+</html>

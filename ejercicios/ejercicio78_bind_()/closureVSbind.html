@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body { font-family: Helvetica, Arial, sans-serif;}
+
+h2 {  font-size: 1.5em;} h3 { font-size: 1.2em;}
+
+div div {color:blue; margin:10px;}
+
+</style>
+
+<script type="text/javascript">
+
+function cambiarDimensionFuente(size) {   return function() { document.body.style.fontSize = size + 'px';};
+
+}
+    
+function cambiarDimensionFuentebind(size) {   
+    
+        document.body.style.fontSize = size + 'px'
+
+}
+
+var contador = 0;
+    
+function cambiarDimensionFuentebindTHIS(event,tamanyo,elemento) {   
+    
+    elemento.style.fontSize = tamanyo  + 'px';
+
+}
+
+var size8 = cambiarDimensionFuente(8);
+
+var size16 = cambiarDimensionFuente(16);
+
+var size24 = cambiarDimensionFuente(24);
+
+ 
+
+function setClicks(){
+
+document.getElementById('fuente-8').onclick = size8;
+
+document.getElementById('fuente-16').onclick = size16;
+
+document.getElementById('fuente-24').onclick = size24;
+    
+document.getElementById('fuente-8_bind').onclick = cambiarDimensionFuentebind.bind('undefinde',8);
+
+document.getElementById('fuente-16_bind').onclick = cambiarDimensionFuentebind.bind('undefined',16);
+
+document.getElementById('fuente-24_bind').onclick = cambiarDimensionFuentebind.bind('undefined',24);
+
+document.getElementById('fuente-8_bind_this').addEventListener('click', function(event){ cambiarDimensionFuentebindTHIS(event,8,this);});
+      
+document.getElementById('fuente-16_bind_this').addEventListener('click', function(event){ cambiarDimensionFuentebindTHIS(event,16,this);});
+
+document.getElementById('fuente-24_bind_this').addEventListener('click', function(event){ cambiarDimensionFuentebindTHIS(event,24,this);});
+    
+}
+
+</script></head>
+
+<body onload="setClicks()">
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<div id ="fuente-8" > Poner texto a 8 </div> <div id ="fuente-16" > Poner texto a 16 </div>
+
+<div id ="fuente-24" > Poner texto a 24 </div> </div>
+
+<br/><br/><br/>
+
+<h2>Esto lo hacemos con bind</h2>
+<div>
+
+<div id ="fuente-8_bind" > Poner texto a 8 </div>
+
+ <div id ="fuente-16_bind" > Poner texto a 16 </div>
+
+<div id ="fuente-24_bind" > Poner texto a 24 </div>
+
+<p>En las praderas de la estepa de la Tierra del Fuego suele hacer frío</p>
+
+</div>
+<h2>Esto lo hacemos con bind</h2>
+<div>
+
+<div id ="fuente-8_bind_this" > Poner texto a 8 </div>
+
+ <div id ="fuente-16_bind_this" > Poner texto a 16 </div>
+
+<div id ="fuente-24_bind_this" > Poner texto a 24 </div>
+
+<p>En las praderas de la estepa de la Tierra del Fuego suele hacer frío</p>
+
+</div>
+
+</body></html>

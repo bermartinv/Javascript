@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        label {
+            display:block;
+            margin:10px;
+        }
+        
+        input{
+            margin-left:20px;
+        }
+    </style>
+    <script>
+    window.onload = function(){
+        
+        formularios=document.forms;
+        
+        for (var i=0;i<formularios.length;i++){
+            
+            for (var j=0;j<formularios[i].elements.length;j++){
+                
+                if (formularios[i].elements[j].type == 'text' && (j+1)%3 == 0){
+                    
+                    formularios[i].elements[j].addEventListener('click',function(evento){cambiaColorFondo(evento,'lightgreen',this)});
+                    
+                     formularios[i].elements[j].addEventListener('blur',cambiaColorInicial);
+                    
+                }else if (formularios[i].elements[j].type == 'text' && (j+1 == 1) || (j+1)%3 == 1){
+                    
+                     formularios[i].elements[j].addEventListener('click',function(evento){cambiaColorFondo(evento,'yellow',this);});
+                    
+                    formularios[i].elements[j].addEventListener('blur',cambiaColorInicial);
+                    
+                }else{
+                    
+                     formularios[i].elements[j].addEventListener('click',function(evento){cambiaColorFondo(evento,'aquamarine',this);});
+                    
+                    formularios[i].elements[j].addEventListener('blur',cambiaColorInicial);
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    function cambiaColorFondo(evento,color,objeto){
+        
+        objeto.style.backgroundColor = color;
+        
+    }
+    
+    function cambiaColorInicial(evento){
+        
+        this.style.backgroundColor = 'white';
+        
+    }
+        
+    </script>
+</head>
+<body>
+    <form name='formularioContaco' id='formulario' method='get' >
+        <label>Nombre<input type='text' name='name' id='name'/></label>
+        <label>Apellidos<input type='text' name='surname' id='surname'/></label>
+        <label>Edad<input type='text' name='age' id='age'/></label>
+        <label>Direccion de correo<input type='text' name='email' id='email'/></label>
+        <label>Direccion<input type='text' name='adress' id='adress'/></label>
+        <label>Profesion<input type='text' name='job' id='job'/></label>
+        <label><input type='submit' id='botonEnvio' value='Enviar'/></label>
+    </form>
+</body>
+</html>

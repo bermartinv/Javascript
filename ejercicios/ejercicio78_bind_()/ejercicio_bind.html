@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+ function conversor(toUnit, factor, offset, fromUnit, input) {
+
+    offset = offset || 0;
+
+    return [((offset+input)*factor).toFixed(2), toUnit].join(" ");
+
+}
+
+ 
+
+var milesToKm = conversor.bind(undefined, 'km', 1.60936, 0, 'millas');
+
+var poundsToKg = conversor.bind(undefined, 'kg', 0.45460, 0, 'pounds');
+
+var farenheitToCelsius = conversor.bind(undefined, 'gradosC',0.5556, -32, 'farenheit');
+
+ 
+
+alert(milesToKm(10));           
+
+alert(poundsToKg(2.5));         
+
+alert(farenheitToCelsius(98));    
+</script>
+</head>
+<body>
+    
+</body>
+</html> 
+/*
+ a) ¿Cuántas funciones ligadas (copias parametrizadas) de la función conversor se crean en este código?
+Se crean tres funciones ligadas.
+var milesToKm = conversor.bind(undefined, 'km', 1.60936, 0);
+
+var poundsToKg = conversor.bind(undefined, 'kg', 0.45460, 0);
+
+var farenheitToCelsius = conversor.bind(undefined, 'gradosC',0.5556, -32);
+
+
+b) ¿Qué es lo que devuelve la función conversor?
+Conversor devuelve un string, que es la unión del un vector. Une los valores de un vector separandolos por un espacio
+
+c) ¿Qué objeto actúa como this en la función milesToKm?
+No actua ningun objeto como this, no nos hace falta trabajar directamente sobre el objeto en esta ocación .Si tuvieramos que trabajar o manipular un mismo objeto con la referencia a otra funcion pondriamos this en la primera posicion de la llamada de la función.
+
+d) ¿Qué tarea cumple y con qué fórmula trabaja la función milesToKm?
+La función milesToKm trabaja con la referencia que se hace sobre la funcion conversor que ess la que contiene la formula
+
+e) ¿Qué tarea cumple y con qué fórmula trabaja la función poundsToKg?
+Al igua que la funcion milesToKm esta funcion esta definida con una referencia sobre la funcion conversor que es la que realiza la operacion del calculo.
+
+f) ¿Qué resultado devuelve milesToKm(10) y qué significa este resultado?
+El resultado es 16.09 kms, este resultado es la transformación de 10 millas a kilometros
+
+g) ¿Qué resultado devuelve poundsToKg(2.5) y qué significa este resultado?
+El resultado es 1.14 kg, este resultado es la formar de transforma la unidad de peso pound a kilogramos
+
+h) ¿Qué resultado devuelve farenheitToCelsius(98) y qué significa este resultado?
+El resultado es 36.67 grados centígrados, este es el resultado de transformar 98 grados farenheit a grados centigrados.
+
+i) ¿Qué significado tiene la expresión offset = offset || 0;?
+Significa que si la variable offset no está declarada en la llamada de su función valdrá 0
+
+j) ¿Cuál es la finalidad del uso de toFixed(2)?
+Redondear en dos decimales el resultado del cálculo.
+
+k) ¿Por qué crees que se usa el parámetro offset en la función conversor?
+Se usa offset para que la formula sea más general y se pueda usar en diferentes cálculos.
+
+l) Modifica el código para ampliar la información que se nos muestra: introduce un parámetro fromUnit en la función conversor de modo que el resultado nos informe del dato de origen, sus unidades, y el dato convertido y sus unidades.
+
+*/

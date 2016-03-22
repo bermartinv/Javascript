@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    var myObject = (function(){
+        var value = 0;
+        
+        return {
+            increment: function (inc){
+                value += typeof inc === 'number' ? inc : 1;
+            },
+            getValue: function (){
+                return value;
+                
+            }
+        }
+    }());!
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
