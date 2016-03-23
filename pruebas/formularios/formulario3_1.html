@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<style type="text/css">
+			body {background-color:yellow; font-family: sans-serif;}
+			label{color: maroon; display:block; padding:5px;}
+			.errorMsg{display:none; border:solid 2px; background-color: orange;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				document.formularioContacto.nombre.focus();
+				document.formularioContacto.addEventListener('submit', validarFormulario);
+			}
+			function validarFormulario(evObject){
+				evObject.preventDefault();
+				var formulario = document.formularioContacto;
+				var estadoNombre = false;
+				var estadoApellidos = false;
+				var estadoEmail = false;
+				estadoNombre = comprobarNombre(formulario);	
+				estadoApellidos = comprobarApellidos(formulario);
+				estadoEmail = comprobarEmail(formulario);
+				if(estadoNombre && estadoApellidos && estadoEmail){formulario.submit();}
+			}
+			function comprobarNombre(formulario){
+				if(formulario.nombre.value.length==0 || /^\s*$/.test(formulario.nombre.value)){
+					mensajeError(formulario.nombre, 0);
+					return false;
+				}else if(formulario.nombre.value.length>15){
+					mensajeError(formulario.nombre, 1);
+					return false;
+				}else{
+					ocultaCajaError(formulario.nombre);
+					return true;
+				}
+			}
+			function comprobarApellidos(formulario){
+				if(formulario.apellidos.value.length==0 || /^\s*$/.test(formulario.apellidos.value)){
+					mensajeError(formulario.apellidos, 2);
+					return false;
+				}else if(formulario.apellidos.value.length>30){
+					mensajeError(formulario.apellidos, 3);
+					return false;
+				}else{
+					ocultaCajaError(formulario.apellidos);
+					return true;
+				}
+			}
+			function comprobarEmail(formulario){
+				if(formulario.email.value.length==0 || /^\s*$/.test(formulario.email.value)){
+					mensajeError(formulario.email, 4);
+					return false;
+				}else if(formulario.email.value.length>35){
+					mensajeError(formulario.email, 5);
+					return false;
+				}else if(!/[@]/.test(formulario.email.value)){
+					mensajeError(formulario.email, 6);
+					return false;
+				}else{
+					ocultaCajaError(formulario.email);
+					return true;
+				}
+			}
+			function mensajeError(nodo, numError){
+				nodo.nextSibling.style.display = 'inline';
+				var mensaje = ['El nombre no puede estar vacío', 'Nombre demasiado largo. Máximo 15 caracteres.',
+					'El campo apellidos no puede estar vacío.', 'Apellidos demasiado largo. Máximo 30 caracteres.',
+					'Email no puede estar vacío.', 'Email demasiado largo. Máximo 35 caracteres.', 'Email no contiene @'];
+				nodo.nextSibling.textContent = mensaje[numError];
+			}
+			function ocultaCajaError(nodo){
+				nodo.nextSibling.style.display = 'none';
+			}
+		</script>
+	</head>
+	<body>
+		<div id="cabecera"><h1>Portal web aprenderaprogramar.com</h1><h2>Didáctica y divulgación de la programación</h2>
+		</div>
+		<!-- Formulario de contacto -->
+		<form name ="formularioContacto" class="formularioTipo1" method="get" action="http://aprenderaprogramar.com">
+		<p>Si quieres contactar con nosotros envíanos este formulario relleno:</p>
+		<label for="nombre"><span>Nombre:</span> <input id="nombre" type="text" name="nombre" /><span class="errorMsg"></span></label>
+		<label for="apellidos"><span>Apellidos:</span> <input id="apellidos" type="text" name="apellidos" /><span class="errorMsg"></span></label>
+		<label for="email"><span>Correo electrónico:</span> <input id="email" type="text" name="email" /><span class="errorMsg"></span></label>
+		<label><input type="submit" value="Enviar"><input type="reset" value="Cancelar"></label>
+		</form>
+	</body>
+</html>

@@ -14,7 +14,8 @@
 </style>
 <script>
 window.onload = function (){
-    document.onkeyup = moverPizarra;    
+    document.onkeypress = moverPizarra;    
+    /* si pusieramosn onkeyup solo funciona cada vez que se presiona la tecla */
 }    
 
 function moverPizarra(evento){

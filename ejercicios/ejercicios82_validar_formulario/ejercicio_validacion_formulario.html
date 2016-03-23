@@ -1,0 +1,154 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">body {background-color:yellow; font-family: sans-serif;}
+
+label{color: maroon; display:block; padding:5px;margin:20px;}
+    
+    .campoErroneo {
+        background-color: orange;
+        color : black;
+       
+        margin-left: 10px;
+    }
+
+</style>
+<script>
+var nombre = false;
+var apellidos = false;
+var email = false;
+window.onload=function(){
+    var formulario = document.formularioContacto;
+    for (var i = 0;i < formulario.elements.length;i++){
+        if (formulario.elements[i].type == 'text'){
+            formulario.elements[i].addEventListener('focus',estiloIn);
+            formulario.elements[i].addEventListener('blur',estiloOut);
+        }
+        
+    }
+    formulario.nombre.focus();  
+    
+}
+
+function estiloIn(){
+    this.style.backgroundColor = 'lightgreen';
+    this.value = '';
+    this.nextSibling.innerHTML='';
+    this.nextSibling.removeAttribute('class','campoErroneo');
+}
+    
+function estiloOut(){
+    this.style.backgroundColor = 'white';
+}
+
+function validarDatos(){
+    validarNombre();
+    validarApellidos();
+    validarEmail();
+    
+    if (nombre && apellidos && email){
+        return true;
+    }else{
+        
+        return false;
+    }
+}
+    
+function validarNombre(){
+    var msg = '';
+    if (document.formularioContacto.nombre.value.length > 15){
+        msg += 'El nombre debe tener menos de 15 caracteres';
+        nombre = false;
+    }else if (document.formularioContacto.nombre.value.length == 0 ){
+        msg += 'El campo nombre está vacio';
+        nombre = false;
+    }else if ( /^\s*$/.test(document.formularioContacto.nombre.value)){
+        msg += 'El nombre no puede estar formado por espacios';
+        nombre = false;
+    }else{ 
+        nombre = true; 
+    }
+    
+    var mensaje = document.getElementById('nombre').nextSibling;
+    mensaje.innerHTML = msg;
+    mensaje.setAttribute('class','campoErroneo');
+    
+}
+    
+function validarApellidos(){
+   
+   var msg = '';
+    if (document.formularioContacto.apellidos.value.length > 30){
+        msg += 'Los apellidos deben tener menos de 30 caracteres';
+        apellidos = false;
+    }else if (document.formularioContacto.apellidos.value.length == 0 ){
+        msg += 'El campo apellidos está vacio';
+        apellidos = false;
+    }else if ( /^\s*$/.test(document.formularioContacto.apellidos.value)){
+        msg += 'Los apellidos no pueden estar formado por espacios';
+        apellidos = false;
+    }else{ 
+        apellidos = true;
+    }
+    
+    var mensaje = document.getElementById('apellidos').nextSibling;
+    mensaje.innerHTML = msg;
+    mensaje.setAttribute('class','campoErroneo');
+    
+}
+    
+function validarEmail(){
+    
+    var msg = '';
+    if (document.formularioContacto.email.value.length > 15){
+        msg += 'El email debe tener menos de 35 caracteres';
+        email = false;
+    }else if (document.formularioContacto.email.value.length == 0 ){
+        msg += 'El campo email está vacio';
+        email = false;
+    }else if ( /^\s*$/.test(document.formularioContacto.email.value)){
+        msg += 'El email no puede estar formado por espacios';
+        email = false;
+    }
+    else if ( !(/\S+@\S+\.\S+/.test(document.formularioContacto.email.value))){
+        msg += 'Escriba de nuevo un email correcto';
+        email = false;
+    }else{ 
+       email = true;
+    }
+   
+    var mensaje = document.getElementById('email').nextSibling;
+    mensaje.innerHTML = msg;
+    mensaje.setAttribute('class','campoErroneo');
+    
+}
+    
+
+</script>
+
+</head>
+
+<body>
+
+<div id="cabecera"><h1>Portal web aprenderaprogramar.com</h1><h2>Didáctica y divulgación de la programación</h2>
+
+</div>
+
+<!-- Formulario de contacto -->
+
+<form onsubmit = "return validarDatos()" name ="formularioContacto" class="formularioTipo1" method="get" action="http://aprenderaprogramar.com">
+
+<p>Si quieres contactar con nosotros envíanos este formulario relleno:</p>
+
+<label for="nombre"><span>Nombre:</span> <input id="nombre" type="text" name="nombre" /><span></span></label>
+
+<label for="apellidos"><span>Apellidos:</span> <input id="apellidos" type="text" name="apellidos" /><span></span></label>
+
+<label for="email"><span>Correo electrónico:</span> <input id="email" type="text" name="email" /><span></span></label>
+
+<label><input type="submit" value="Enviar"><input type="reset" value="Cancelar"></label>
+
+</form>
+
+</body></html>
