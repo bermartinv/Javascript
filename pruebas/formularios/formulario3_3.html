@@ -18,6 +18,7 @@ label{color: maroon; display:block; padding:5px;margin:20px;}
 
 window.onload=function(){
     var formulario = document.formularioContacto;
+    formulario.addEventListener('submit',validarDatos);
     for (var i = 0;i < formulario.elements.length;i++){
         if (formulario.elements[i].type == 'text'){
             formulario.elements[i].addEventListener('focus',estiloIn);
@@ -31,7 +32,6 @@ window.onload=function(){
 
 function estiloIn(){
     this.style.backgroundColor = 'lightgreen';
-    this.value = '';
     this.nextSibling.innerHTML='';
     this.nextSibling.removeAttribute('class','campoErroneo');
 }
@@ -40,7 +40,8 @@ function estiloOut(){
     this.style.backgroundColor = 'white';
 }
 
-function validarDatos(){
+function validarDatos(event){
+    event.preventDefault();
     var formulario = document.formularioContacto;
     var booleanNombre = false;
     var booleanApellidos = false;
@@ -50,10 +51,7 @@ function validarDatos(){
     booleanEmail =validarEmail(formulario);
     
     if (booleanNombre && booleanApellidos && booleanEmail){
-        return true;
-    }else{
-        
-        return false;
+        formulario.submit();
     }
 }
     
@@ -100,7 +98,7 @@ function validarApellidos(formulario){
 function validarEmail(formulario){
     var valorEmail = formulario.email;
     var msg = '';
-    if (valorEmail.value.length > 15){
+    if (valorEmail.value.length > 35){
         msg += 'El email debe tener menos de 35 caracteres';
         mensajeError(valorEmail,msg);
         return false;
@@ -139,7 +137,7 @@ function mensajeError(nodo,msg){
 
 <!-- Formulario de contacto -->
 
-<form onsubmit = "return validarDatos()" name ="formularioContacto" class="formularioTipo1" method="get" action="http://aprenderaprogramar.com">
+<form  name ="formularioContacto" class="formularioTipo1" method="get" action="http://aprenderaprogramar.com">
 
 <p>Si quieres contactar con nosotros envíanos este formulario relleno:</p>
 

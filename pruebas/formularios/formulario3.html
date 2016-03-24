@@ -9,7 +9,6 @@ label{color: maroon; display:block; padding:5px;margin:20px;}
     .campoErroneo {
         background-color: orange;
         color : black;
-       
         margin-left: 10px;
     }
 
@@ -86,7 +85,7 @@ function validarApellidos(){
     
 function validarEmail(){ 
     var msg = '';
-    if (document.formularioContacto.email.value.length > 15){
+    if (document.formularioContacto.email.value.length > 35){
         msg += 'El email debe tener menos de 35 caracteres';
         email = false;
     }else if (document.formularioContacto.email.value.length == 0 ){

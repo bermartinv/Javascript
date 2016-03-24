@@ -100,7 +100,7 @@ function validarApellidos(formulario){
 function validarEmail(formulario){
     var valorEmail = formulario.email;
     var msg = '';
-    if (valorEmail.value.length > 15){
+    if (valorEmail.value.length > 35){
         msg += 'El email debe tener menos de 35 caracteres';
         mensajeError(valorEmail,msg);
         return false;
