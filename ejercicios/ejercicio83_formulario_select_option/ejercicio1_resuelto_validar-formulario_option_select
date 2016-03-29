@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Ejercicio CU01184E JavaScript</title><meta charset="utf-8">
+		<style type="text/css"> body, p {margin-left:30px; font-family: sans-serif;}
+			.estiloForm {background-color: #f3f3f3; border: solid 2px black; margin-left:20px; width: 330px; padding:10px; }
+			.estiloForm label {display: block; width: 120px; float: left; text-align:right; margin-bottom: 35px; padding-right: 20px;}
+			br {clear: left;} input[type="submit"], input[type="reset"] {margin:25px 5px 10px 5px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function () {
+				ciudadSelect = document.getElementById('ciudad');
+				paisSelect = document.getElementById('pais');
+				ciudadSelect.addEventListener('change', deshabilitaPais);
+				paisSelect.addEventListener('change', deshabilitaCiudad);
+			}
+			function reinicioSelect(){
+				for(var i=1; i<ciudadSelect.length; i++){ciudadSelect[i].disabled = false;}
+				for(var i=1; i<paisSelect.length; i++){paisSelect[i].disabled = false;}
+			}
+			function deshabilitaCiudad(){
+				var a = 0;
+				var b = 0;
+				if(paisSelect.selectedIndex == 1){a=1;b=2;}
+				if(paisSelect.selectedIndex == 2){a=3; b=4;}
+				if(paisSelect.selectedIndex == 3){a=5; b=6;}
+				if(paisSelect.selectedIndex == 4){a=7;b=8;}
+				if(paisSelect.selectedIndex == 0){
+					ciudadSelect.selectedIndex = 0;
+					reinicioSelect();
+				}else{
+					for(var i=1; i<ciudadSelect.length; i++){
+						if(i==a || i==b){
+							ciudadSelect[i].disabled = false;
+						}else{
+							ciudadSelect[i].disabled = true;
+						}
+					}
+				}
+			}
+			function deshabilitaPais(){
+				var a = 0;
+				if(ciudadSelect.selectedIndex == 1 || ciudadSelect.selectedIndex == 2){a=1; paisSelect.value = 'mexico';}
+				if(ciudadSelect.selectedIndex == 3 || ciudadSelect.selectedIndex == 4){a=2; paisSelect.value = 'espanna';}
+				if(ciudadSelect.selectedIndex == 5 || ciudadSelect.selectedIndex == 6){a=3; paisSelect.value = 'peru';}
+				if(ciudadSelect.selectedIndex == 7 || ciudadSelect.selectedIndex == 8){a=4; paisSelect.value = 'colombia';}
+				if(ciudadSelect.selectedIndex == 0){
+					paisSelect.selectedIndex = 0;
+					reinicioSelect();
+				}else{
+					for(var i=1; i<paisSelect.length; i++){
+						if(i==a){
+							paisSelect[i].disabled = false;
+						}else{
+							paisSelect[i].disabled = true;
+						}
+					}
+				}
+				deshabilitaCiudad();
+			}
+		</script>
+	</head>
+	<body>
+	<h2>Cursos aprenderaprogramar.com</h2><h3>Ejercicio CU01184E JavaScript</h3>
+	<div class="estiloForm">
+	<form name ="formularioProcedencia" method="get" action="http://aprenderaprogramar.com">
+		<p>Elija país y ciudad</p>
+		<label>País:</label>
+			<select id="pais" name="pais">
+				<option value="">Elija opción</option>
+				<option value="mexico">México</option>
+				<option value="espanna">España</option>
+				<option value="peru">Perú</option>
+				<option value="colombia">Colombia</option>
+			</select><br/>
+		<label>Ciudad:</label>
+			<select id="ciudad" name="ciudad">
+				<option value="">Elija opción</option>
+				<option value="mexicoDF">México D.F.</option>
+				<option value="guadalajara">Guadalajara</option>
+				<option value="madrid">Madrid</option>
+				<option value="barcelona">Barcelona</option>
+				<option value="lima">Lima</option>
+				<option value="trujillo">Trujillo</option>
+				<option value="bogota">Bogotá</option>
+				<option value="cali">Cali</option>
+			</select><br/>
+		<input class="botonFormulario" type="submit" value="Enviar"/>
+		<input class="botonFormulario" type="reset" value="Cancelar"/>
+	</form>
+	</div>
+	</body>
+</html>

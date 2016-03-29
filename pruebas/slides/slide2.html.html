@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>NUESTRA COMIDA</title>
+		<meta name="description" content="Cafeteria Restaurante Dicamino"/>
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript"/>
+		<meta name="author" content="Ana Castro Lopez"/>
+		<meta property="og:type" content="Cafeteria.Restaurante"/>
+		<meta property="og:url" content="dicamino.com"/>
+		<meta property="site_name" content="Dicamino"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+
+body{
+
+font: small-caps bold  1.5em helvetica;
+color:red;
+overflow:hidden;
+}
+ header{
+ 	min-width:100%;
+	background:black;
+	min-height:40px;
+	position:absolute;
+
+
+    }
+
+
+ header nav ul li{
+   
+    display:inline;
+   padding: 0 0 0 212px;
+   
+
+}
+ 
+ .menu{
+    margin-left:-50px;
+ }
+
+ header nav a, main nav a{
+    text-decoration:none;
+    color:yellow;
+   
+
+}
+ main nav{
+    min-width:12%;
+    min-height:40px;
+    position:absolute;
+    float:left;
+    top:45px;
+    left:60px;
+
+}
+
+
+main nav ul li{
+    display:block;
+    padding:5px;
+}
+main nav .food{
+   min-height:120px;
+   background:black;
+}
+main nav .productos, nav .pesos{
+    margin-top:2px;
+    background:black;
+    min-height:35px;
+}
+
+video{
+    position:fixed;
+    width:100%;
+    z-index:-10;
+    width:auto;
+    height:auto;
+    position:fixed;
+    right:0;
+   bottom:0;
+    transform:translate(50px, 15%);
+   
+
+}
+   
+#siguiente{
+	position:absolute;
+     display: block;
+  margin-right:30px;
+   padding: 5px;
+    max-width:30%;
+    max-height:5%;
+ 
+    right:0px;
+    top: 43.6667%;
+ 
+}
+#anterior{
+	position:absolute;
+     display: block;
+    padding: 5px;
+    max-width:30%;
+    max-height:5%;
+    left:0px;
+    top: 43.6667%;
+}
+
+h2{
+    padding-bottom:3px;
+}
+
+ .resumencomida{
+    float:left;
+    color:black;
+    width:20%;
+   min-height:25%;
+    font-size:12px;
+    background-color:yellow;
+    position:absolute;
+    padding: 18px 20px 6px;
+    margin:50px 250px;
+    visibility:visible;
+    overflow:hidden;
+    display:inline-block;
+
+
+}
+
+.fotos{
+    max-width:160%;
+    max-height:900px;
+    margin:0 auto;
+    padding:0 auto;
+    top:0;
+   }
+</style>
+		
+		</head>
+		<body>
+			<?php
+				include "cabecera.php";
+				include "menu.php";
+			?>
+			<div id="slider">
+				<div class="resumencomida" id="texto1" style="visibility:visible;" >
+					<h2>NUESTRA COMIDA.</h2>
+					<p>En Dicamino ofrecemos platos conbinados.está diseñado en torno a los conceptos clave del café de excepcional calidad y accesibilidad para los comensales ocasionales. Durante todo el día el desayuno. cocina italiana distintivo. Y un café: resueltamente sin diluir por flaca o descafeinado, se ha convertido en un símbolo de excelencia inflexible</p>
+					<p>Utilice las flechas de navegación para navegar a través de una selección de nuestros platos de .</p>
+				</div>
+				<div class="resumencomida" id="texto2" style="visibility:hidden;">
+					<h2>DESAYUNO.</h2>
+					<p>Izquierda: Marios Muesli y Ensalada de fruta fresca</p>
+					<p>Derecha: Huevos florentina - escalfado Rango huevos libres, que se presentan en inglés tostado molletes con salteado de espinacas y salsa bearnesa Marios</p>
+					
+				</div>
+				<div class="resumencomida" id="texto3"style="visibility:hidden;">
+					<h2>DESAYUNO.</h2>
+				<p>Izquierda: salmón ahumado y aguacate con su opción de multi-grano, masa fermentada o tostadas Sin Gluten</p>
+				<p>Derecha: caramelizado de melocotón y pistacho crepes con crema doble</p>
+			</div>
+			<img class="fotos" src="http://i.imgur.com/f3Pyzms.png" alt="comida dicamino" id="visor" name="visor">
+			<div>			
+				<div><img  id="anterior" src="http://i.imgur.com/OVHnDaA.png" ></div>
+				<div><img  id="siguiente" src="http://i.imgur.com/2M1P9QB.png"></div>			
+			</div>		
+		</div>	
+		<script>
+			imagenes=['http://i.imgur.com/f3Pyzms.png', 'http://i.imgur.com/YbX2aW1.png', 'http://i.imgur.com/IgnJyJP.png'];
+			Num=0;
+			document.getElementById("siguiente").onclick=fotoSiguiente;
+			document.getElementById("anterior").onclick=fotoAnterior;
+			function fotoSiguiente(){
+				document.getElementById("visor");
+				if (Num==imagenes.length-1){
+					Num=0;
+					} else  {
+					Num++;
+				}
+				miImagen=imagenes[Num];
+				visor.src= miImagen;
+				mostrarTexto(Num);	
+			}
+			function fotoAnterior(){
+				document.getElementById("visor");
+				
+				if (Num==0){
+					Num=imagenes.length-1;
+					} else {
+					Num--;
+				}
+				miImagen=imagenes[Num];
+				visor.src= miImagen;
+				mostrarTexto(Num);			
+			}	
+			function mostrarTexto(numImagen) {
+				if(numImagen=='0'){
+					document.getElementById("texto1").style.visibility = 'visible';
+					document.getElementById("texto2").style.visibility = 'hidden';
+					document.getElementById("texto3").style.visibility = 'hidden';
+					} else if(numImagen=='1') {
+					document.getElementById("texto1").style.visibility = 'hidden';
+					document.getElementById("texto2").style.visibility = 'visible';
+					document.getElementById("texto3").style.visibility = 'hidden';
+					} else {
+					document.getElementById("texto1").style.visibility = 'hidden';
+					document.getElementById("texto2").style.visibility = 'hidden';
+					document.getElementById("texto3").style.visibility = 'visible';
+				}
+			}
+		</script>
+	</body>
+</html>
+
+

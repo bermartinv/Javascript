@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> .miEstilo{background-color: yellow; font-size:3em;} input{margin:10px;}
+
+</style>
+
+<script type="text/javascript">
+
+function cambiarCSS() {
+
+var nodoStyle = document.getElementsByTagName('style');
+
+nodoStyle[0].disabled = !nodoStyle[0].disabled;
+
+}
+
+</script>
+
+</head>
+
+<body><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<input type="button" value="Activar/Desactivar Css" onclick="cambiarCSS()"/></br>
+
+<div class="miEstilo">Esto es un Ejemplo</div>
+</body></html>

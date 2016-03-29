@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #pizarra{
+        margin:20px;
+        position: relative;
+        width:800px;
+        height: 500px;
+        border:solid thin black;
+        
+    }    
+    #flechaIzq{
+        position:absolute;
+        width:75px;
+        height:75px;
+        left:5px;
+        top:210px;    
+        opacity:0;
+        z-index: 2;
+        cursor:pointer;
+    }
+    
+    #flechaDer{
+        position:absolute;
+        width:75px;
+        height:75px;
+        right:5px;
+        top:210px;
+        transform: rotate(180deg);
+        opacity: 0;
+        z-index: 2;
+        cursor:pointer;
+    }
+    #imagen{
+        z-index:0;
+        position: relative;
+        top:0;
+        left:0;
+    }
+    ul{
+        display: inline;
+        position: absolute;
+        top:460px;
+        right:90px;
+    }
+    
+    li{
+        display: inline-block;
+        border:solid thin black;
+        border-radius: 12px;
+        width:10px;
+        height:10px;
+        background-color: coral;
+        margin:5px;
+    }
+    
+    li:first-child{
+        background-color: red;
+    }
+</style>
+</head>
+<script>
+
+var titulo=['imagen1','imagen2','imagen3','imagen4','imagen5','imagen6','imagen7'];
+var nombre=['altImagen1','altImagen2','altImagen3','altImagen4','altImagen5','altImagen6','altImagen7']
+var enlaces=['http://lorempixel.com/800/500/animals/1/','http://lorempixel.com/800/500/animals/2/','http://lorempixel.com/800/500/animals/3/','http://lorempixel.com/800/500/animals/4/','http://lorempixel.com/800/500/animals/5/','http://lorempixel.com/800/500/animals/6/','http://lorempixel.com/800/500/animals/7/'];
+var direcciones =['','','','','','','']
+var puntitos = document.getElementsByTagName('li');
+var recursiva ; 
+window.onload=function(){
+    var contador=0;
+    cambiarImagen(contador);
+    document.getElementById('pizarra').onmousemove= posicionRaton;
+    pizarra.onmouseout=ratonFuera;
+    
+    
+}    
+function cambiarImagen(contador){
+    var numero = (contador% (enlaces.length));
+    mostrarPuntitos(numero);
+    document.onkeyup=teclaPulsada;
+    flechaDer.onclick=aumentar;
+    flechaIzq.onclick=disminuir;
+    puntitos[0].onclick=cambio;
+    puntitos[1].onclick=cambio;
+    puntitos[2].onclick=cambio;
+    puntitos[3].onclick=cambio;
+    puntitos[4].onclick=cambio;
+    puntitos[5].onclick=cambio;
+    puntitos[6].onclick=cambio;
+    if (contador==-1){
+        contador = 6;
+        numero = contador;
+    }
+    
+    
+    imagen.src = enlaces[numero];
+    imagen.title = titulo[numero];
+    imagen.alt = nombre[numero];
+    ancla.href = direcciones[numero];
+    
+    var recursiva=setTimeout(function(){cambiarImagen(contador+1)},3000);
+                function teclaPulsada(evento){
+                    var tecla = evento.keyCode;
+                    if (tecla==37){
+                        disminuir();
+                    }else if(tecla==39){
+                        aumentar();
+                    }
+                }
+                function aumentar(){
+                    clearTimeout(recursiva);
+                    cambiarImagen(contador+1);
+                }   
+                function disminuir(){
+                    clearTimeout(recursiva);
+                    contador--;
+                    cambiarImagen(contador);
+                }
+                function mostrarPuntitos(numero){
+                    for (var i=0;i<enlaces.length;i++){
+                        if (i==numero){
+                            puntitos[i].style.backgroundColor='red';        
+                        }else{
+                            puntitos[i].style.backgroundColor='coral';
+                        }
+                    }
+                }
+                function cambio(evento){
+                    var procedencia = evento.target;
+                    for (var i=0;i<=puntitos.length;i++){
+                        if (puntitos[i]===procedencia){
+                            clearTimeout(recursiva);
+                            contador=i;
+                            cambiarImagen(contador);
+        
+                        }
+                    }
+                }
+}
+    
+function posicionRaton(evento){
+    if (evento.clientX<(800)/2){
+        flechaIzq.style.opacity='0.5';
+        flechaDer.style.opacity='0';
+        
+    }else if (evento.clientX>(800)/2){
+        flechaDer.style.opacity='0.5';
+        flechaIzq.style.opacity='0';
+    }
+}
+
+
+function ratonFuera(evento){
+    flechaIzq.style.opacity='0';
+    flechaDer.style.opacity='0';
+}
+
+
+    </script>
+<body>
+    <div id="pizarra" >
+        <a id="ancla" href=""><img id='imagen'  src='http://lorempixel.com/800/500/animals/1/'/></a>
+        <img src="https://pixabay.com/static/uploads/photo/2014/04/03/00/40/arrows-309038__180.png" id="flechaIzq" title="imagen "/>
+        <img src="https://pixabay.com/static/uploads/photo/2014/04/03/00/40/arrows-309038__180.png" id="flechaDer" alt="Imagen mas"/>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

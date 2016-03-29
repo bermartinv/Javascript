@@ -1,0 +1,160 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> body, p {margin-left:30px; font-family: sans-serif;}
+
+.estiloForm {background-color: #f3f3f3; border: solid 2px black; margin-left:20px; width: 330px; padding:10px; }
+
+.estiloForm label {display: block; width: 120px; float: left; text-align:right; margin-bottom: 35px; padding-right: 20px;}
+
+br {clear: left;} input[type="submit"], input[type="reset"] {margin:25px 5px 10px 5px;}
+
+</style>
+
+<script type="text/javascript">
+
+window.onload = function () {
+
+ var select1 = document.formularioContacto.pais;
+    
+ var select2 = document.formularioContacto.ciudad;
+    
+    select1.addEventListener('change',function(){primerSelect(this,select2)});
+    
+    select2.addEventListener('change',function(){segundoSelect(select1,this)});    
+    
+}   
+
+function primerSelect(select1,select2){
+    for (var i=1;i<select1.length;i++){
+     if (select1.options[i].selected ){habilitarCiudad(i,select2)}
+    }
+}
+    
+    
+function habilitarCiudad(opcion,select2){
+    switch (opcion){
+            
+        
+        case 1 :habilitar(select2);
+                select2.options[1].disabled = false;
+                select2.options[2].disabled = false;
+            break;
+        case 2 :habilitar(select2);
+                select2.options[3].disabled = false;
+                select2.options[4].disabled = false;
+            break;
+        case 3 :habilitar(select2);
+                select2.options[5].disabled = false;
+                select2.options[6].disabled = false;
+            break;
+        case 4 :habilitar(select2);
+                select2.options[7].disabled = false;
+                select2.options[8].disabled = false;
+            break;
+        
+    }
+        
+}
+    
+function segundoSelect(select1,select2){
+    for (var i=1;i<select2.length;i++){
+    if (select2.options[i].selected ){habilitarPais(i,select1)}
+    }
+}
+ 
+
+function habilitarPais(opcion,select1){
+    switch (opcion){
+        case 1 :
+        case 2 :
+                habilitar(select1);
+                select1.options[1].disabled = false;
+                select1.value = 'mejico';
+                break;
+        case 3 :
+        case 4 :
+                habilitar(select1);
+                select1.options[2].disabled = false;
+                select1.value = 'españa';
+                break;
+        case 5 :
+        case 6 :
+                habilitar(select1);
+                select1.options[3].disabled = false;
+                select1.value = 'peru';
+                break;
+        case 7 :
+        case 8 :
+                habilitar(select1);
+                select1.options[4].disabled = false;
+                select1.value = 'colombia';
+                break;
+        
+    }
+        
+}
+
+    
+function habilitar(select){
+    for (var i = 1; i < select.length; i++){
+            select.options[i].disabled = true;
+        }
+
+}
+
+</script>
+
+</head>
+
+<body><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+                <div class="estiloForm">
+
+                              <form name ="formularioContacto" method="get" action="http://aprenderaprogramar.com">
+
+                               <label>País de turismo</label><select id="pais" name="pais">
+
+                               <option value="">Elija país</option>
+
+                               <option value="mejico">México</option>
+
+                               <option value="españa">España</option>
+
+                               <option value="peru">Perú</option>
+                               
+                               <option value="colombia">Colombia</option>
+
+                               </select><br/>
+                               
+                               <label>Ciudad de turismo</label><select id="ciudad" name="ciudad">
+
+                               <option value="">Elija una ciudad</option>
+
+                               <option value="mejicodf">México D.F.</option>
+
+                               <option value="guadalajara">Guadalajara</option>
+
+                               <option value="madird">Madrid</option>
+                               
+                               <option value="barcelona">Barcelona</option>
+                               
+                               <option value="lima">Lima</option>
+                               
+                               <option value="trujillo">Trujillo</option>
+                               
+                               <option value="bogota">Bogotá</option>
+                               
+                               <option value="cali">Cali</option>
+
+                               </select><br/>
+
+                               <input class="botonFormulario" type="submit" value="Enviar"/>
+
+                               <input class="botonFormulario" type="reset" value="Cancelar"/>
+
+                </form>
+
+                </div>
+</body></html>

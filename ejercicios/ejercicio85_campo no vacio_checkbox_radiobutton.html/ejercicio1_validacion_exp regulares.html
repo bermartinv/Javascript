@@ -1,0 +1,169 @@
+ <html>
+
+    <head>
+
+                <meta charset="utf-8">
+
+                <style type="text/css">
+
+                input {margin:10px;}
+
+                </style>
+
+        <script>
+
+            function Valida(formulario) {
+
+                /* Validación de campos NO VACÍOS */
+
+                if ((formulario.campo1.value.length == 0) || (formulario.campo2.value.length ==0) || (formulario.cpostal.value.length ==0) || (formulario.dni.value.length ==0) || (formulario.email.value.length ==0)) {
+
+                    alert('Falta información');
+
+                    return false;
+
+                } 
+
+                if (isNaN(parseInt(formulario.campo2.value))) {
+
+                    alert('El campo2 debe ser un número');
+
+                    return false;
+
+                }
+
+                /* validación del CÓDIGO POSTAL*/
+
+                var ercp=/(^([0-9]{5,5})|^)$/;
+
+                if (!(ercp.test(formulario.cpostal.value))) {
+
+                    alert('Contenido del código postal no es un código postal válido');
+
+                    return false; }
+
+                /* validación del DNI */
+
+                var erdni=/(^([0-9]{8,8}\-[A-Z])|^)$/;
+
+                if (!(erdni.test(formulario.dni.value))) {
+
+                    alert('Contenido del dni no es un DNI válido.');
+
+                    return false;  }
+
+                /* validación del e-mail */
+
+                var ercorreo=/^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;        
+
+                if (!(ercorreo.test(formulario.email.value))) {
+
+                    alert('Contenido del email no es un correo electrónico válido.');
+
+                    return false; }
+
+                /* si no hemos detectado fallo devolvemos TRUE */
+
+                return true;
+
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <form name="miFormulario" onsubmit="return Valida(this);" action="http://aprenderaprogramar.com" >
+
+            Campo1 <input type="text" name="campo1"><br>
+
+            Campo2 (debe ser número) <input type="text" name="campo2"><br>
+
+            Código postal <input type="text" name="cpostal"><br>
+
+            DNI <input type="text" name="dni"><br>
+
+            email <input type="text" name="email"><br>
+
+            <input type="submit" value="Enviar" name="enviar">
+
+        </form>
+
+    </body>
+</html>
+
+ 
+<!--
+a) ¿Cómo se realiza la comprobación de que no hay campos vacíos?
+La manera de comprobar que los campos no estén vacios es comprobar con condicionales que el length de los value de todos los campos del formulario no sea cero.
+if ((formulario.campo1.value.length == 0) || (formulario.campo2.value.length ==0) || (formulario.cpostal.value.length ==0) || (formulario.dni.value.length ==0) || (formulario.email.value.length ==0)) {
+
+                    alert('Falta información');
+
+                    return false;
+
+                }  
+b) ¿Cómo se realiza la comprobación de que el campo 2 es un número?
+Se realiza através de la condicion isNan.Se pasa a entero primero el valor que esté introducido en el campo 2 y posterioemente comprobamos que si no es número salga el alert y retorne false.
+ if (isNaN(parseInt(formulario.campo2.value))) {
+
+                    alert('El campo2 debe ser un número');
+
+                    return false;
+
+                }
+c) ¿En qué consiste la validación del código postal? Explícala paso a paso. Pon ejemplos de tres valores válidos y tres valores no válidos.
+El campo de codigo postal está validado con una expresion regular.  si no cumple la expresion retornará un false.
+var ercp=/(^([0-9]{5,5})|^)$/;
+
+                if (!(ercp.test(formulario.cpostal.value))) {
+
+                    alert('Contenido del código postal no es un código postal válido');
+
+                    return false; }
+/(^ empezamos expresion regular
+[0-9] valor numerico entre 0 y 9
+{5,5} un valor numerico repetido 5 veces
+$/ terminamos expresione regular    
+Ahora comprobamos con test la expresion regular. Si no cumple la condicion sale un mensaje de alert y retorna false, de lo contrario es true, Si cumple no hace nada pasa a la siguiente sentencia de codigo.
+tres valores validos : 12345, 09890,00000
+tres valores no validos: pppp4,23,qqqqq
+d) ¿En qué consiste la validación del DNI? Explícala paso a paso. Pon ejemplos de tres valores válidos y tres valores no válidos.
+El campo del dni consiste su validacion de una expresion regular la cual si no cumple la expresion regular devuelve un false y un alert con un mensaje.Si cumple no hace nada pasa a la siguiente sentencia de codigo
+var erdni=/(^([0-9]{8,8}\-[A-Z])|^)$/;
+                    if (!(erdni.test(formulario.dni.value))) {
+
+                    alert('Contenido del dni no es un DNI válido.');
+
+                    return false;  }
+(^ empezamos expresion regular
+[0-9] esta formado por numeros con un rango de 0 a 9
+{8,8} está formado por 8 numeros
+\- seguido por un guion
+[A-Z] y le sigue por una letra ent mayusculas que se encuentra en el rango de la A a la Z
+$/ se termina la expresion regular
+tres valores validos:52525252-M,00000000-R,12345678-Y
+tres valores no validos:532145-M, 23423423R,12312323-r
+e) ¿En qué consiste la validación del email? Explícala paso a paso. Pon ejemplos de tres valores válidos y tres valores no válidos.
+El campo de email consiste su validacion en una expresion regular , si no cumple la expresion sale un mensaje de alert y retorna false.
+var ercorreo=/^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;        
+
+                if (!(ercorreo.test(formulario.email.value))) {
+
+                    alert('Contenido del email no es un correo electrónico válido.');
+
+                    return false; }
+/^ : empezamos expresion regular
+[^@\s] : un conjunto de caracteres que no empiece por @ o caracter vacio
++@ : seguido del simbolo @
+[^@\.\s]: conjunto de caracteres que no empiece por @,punto o caracter vacio
++(\. : caracter .
+[^@\.\s]+) : conjunto de caracteres que no empiece por @,punto o caracter vacio; compuesta por uno o mas caracteres(+)
++$/ : cerramos expresion regular
+tres valores válidos: asdasd@pepe.com, 23432@99.pi,epr23@pepe.paol
+tres valores no válidos: @@.com, @.  o p, pop.op.es
+f) ¿Cómo se consigue que no se envíe el formulario si no se cumplen los requisitos exigidos?
+No se envía el formulario porque si no cumple al menos una de las expresiones regulares se devuelve el valor de false a la llamada de la funcion que está declarada en la etiqueta form en el evento onsubmit. Y este a la vez devuelve el valor booleano que se le mando, como es false no se ejecuta.
+ 
+  -->
