@@ -27,29 +27,32 @@ window.onload = function () {
 }   
 
 function primerSelect(select1,select2){
-    for (var i=1;i<select1.length;i++){
-     if (select1.options[i].selected ){habilitarCiudad(i,select2)}
+    for (var i=0;i<select1.length;i++){
+     if (select1.options[i].selected ){habilitarCiudad(i,select2,select1)}
     }
 }
     
     
-function habilitarCiudad(opcion,select2){
+function habilitarCiudad(opcion,select2,select1){
     switch (opcion){
             
-        
-        case 1 :habilitar(select2);
+        case 0 :select2.value = '';
+                habilitar(select1,false);
+                habilitar(select2,false);
+            break;
+        case 1 :habilitar(select2,true);
                 select2.options[1].disabled = false;
                 select2.options[2].disabled = false;
             break;
-        case 2 :habilitar(select2);
+        case 2 :habilitar(select2,true);
                 select2.options[3].disabled = false;
                 select2.options[4].disabled = false;
             break;
-        case 3 :habilitar(select2);
+        case 3 :habilitar(select2,true);
                 select2.options[5].disabled = false;
                 select2.options[6].disabled = false;
             break;
-        case 4 :habilitar(select2);
+        case 4 :habilitar(select2,true);
                 select2.options[7].disabled = false;
                 select2.options[8].disabled = false;
             break;
@@ -59,47 +62,51 @@ function habilitarCiudad(opcion,select2){
 }
     
 function segundoSelect(select1,select2){
-    for (var i=1;i<select2.length;i++){
-    if (select2.options[i].selected ){habilitarPais(i,select1)}
+    for (var i=0;i<select2.length;i++){
+    if (select2.options[i].selected ){habilitarPais(i,select1,select2)}
     }
 }
  
 
-function habilitarPais(opcion,select1){
+function habilitarPais(opcion,select1,select2){
     switch (opcion){
+        case 0 :select1.value = '';
+                habilitar(select1,false);
+                habilitar(select2,false);
+            break;
         case 1 :
         case 2 :
-                habilitar(select1);
+                habilitar(select1,true);
                 select1.options[1].disabled = false;
                 select1.value = 'mejico';
-                break;
+            break;
         case 3 :
         case 4 :
-                habilitar(select1);
+                habilitar(select1,true);
                 select1.options[2].disabled = false;
                 select1.value = 'españa';
-                break;
+            break;
         case 5 :
         case 6 :
-                habilitar(select1);
+                habilitar(select1,true);
                 select1.options[3].disabled = false;
                 select1.value = 'peru';
-                break;
+            break;
         case 7 :
         case 8 :
-                habilitar(select1);
+                habilitar(select1,true);
                 select1.options[4].disabled = false;
                 select1.value = 'colombia';
-                break;
+            break;
         
     }
         
 }
 
     
-function habilitar(select){
+function habilitar(select,boolean){
     for (var i = 1; i < select.length; i++){
-            select.options[i].disabled = true;
+            select.options[i].disabled = boolean;
         }
 
 }

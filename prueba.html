@@ -1,65 +1,56 @@
+
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta name="description" content="portal web aprenderaprogramar.com">
-<meta name="keywords" content="CSS font-family tipografia (tipos de letra)">
-<meta charset="utf-8">
-<title>Tipografia (tipos de letra) en CSS font-family, font-variant, propiedad shortand</title>
-
-<style>
-    /*ejercicio CU01045D CSS font-family tipografía (tipos de letra) CSS.font-variant, propiedad short*/
-
-div{
-	margin: 33px;
-	padding: 25px;
-	border-style: solid;
-	border-width: 5px;
-	border-color: red;
-    width:100%;
-}
-#caja1{
-	font-family: serif;
-	font-size: 18px;
-}
-.condensada{font-variant: small-caps;}
-#caja2{
-	font-size: 14px;
-	font-family: sans-serif;
-	color: #B22222;
-}
-#caja3{
-	font: fantasy  ;
-    font-size :2em;
-}</style>
-
-</head>
-<body>
-
-
-
-		<div id="caja1"><p>Fue en la antigüedad el delfín símbolo de esta metamorfosis creadora que permite volver a nacer en el momento mismo en que se está a punto de morir. La alegría con que el delfín se lanza desde el elemento oscuro y misterioso  del océano hacia el aire diafano; del agua (expresión delo femenino y de la muerte) hacia el aire, masculino y espiritual, le hizo símbolo de renacimiento, de resurrección. Más, a la vez, no hay que olvidar que el delfín, como una aguja, cose con sus brincos los dos elementos, agua y aire, los pone en comunicación. Schwabe piensa que, de éste símbolo del delfín nació, en época arcaica, el de Piscis, signo dual que señala en el Zodíaco ,el momento de máximo declinar del sol, cuando éste simula va a desaparecer y resurge de nuevo, resucitado. (Lo que no ocurre hoy, pero sí sucedió en el Zodíaco correspondiente .a 5.425 años a. de J. C.). Por esta razón es por lo que se presenta como signo doble:  pez de la vida, del juego y de la alegría y también de la muerte, como en el cuento griego del delfín enamorado.</p>
-<p><span class="condensada">Entre los órficos, el delfín fue convirtiéndose ,cada vez más en símbolo de la muerte. En cambio Karl Kerenyi hace proceder el nombre del delfín del griego δελρισ (matriz)  y de αδελροσ(uterino, hermano de sangre). Así Delphin, animal-útero del mar, se opondría a Delphas, al cerdo que es sacrificado a los dioses y que sería el animal -útero de la tierra. (C. G. Jung y C. Kerényi: Introduction to a Science of Mythology, pág. 68 y 165). Schwabe, que no está de acuerdo, piensa, no obstante, que el delfín como símbolo del sol, de la resurrección y de la vida se opone al cerdo, animal tifónico, que hoza en la tierra, símbolo de la luna, tragada por los abismos.</span></p>
-<p>Cualquiera que sea la interpretación que se adopta, parece que el delfín ha simbolizado para el hombre dos cosas: renacimiento en el momento mismo en el que se arriesga la muerte y comunicación entre elementos heterogéneos, ¿No es esto precisamente lo que perfila el momento actual de-nuestra civilización,  la cual surge con brío jamás visto en el mismo instante que parecía iba a ser irreparablemente destruida?</p>
- 
-<p>Juan Rof Carballo. 1963. Diálogo con el delfín. Pp 23-33 en Signos en el Horizonte. Editorial Prensa Española. Madrid.  1972.</p>
+<html>
+	<head>
+		<title>Curso JavaScript aprenderaprogramar.com. CU01120E</title> <meta charset="utf-8">
+		<script type="text/javascript">
+			function usandoObjeto() {
+				var tipoMotor = Number(prompt('Introduzca el tipo de motor de una bomba para mover fluidos (del 1 al 4)'));
+				var motor = {
+					1: 'agua',
+					2: 'gasolina',
+					3: 'hormigón',
+					4: 'alimentación'
+				}
+				if(motor[tipoMotor]){
+					alert('La bomba es una bomba de ' + motor[tipoMotor]);
+					} else {
+					alert('No hay establecido un valor definido para el tipo de bomba.');
+				}				
+			}
+			function usandoSwitch() {
+				var tipoMotor;
+				tipoMotor = prompt('Introduzca el tipo de motor de una bomba para mover fluidos (del 1 al 4)');
+				tipoMotor = Number(tipoMotor);
+				switch(tipoMotor){
+					case 0:
+						alert('No hay establecido un valor definido para el tipo de bomba.');
+						break;
+					case 1:
+						alert('La bomba es una bomba de agua.');
+						break;
+					case 2:
+						alert('La bomba es una bomba de gasolina.');
+						break;
+					case 3:
+						alert('La bomba es una bomba de hormigón.');
+						break;
+					case 4:
+						alert('La bomba es una bomba de pasta alimenticia.');
+						break;
+					default:
+						alert('No existe un tipo de bomba válido para tipo de motor ' + tipoMotor + '.')
+						break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<p>Desarrolla un script donde trabajas con tipos de motor(suponemos que se trata del motor de una bomba para mover fluidos)</p>
+			<p>Pinche sobre la imagen para comenzar...</p>
+			<button onclick="usandoObjeto()">Tipo de motor usando objetos</button>
+			<button onclick="usandoSwitch()">Tipo de motor usando switch</button>
 		</div>
-		<div id="caja2"><p>El estilo del autor es verdaderamente curioso. Se extiende a menudo en largos párrafos para no decir nada y, de repente, introduce un párrafo breve en el que dice un disparate tremendo.</p>
-
-<p>El párrafo septuagésimo cuarto es uno de éstos breves y desconcertantes párrafos de El origen. Para todos los naturalistas el concepto de especie es fundamental en la descripción de la naturaleza. Por muchos ejemplos y casos dudosos en los que un naturalista no sepa si dos individuos pertenecen o no  a la misma especie o son especies diferentes; por muchas y variadas dificultades que el zoólogo, el entomólogo o el botánico puedan encontrar en sus clasificaciones, constantemente recurrirán al concepto de especie porque es fundamental y así lo ha sido durante cientos de años. En la naturaleza no hay, al contrario que expone el autor, una gradación continuada, sino que los individuos pertenecen a especies.</p>
-
-<p>La especie no sólo es, como dice aquí el autor, un grupo de individuos muy semejantes. Existe además el criterio de reproducción. Los individuos de una especie pueden reproducirse entre sí. Es un criterio   que nos indica que entre las células de individuos de la misma especie hay determinado nivel de compatibilidad basado en homología genética y cromosómica. En esto difiere, el concepto de especie del de variedad. Sean cuales fuesen las consideraciones del autor, el concepto de especie se basa en una realidad insoslayable.</p>
-		</div>
-		<div id="caja3"><p>COMENTARIO DE EL AVENTURERO</p>
-
-<p>Veamos primero, aunque sea de forma muy simplificada, lo que nos dice la Biología sobre el mensajero:</p>
-
-<p>Cuando una célula necesita que se ”fabrique” algún tipo de proteína, se encuentra con el problema de que las instrucciones necesarias para hacerlo están en el ADN, que está dentro del núcleo de la célula y no puede salir de él, mientras que el “taller” en donde se va a sintetizar la proteína está fuera de dicho núcleo. Por ello es necesario un mensajero, que copie las instrucciones del ADN y las lleve al “taller” (al ribosoma).</p>
-
-<p>Esta función la realiza una molécula, el ARNm (el mensajero), que copia la información del fragmento del ADN que contiene las instrucciones correspondientes, sale del núcleo y se acopla al ribosoma, para iniciar la síntesis de la proteína.</p>
-
-<p>Hasta aquí todo parece claro y explicable, aunque el proceso, analizado con detalle, es mucho más complejo. Pero lo sorprendente del caso es que el mensajero, el ARNm, en el trayecto del ADN al ribosoma, modifica el mensaje, modifica las instrucciones. Desecha los “párrafos” que considera inútiles (los intrones) y empalma los que considera útiles (los exones). Es lo que se llama la maduración del mensajero. El resultado de este proceso de cortar y pegar es que el mensaje que llega al taller (al ribosoma) es distinto del que salió del ADN. Y, “casualmente”, el mensaje que llega al taller es el adecuado para que se sintetice la proteína que se necesitaba.</p>
-		</div>
-		
-
-</body>
+	</body>
 </html>

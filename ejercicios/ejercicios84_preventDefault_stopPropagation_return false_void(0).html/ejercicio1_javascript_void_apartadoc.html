@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+<style>
+    p.url{
+        cursor:pointer;
+        color:blue;
+        text-decoration:underline;
+}
+    </style>
+<script>
+    window.onload = function(){
+        var formulario = document.getElementById('enlace').addEventListener('click',anyadir);
+    }
+    
+    function anyadir(){
+        if (confirm('Are you sure?')) { 
+            var f = document.createElement('form');
+            f.style.display = 'none'; 
+            this.parentNode.appendChild(f); 
+            f.method = 'POST'; 
+            f.action = '';
+            var m = document.createElement('input');
+
+            m.setAttribute('type', 'hidden'); 
+            m.setAttribute('name', '_method'); 
+            m.setAttribute('value', 'delete'); 
+            f.appendChild(m);
+
+            var s = document.createElement('input'); 
+            s.setAttribute('type', 'hidden'); 
+            s.setAttribute('name', 'authenticity_token');
+            s.setAttribute('value', 'aprenderaprogramar.com='); 
+            f.appendChild(s);f.submit(); };
+        
+        return false;
+    }
+</script>
+</head>
+
+<body><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<p class='url' id='enlace'  >Pulsa aquí para proceder</p>
+</body></html>
