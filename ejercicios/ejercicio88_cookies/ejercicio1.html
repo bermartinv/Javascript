@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload= function (){
+    
+    var start = document.getElementById('empezar').addEventListener('click',crear3Cookies);
+    
+}
+function crear3Cookies(){
+    
+    var nombre = [];
+    
+    var valor = [];
+    
+    for (var i = 0;i<3;i++){
+        
+        nombre[i] = prompt ('Introduzca el nombre de la cookie nº'+(i+1)+':');
+        
+        valor[i] = prompt ('Introduzca el valor de la cookie nº'+(i+1)+':');
+        
+        createCookie(nombre[i],valor[i],5); // los cookies que creamos desaparecen dentro de 5 dias
+        
+    }
+    mostrarTodasLasCookies();
+    
+    alert ('Ahora vamos a eliminar la última cookie');
+    
+    var Cookies = document.cookie.split(';'); 
+    
+    eraseCookie(Cookies[Cookies.length-1].split('=', 1));
+    
+    mostrarTodasLasCookies();
+    
+}
+
+
+ function createCookie(name,value,days) {
+
+                if (days) {
+
+                               var date = new Date();
+
+                               date.setTime(date.getTime()+(days*24*60*60*1000));
+
+                               var expires = "; expires="+date.toGMTString();
+
+                }
+
+                else var expires = "";
+
+                document.cookie = name+"="+value+expires+"; path=/";
+
+}
+
+ function mostrarTodasLasCookies() {
+     
+                var numeroCookies = document.cookie.split(';');
+     
+                var msg = 'Hay '+numeroCookies.length+ ' cookies en el documento.\n';
+     
+                for(var i=0;i < numeroCookies.length;i++) { //Recorremos todas las cookies
+                    
+                    msg += 'cookie nº' +(i+1) + 'con nombre:' + numeroCookies[i].split('=',1)+ ' y valor:';
+                    
+                    var nombre =numeroCookies[i].split('=',1) + '=';
+                    
+					var valor = numeroCookies[i];
+                    
+					msg += valor.substring(nombre.length,valor.length) + '\n';
+                    
+                }
+     
+        alert (msg);   
+     
+}
+
+function eraseCookie(name) { createCookie(name,"",-1); }
+    
+</script>
+</head>
+<body>
+<button id="empezar">Crear tres cookies</button>
+</body>
+</html> 
+
+<!--
+ a) ¿Para qué sirve la función createCookie? Explica paso a paso qué es lo que hace esta función.
+ Esta función como dice el nombre lo que hace es crear una cookie, recibe tres argumentos que son nombre,valor y dias.
+ Interiormente en la función, hay una condición que si hemos introducido un valor correcto de dias, se crea la varable expires que será la que marque la fecha de eliminación de la cookie, sumando dias a la fecha actual.
+ Si no se introduce correctamente los dias, se elimina.
+ 
+b) ¿Para qué sirve la función eraseCookie? Explica paso a paso qué es lo que hace esta función.
+eraseCookie hace una referencia a la función createCookie con unos valores de llamada que hace que la cookie se elimine, ya que la variable dias es -1 lo que significa el tiempo de eliminación de la cookie ya ha pasado y se elimina.
+
+c) Escribe el código de una función de nombre mostrarTodasLasCookies() que muestre el nombre y valor de todas las cookies existentes. Por ejemplo, si hay dos cookies deberá mostrarse algo como esto:
+
+Hay 2 cookies en el documento
+
+Cookie 1 con nombre: cookieNombreUsuario y valor: Alberto
+
+Cookie 2 con nombre cookieEdadUsuario y valor 8
+
+d) Usando las funciones createCookie, eraseCookie y  mostrarTodasLasCookies() crea un script que pida 3 nombres y valores de cookies al usuario, y cree las cookies correspondientes. A continuación deberá mostrar las cookies existentes y sus valores. Finalmente, deberá borrar la última cookie existente y volver a mostrar todas las cookies y sus valores.
+
+-->
