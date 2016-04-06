@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #myCanvas{
+        border:solid thin black;
+    }    
+</style>
+<script>
+window.onload = function(){
+    var elemento = document.getElementById("myCanvas");
+    /* primera franja de color roja */
+    var bandera = elemento.getContext("2d");
+    bandera.fillStyle = "#FF0000";
+    bandera.fillRect(0,0,400,100);
+    
+    /* segunda franja de color amarillo */
+    bandera.fillStyle = "#FFFF00";
+    bandera.fillRect(0,100,400,100);
+    
+    /*tercera franja de color rojo */
+    bandera.fillStyle = "#FF0000";
+    bandera.fillRect(0,200,400,100);
+}
+
+</script>
+
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300">
+</canvas>
+
+</body>
+</html>

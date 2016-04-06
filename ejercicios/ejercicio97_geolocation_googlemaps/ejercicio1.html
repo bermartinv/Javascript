@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<link href='https://fonts.googleapis.com/css?family=Slabo+27px|Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+<style>
+    body{
+        font-family:sans-serif;
+        margin: 10px 30px;
+    } 
+    
+    div{
+        font-family: 'Slabo 27px', serif;
+        text-align: justify;
+        display: block;
+        
+    }
+    
+    div p::first-letter{
+        font-size: 30px;
+    }
+    
+    #nombre_ciudad{
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 50px;
+        font-weight: bold;
+        color: burlywood;
+        text-align: center;
+    }
+    
+    #imagenes img{
+        margin-left:40px;
+    }
+
+    #googleMap{
+        position:relative;
+        left:30%;
+        width:500px;
+        height:500px;
+    }
+    
+</style>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+    function initialize() {
+        var mapProp = {
+  center:new google.maps.LatLng(39.4563421 , -0.4609107), // Introducimos coordenadas cartesianas
+   zoom: 5,                                                 // Zoom del mapa
+  mapTypeId: google.maps.MapTypeId.SATELLITE            // Tipo de mapa
+};
+        var map=new google.maps.Map(document.getElementById("googleMap"), mapProp); // incrustamos el mapa en nuestro elemento de HTML
+        
+        /* Colocamos una señal para saber dónde está la ubicación */
+        var marker=new google.maps.Marker({
+  position:mapProp.center,             // indicamos posicion de la maraca
+  animation:google.maps.Animation.BOUNCE   // animamos marca
+  });
+
+marker.setMap(map);
+        
+   
+}
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+<body>
+   <div id="nombre_ciudad">Alacuás</div>
+   <div>
+       <p>Alacuás (en valenciano y oficialmente Alaquàs) es una ciudad y municipio español situado en la parte central de la comarca de la Huerta Oeste, en la provincia de Valencia, Comunidad Valenciana. Pertenece al Área metropolitana de Valencia. Contaba con 29.964 habitantes en 2014 .</p>
+   </div>
+   <div id="imagenes">
+       <img id='primera' src='http://castell.alaquas.org/archivos_subidos/castillo.jpg' />
+       <img id='segunda' src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coat_of_Arms_of_Alaqu%C3%A0s.svg/89px-Coat_of_Arms_of_Alaqu%C3%A0s.svg.png'/>
+
+   </div>
+   <div>
+       <p>Aunque se han encontrado algunos restos romanos, así como monedas de época imperial y hasta alguna lápida conmemorativa, el núcleo de Alacuás es una alquería de origen musulmán.Jaime I la rindió en 1238 y la donó a Bernat de Castellnou el 4 de julio de ese año. Este cedió la alquería, a cambio de otras posesiones, a Ponç Soler, a quien posteriormente se le confiscó y revirtió a la Corona. En todo caso, en 1319 Joan Escrivà compró el señorío, que pasó después a los Vilaragut y, ya en el siglo XV, a los Agular.En 1520, por no haberse unido a la revuelta de las Germanías, se le concedió el título de villa.
+       </p>
+       <p>En 1557, Felipe II creó el condado de Alacuás, cuyo señorío ostentaba en 1584 Luis Pardo de la Casta. Es este personaje quien impulsó la construcción del castillo de Alacuás sobre la fortificación musulmana anterior.Más tarde, el condado perteneció a los marqueses de Manfredi y, después, al barón de Bolbaite.</p>
+   </div>
+   <div id="googleMap" ></div>
+   <div>
+       <p>En 1520 el núcleo contaba con unas 120 familias (aproximadamente unas 550 personas), que llegaron a las 200 (unos 900 hab.) en 1609.La expulsión de los moriscos en 1611 afectó considerablemente, de modo que en 1646, las familias que vivían en el pueblo eran 153 (689 hab.) y en 1713 sólo 143 (644 hab.).Con todo, la población se recuperó y se aproximaba a los 2000 en 1877. El siglo XX ha cambiado totalmente la fisonomía y la dinámica del lugar, siendo el crecimiento especialmente intenso en la segunda mitad del siglo XX.La función de ciudad dormitorio, primero, y de pueblo industrializado después (en 1970, un 72 % de los activos trabajaban en el sector secundario), explica que Alacuás fuera centro de inmigración a lo largo de aquellas décadas. De hecho, en 1975 un 76% de la población era alóctona.</p>
+   </div>
+    
+</body>
+</html>

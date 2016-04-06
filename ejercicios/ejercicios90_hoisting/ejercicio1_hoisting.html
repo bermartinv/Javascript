@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+var x = 'Hola amigos'; // variable global
+
+function ejemplo(){
+
+ alert( x ); // esperamos el valor global
+
+ var x;
+
+ x = 'Saludos desde Costa Rica'; // redefinimos la variable en contexto local
+
+ alert( x );  // esperamos el nuevo valor local
+
+}
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemplo()"> Probar </div>
+</body></html>
+
+ 
+
+a) Realiza una prueba pulsando en “Probar”. ¿Qué resultados obtienes? ¿Cómo se explican esos resultados?
+Nos aparece dos alert:
+1.En el primero, sale undefined
+2.En el segundo, 'Saludos desde Costa Rica'
+En el primero sale undefined porque se ha hecho hoisted ('Cuando se declara una variable en un punto intermedio del código, dicha declaración es “elevada” (hoisted) a la parte inicial del código en el ámbito donde se encuentra dicha variable'), esto es , se ha redefinido la variable x y no se le dado ningún valor, se ha elevado a la parte inicial de nuestra función, pero no se le ha asignado ningún valor, por eso , nos sale undefined.
+ 
+b) Cambia el código y declara la variable x dentro de la función al mismo tiempo que la inicializas. ¿Qué resultados obtienes? ¿Cómo se explican esos resultados?
+Al asignar un valor a la variable x, obtenemos el mismo resultado que el anterior 'undefined' porque esta definición está situada después del 'alert(x)'.
+c) De los dos casos anteriores ( a y b ). ¿En cuáles se produce hoisting: en el a), en el b) ó en ambos?
+Se produce hoistind en los dos casos.
+
+d) En este caso, ¿el hoisting está afectando a los resultados obtenidos? ¿Por qué? ¿Cuáles serían los resultados de ejecutar estos códigos si no existiera hoisting?
+Si. Como hemos dicho anteriormente existe hoisting y se eleva la declaración de la variable a la parte inicial del código en el ámbito de la función. Si no se produjera hoisting nada más ejecutar la función su resultado sería mostrar un alert con 'Hola amigos'.

@@ -1,0 +1,372 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo aprenderaprogramar.com</title>
+	<style type="text/css">
+	body{
+		background-color: black;
+	}
+	#principal{
+		color: white;
+		background-color: black;
+		width: 1250px;
+		height: 700px;
+		border: solid 2px white;
+	}
+	#bienvenida{
+		text-align: center; 
+		width: 1200px;
+		height: 650px;
+		background: black;
+		color: white;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		padding: 40px;
+	}
+	#p01{
+		font-size: 36px;
+	}
+	#p02{
+		font-size: 40px;
+	}
+	#p03{
+		font-size: 20px;
+	}
+	#p04{
+		font-size: 36px;
+	}
+	#p04 span{
+		color: red;
+		font-size: 60px;
+	}
+	#soga01{
+		position: relative;
+		left: 25px;
+	}
+	#cuerda{
+		position: relative;
+		left: 25px;
+		top: -10px;
+	}
+	#soga2{
+		transform: rotate(180deg);
+		position: relative;
+		left: 13px;
+		top: -15px;
+	}
+	#bola{
+		border: solid white;
+		border-radius:40px;
+		color: white;
+		position: relative;
+		display: inline-block;
+		padding: 15px;
+		width: auto;
+		left: 23px;
+		background-color: red;
+		top: -20px;
+		z-index: 1;
+	}
+	#hr01{
+		position: absolute;
+		top: 640px;
+		border: solid 15px;
+		width: 20px;
+		left: 50px;
+		border-color: blue;
+	}
+	#hr02{
+		position: absolute;
+		top: 670px;
+		border: solid 2px yellow;
+		width: 200px;
+		left: 20px;
+	}
+	#hr03{
+		transform: rotate(90deg);
+		position: absolute;
+		left: 15px;
+		width: 350px;
+		border: solid 10px red;
+		top: 486px;
+		z-index: 1;
+	}
+	#hr04{
+		border: solid 2px;
+		position: absolute;
+		width: 250px;
+		top: 370px;
+		left: 140px;
+	}
+	#ventilador{
+		position: absolute;
+		top: 305px;
+		left: 320px;
+		transform: rotateY(70deg);
+	}
+	#marcoVentana{
+		border: solid 2px white;
+		width: 550px;
+		height: 400px;
+		position: absolute;
+		top: 213px;
+		left: 610px;
+		border: solid;
+		border-image: url(http://stefjogest.com/marco_ventana.gif);
+		border-image-slice: 42;
+		border-image-width: 20px;
+		background-image: url(http://stefjogest.com/playa.jpg);
+	}
+	#alaIzquierda{
+		position: absolute;
+		top: 230px;
+		left: 628px;
+	}
+	#alaDerecha{
+		position: absolute;
+		top: 231px;
+		left: 898px;
+	}
+	#cerradura{
+		position: absolute;
+		top: 445px;
+		left: 858px;
+	}
+	#cortina{
+		position: absolute;
+		top: 10px;
+		left: 570px;
+		width:680px;
+		height: 700px;
+	}
+	#cerilla{
+		position: absolute;
+		z-index: 1;
+		top: 100px;
+		left: 370px;
+		cursor: grab;
+	}
+	#llave{
+		position: absolute;
+		top: 125px;
+		left: 250px;
+		z-index: 1;
+		cursor: grab;"
+	}
+	#herramientas{
+		position: absolute;
+		border: solid 2px;
+		height: 150px;
+		top: 25px;
+		left: 225px;
+		cursor: grab;
+	}
+	#aprenderaprogramar{
+		position: absolute;
+		top: 350px;
+		left: 750px;
+		text-align: center;
+		transform: scale(0);
+	}
+	#aprenderaprogramar a{
+		color: orange;
+		text-decoration: none;
+	}
+	</style>
+	<script type="text/javascript">
+
+	var inicio;
+	var fin;
+
+	function quitarBienvenida(){
+		bienvenida.style.zIndex = -1;
+		inicio = new Date();
+	}
+
+	var sostenerCerilla = false;
+	var sostenerLlave = false;
+
+	function cogerCerilla(){
+		var div = document.getElementsByTagName('div');
+		div[0].onmousemove = moverCerilla;
+		div[0].ondblclick = quitar;
+	}
+
+	function quitar(){
+		var div = document.getElementsByTagName('div');
+		document.getElementById('principal').style.cursor = "auto";
+		div[0].onmousemove = function (){};
+	}
+
+
+	function moverCerilla(evobject){
+		var screenX = evobject.screenX;
+		var screenY = evobject.screenY;
+		cerilla.style.top = (screenY-63)+"px";
+		cerilla.style.left = (screenX-10)+"px";
+		sostenerCerilla = true;
+		sostenerLlave = false;
+		document.getElementById('principal').style.cursor = "none";
+	}
+
+	function cogerLlave(){
+		var div = document.getElementsByTagName('div');
+		div[0].onmousemove = moverLlave;
+		div[0].ondblclick = quitar;
+	}
+
+	function moverLlave(evobject){
+		var screenX = evobject.screenX;
+		var screenY = evobject.screenY;
+		llave.style.top = (screenY-63)+"px";
+		llave.style.left = (screenX-10)+"px";
+		sostenerLlave = true;
+		sostenerCerilla = false;
+		document.getElementById('principal').style.cursor = "none";
+	}
+
+	
+
+	function detectarCerilla(){
+		setTimeout(quemarCuerda,500);
+	}
+
+	
+	function quemarCuerda(){
+		if(sostenerCerilla==true){
+		cuerda.style.zIndex = "-1";
+		globalID = requestAnimationFrame(caida);
+		}
+	}
+	
+
+	var i = 0;
+	var j = 180;
+	var k = 13;
+	var l = 30;
+
+	function caida(){
+		soga2.style.top = (i+10)+"px";
+		bola.style.top = i+"px";
+		i+=3;
+		globalID = requestAnimationFrame(caida);
+		if(i>300){
+			cancelAnimationFrame(globalID);
+			globalID01 = requestAnimationFrame(tumbarCuerda);
+
+		}
+	}
+
+	function tumbarCuerda(){
+		soga2.style.transform = "rotate("+j+"deg)";
+		soga2.style.top = i+"px";
+		soga2.style.left = k+"px";
+		j--; i++; k--
+		globalID01 = requestAnimationFrame(tumbarCuerda);
+		if(k<-50){
+		cancelAnimationFrame(globalID01);
+		globalID02 = requestAnimationFrame(girarAspas);
+		globalID03 = requestAnimationFrame(abrirCortina);
+		}
+	}
+
+	function girarAspas(){
+		document.getElementById('ventilador').style.transform = "rotateY(70deg) rotate("+l+"deg)";
+		globalID02 = requestAnimationFrame(girarAspas);
+		l=l+20;
+	}
+
+	var widthCortina=680;
+
+	function abrirCortina(){
+		document.getElementById('cortina').style.width = widthCortina+"px";
+		document.getElementById('cortina').style.left = (680-widthCortina)+570+"px";
+		widthCortina--;
+		globalID03 = requestAnimationFrame(abrirCortina);
+		if(widthCortina<70){
+			cancelAnimationFrame(globalID03);
+		}
+	}
+
+	var rotacionVentana = 0;
+	function abrirVentana(){
+		if(sostenerLlave==true){
+		var fin = new Date();
+		document.getElementById('alaIzquierda').style.transform = "rotateY("+rotacionVentana+"deg)";
+		document.getElementById('alaIzquierda').style.left = 627-(rotacionVentana*1.7)+"px";
+		document.getElementById('alaDerecha').style.zIndex = "1";
+		document.getElementById('alaDerecha').style.transform = "rotateY("+(rotacionVentana*(-1))+"deg)";
+		document.getElementById('alaDerecha').style.left = 897+(rotacionVentana*1.5)+"px";
+		document.getElementById('cerradura').style.display = "none";
+		var globalID04 = requestAnimationFrame(abrirVentana);
+		if(rotacionVentana>150){
+			cancelAnimationFrame(globalID04);
+			var resultado = ((fin-inicio)/1000)/60;
+			setTimeout(function(){tiempoRecurrido(resultado)},3000);
+			var globalID05 = requestAnimationFrame(aap);
+		}
+		rotacionVentana++;
+		}
+	}
+
+	function tiempoRecurrido(resultado){
+		bienvenida.innerHTML = '<div style="text-align: center; font-size: 40px; cursor: auto;"><img src="an_oliva_png.png"><br><a href="http://www.aprenderaprogramar.com/" style="color: orange; text-decoration: none;">aprenderaprogramar.com</a><p>Didáctica y divulgación de la programación</p><p style="color: red;">Has resuelto el misterio en: '+resultado.toFixed(2)+" minutos</p></div>";
+		alaDerecha.style.display = "none";
+		document.getElementById('bienvenida').style.zIndex = 2;
+	}
+
+	var escalaAap = 1;
+	var topAap = 0;
+	function aap(){
+		aprenderaprogramar.style.transform = "scale("+escalaAap+")";
+		aprenderaprogramar.style.top = (350-topAap)+"px";
+		aprenderaprogramar.style.left = (750-topAap)+"px";
+		escalaAap = escalaAap + 0.01;
+		topAap = topAap+3;
+		var globalID05 = requestAnimationFrame(aap);
+	}
+	</script>
+</head>
+<body>
+	<div id="principal">
+		<div id="bienvenida">
+			<h1>Bienvenido a nuestro juego</h1>
+			<p id="p01">Recuerda, para coger herramientas - un sólo click, para soltarlas - doble click</p>
+			<p id="p02">Buena suerte</p>
+			<p id="p03">¿Estas preparado?</p>
+			<button onclick="quitarBienvenida()">Sí</button><br><br><br>
+			<p id="p04">El navegador tienes que estar a <span>100% de zoom</span></p>
+		</div>
+		<img id="soga01" onmouseover="detectarCerilla()" src="http://stefjogest.com/soga201.gif"><br>
+		<img  id="cuerda" src="http://stefjogest.com/palito.gif"><br>
+		<img id="soga2" src="http://stefjogest.com/soga201.gif"><br>
+		<div id="bola">20kg</div>
+		<hr id="hr01">
+		<hr id="hr02">
+		<hr id="hr03">
+		<hr id="hr04">
+		<img id="ventilador" src="http://stefjogest.com/ventilador01.png">	
+		<div id="marcoVentana">
+		</div>
+		
+		<img id="alaIzquierda" src="http://stefjogest.com/ala_izquierda.gif">
+		<img id="alaDerecha" src="http://stefjogest.com/ala_derecha.gif">	
+		<img id="cerradura" onmouseover="abrirVentana()" src="http://stefjogest.com/cerradura.gif"><br>
+		<img id="cortina" src="http://stefjogest.com/cortina.jpg">
+		<img onclick="cogerCerilla()" src="http://stefjogest.com/cerilla-07.gif" id="cerilla">
+		<img onclick="cogerLlave()" id="llave" src="http://stefjogest.com/llave.gif">
+		<div id="herramientas">
+			<h1>Herramientas:</h1>
+		</div>
+		
+		<div id="aprenderaprogramar" onclick="aap()">
+		<img src="http://stefjogest.com/an_oliva_png.png"><br>
+		<a href="http://www.aprenderaprogramar.com/">aprenderaprogramar.com</a>
+		<p>Didáctica y divulgación de la programación</p>
+		</div>
+	</div>
+</body>
+</html>

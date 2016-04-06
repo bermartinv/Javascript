@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>JavaScript Index</title>
+		<meta charset="utf-8">
+		<style>
+			*{text-align: center;}
+			.styleClassReloj{
+				font-size: 44px;
+				color: white;
+				background: green;
+				margin: 0 auto;
+				border: solid 3px blue;
+				border-radius: 180px;
+				width: 300px;
+				height: 300px;
+			}
+			#fecha{
+				position: relative;
+				top: 75px;
+			}
+			#hora{
+				position: relative;
+				top: 100px;
+			}
+			.centrado{
+				margin: 0 auto;
+				width: 290px;
+			}
+		</style>
+		<script Language="JavaScript">
+			'use strict';
+			var timerID = null;
+			/*Desde window.onload, después de haber cargado el html, se llama a la función
+			getTheDate() y showTime().*/
+			window.onload = function(){
+				getTheDate();
+				showTime();
+			}
+			/*La función getTheDate() crea un objeto Date, y nos muestra la fecha actual.*/
+			function getTheDate(){
+				var nodoFecha = document.getElementById('fecha');
+				var today = new Date();
+				var theDate = today.getDate() + " / " + (today.getMonth() + 1);
+				theDate += " / " + today.getFullYear();
+				nodoFecha.innerHTML = theDate;
+			}
+			/*La función showTime() crea un objeto Date, y nos muestra la hora actual de
+			forma dinámica.*/
+			function showTime(){
+				var nodoHora = document.getElementById('hora');
+				var now = new Date();
+				var hours = now.getHours();
+				var minutes = now.getMinutes();
+				var seconds = now.getSeconds();
+				var timeValue = ((hours >12) ? hours -12 :hours);
+				timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+				timeValue += ((seconds < 10) ? ":0" : ":") + seconds;
+				timeValue += (hours >= 12) ? " P.M." : " A.M.";
+				nodoHora.innerHTML = timeValue;
+				timerID = setTimeout('showTime()',1000);
+			}
+		</script>
+	</head>
+	<body>
+		<h2 class="centrado">Esto es un reloj hecho con JavaScript</h2>
+		<div class="styleClassReloj">
+			<div id="fecha" ></div>
+			<div id="hora" ></div>
+		</div>
+		<h3 class="centrado">
+			<a href="http://aprenderaprogramar.com">http://aprenderaprogramar.com</a>
+		</h3>
+	</body>
+</html>

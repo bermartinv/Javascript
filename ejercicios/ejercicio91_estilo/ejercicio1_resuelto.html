@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>Hora y Fecha</title>
+<style>
+    #contenedor{
+        background-image:url('http://lh5.ggpht.com/_PeVwghrmOec/TMkzEonRrcI/AAAAAAAAAHc/IxL8g0fTYtk/an_oliva_png.png');
+        background-repeat: no-repeat;
+        background-size:200px 200px;
+        background-position: center;
+        width:300px;
+        height:200px;
+        border:solid thin black;
+        padding:10px;
+        position: relative;
+        box-shadow: 10px 10px 10px;
+        top:150px;
+        left:35%;
+        
+    }  
+    
+    #contenedor div{
+        display: inline-block;
+    }
+    
+    #clock{
+        background-color: antiquewhite;
+        border: solid thin coral ;
+        position:absolute;
+        width:90px;
+        
+        bottom :10px;
+        left:10px;
+        text-align: center;
+        line-height: 30px;
+        
+        
+    }
+    
+    #fecha{
+        background-color: antiquewhite;
+        border: solid thin coral ;
+        position:absolute;
+        width:90px;
+        
+        bottom:10px;
+        left:215px;
+        text-align: center;
+        line-height: 30px;
+    }
+    
+    
+    #enlace{
+        position: absolute;
+        bottom: 60px;
+        left:40px;
+        height:30px;
+        width:230px;
+        border:solid thin black;
+        border-radius:25px;
+        background-color:gainsboro;
+        text-align: center;
+        font-size:20px;
+    }
+</style>
+ <script language="JavaScript">
+// Se carga la ejecución cuando se haya cargado todos los elementos de la pagina html
+window.onload = function() {
+    
+    // LLamada a la función para la fecha
+    
+    getthedate()
+
+    // Llamada a la funcion para la hora
+    showtime();
+    
+}
+
+
+// funcion para recuperar la fecha actual y mostrarlo en el codigo html en la etiqueta con id = 'fecha'
+function getthedate() {
+    
+    var today = new Date();
+    
+    var fecha = document.getElementById('fecha');
+    
+    theDate = "" + (today.getMonth()+ 1) +" / "+ today.getDate() + " / ";
+    
+    theDate += today.getFullYear();
+
+    fecha.innerHTML = theDate;
+
+}
+
+
+ 
+// funcion para recuperar la hora actual y mostrarlo en el código html en la etiqueta con id='clock'
+function showtime () {
+
+    var now = new Date(); 
+    
+    var hours = now.getHours(); 
+    
+    var minutes = now.getMinutes();
+
+    var seconds = now.getSeconds();
+    
+    var reloj = document.getElementById('clock');
+
+    var timeValue = "" + ((hours >12) ? hours -12 :hours);
+
+    timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+
+    timeValue += ((seconds < 10) ? ":0" : ":") + seconds;
+
+    timeValue += (hours >= 12) ? " P.M." : " A.M.";
+
+    reloj.innerHTML = timeValue;
+
+    var timerID = setTimeout("showtime()",1000); 
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id='contenedor'>
+    <h2>Esto es un reloj hecho con JavaScript</h2>
+        <div id = 'clock'></div>
+        <div id = 'fecha'></div>
+        <div id = 'enlace'>
+            
+                <a href="http://aprenderaprogramar.com">aprenderaprogramar.com</a>
+            
+        </div>
+</div>
+
+</body>
+</html>

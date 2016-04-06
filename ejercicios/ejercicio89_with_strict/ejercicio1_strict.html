@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+'use strict';  
+    
+ var persona1 = {};
+
+Object.defineProperty(persona1, "edad", { value: 42, writable: false });
+
+persona1.edad = 19;
+    
+console.log(persona1.edad);
+    
+alert(persona1.edad);
+</script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!--
+ a) Explica paso a paso el significado de este código (busca información en internet si te es preciso).
+Se crea un objeto con nombre persona1.
+Se define una propiedad del objeto persona1 que es edad y se le atorga el valor de 42.
+Se define de nuevo la propiedad edad y ahora su valor es 19
+b) Crea un pequeño script donde se ejecute este código y se muestre un mensaje por pantalla informando del valor de la edad. Activa la consola para comprobar si aparece algún error.
+No aparece ningún error
+c) Crea el mismo script pero usando strict mode. Activa la consola y comprueba si aparece algún error. ¿Qué diferencias observas entre la ejecución con strict mode y sin strict mode? ¿Qué explicación le darías a estas diferencias? ¿Crees que sería positivo que este código se escribiera en strict mode o no? ¿Por qué?
+El error que sale por consola es:
+ 'TypeError: "edad" is read-only'
+ La diferencia entre usar 'use strict' a no usarla es que que al usar esta sentencia tenemos que usar las tecnicas para escribir Javascript al pie de la letra, escribir código de una forma más estricta y cumpliendo la buenas prácticas de escribir código. En este caso estamos cambiando la propiedad de un objeto dos veces cuando al haberlo definido le hemos indicado writeble:false, por lo que es una propiedad de lectura y lo estamos sobreescribiendo.
+ En este código sería bueno usar esta forma de escribir en buenas prácticas Javascrip por lo menos hasta que tuvieramos superado escribir en Javascript sería buena idea escribir código 'use strict', ya que es la manera que escribir código y la consola te avise de que no estas usando 100% de una forma correcta el código.
+
+-->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+function decorar(){
+   // 'use strict';
+ 
+    with (document.getElementById('boton').style) {
+     
+    backgroundColor = 'gainsboro';
+
+    color = 'black';
+
+    width = '200px';
+
+    padding = '20px';
+
+    fontSize = '32px';
+     
+    textAlign = 'center';
+    
+    borderRadius = '25px';
+     
+    border = 'solid thin black';
+     
+    cursor = 'pointer';
+
+}
+    
+}
+</script>
+</head>
+<body>
+    <div id='boton'>Hola que tal</div>   
+    <p id="pulsador" onclick='decorar()'>Pulse para transformar un boton</p>
+    
+</body>
+</html>
