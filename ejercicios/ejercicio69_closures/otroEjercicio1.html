@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    function creaFunc(nombre) {
+  // var nombre = "Mozilla";
+  function muestraNombre() {
+    alert(nombre);
+  }
+  return muestraNombre;
+}
+
+var name = 'Jose'        
+var miFunc = creaFunc(name);
+var miFunc2 = creaFunc('juan');
+miFunc(); 
+miFunc2();
+</script>
+</head>
+<body>
+    
+</body>
+</html>

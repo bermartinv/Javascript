@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+  
+    window.onload = function (){
+    var dos = document.getElementById("dos");
+    var tres = document.getElementById("tres");
+    var cuatro = document.getElementById("cuatro");
+        var counter = contador();
+        var counter2 = contador();
+        var counter3 = contador();
+    dos.addEventListener('click',function(){
+        
+        counter.increment(2);
+        this.style.fontSize = counter.value() + 'px';
+        console.log(counter.value());
+    });
+    tres.addEventListener('click',function(){
+        
+        counter2.increment(5);
+        this.style.fontSize = counter2.value() + 'px';
+        console.log(counter2.value());
+    });
+    cuatro.addEventListener('click',function(){
+        
+        counter3.increment(10);
+        this.style.fontSize = counter3.value() + 'px';
+        console.log(counter3.value());
+    });
+    }
+
+
+
+contador = function() {
+  var tamanyo = 12;
+  function changeBy(val) {
+    tamanyo += val;
+  }
+  return {
+    increment: function(incremento) {
+      changeBy(incremento);
+    },
+    decrement: function(incremento) {
+      changeBy(incremento);
+    },
+    value: function() {
+      return tamanyo;
+    }
+  }  
+};
+
+
+
+
+    
+</script>
+</head>
+<body>
+<p id="dos">Aumenta de 2 en 2</p>
+<p id="tres">Aumenta de 5 en 5</p>
+<p id="cuatro">Aumenta de 10 en 10</p>
+</body>
+</html>

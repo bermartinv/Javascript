@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+var multiplo = function(){
+    var x = 5
+    function mult(coordenadaY){
+         x = x * coordenadaY;
+    }
+    return {
+        resultado:function(valor){
+            mult(valor);
+        },
+        igual: function(){
+            return x;
+        }
+    }
+        
+}    
+var multiplicado3 = multiplo();
+multiplicado3.resultado(3);
+
+    alert (multiplicado3.igual());
+ var multiplicado5 = multiplo();
+multiplicado5.resultado(5);
+alert (multiplicado5.igual());
+
+    
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
