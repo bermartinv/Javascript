@@ -1,0 +1,39 @@
+<!--
+Hola soy nuevo y por mas que leo y leo no he podido entender del todo sobre javascript, solo manejo los conceptos muy basicos; por mas que leido y visto video no encuento la manera..
+
+Soy usuario frecuente de google fotos (predecesor de picasa), cuando requiero publicar img por lotes en html el codigo que obtengo es el siguiente:
+Código: [Seleccionar]
+
+<a href="" ><img border="0" src="" /></a> <a href="" ><img border="0" src="" /></a> <a href="" ><img border="0" src="" /></a> <a href="" ><img border="0" src="" /></a>
+
+
+En este punto solo nesecito el codigo correspondiente a las imagenes (desde el <img hasta el siguiente />), lo dema es vinculo y me toca borrarlo de uno por uno (aveces lo hago mas de 100 veces). Para logar el siguiente resultado:
+Código: [Seleccionar]
+
+<img border="0" src="" /> <img border="0" src="" /> <img border="0" src="" /> <img border="0" src="" />
+
+
+Solo requiro un "textarea" para incluir las url, un boton para ejecutar y poder obtener todos los codigos img de manera mas practica.
+
+Muchas gracias por su tiempo, pidiendo disculpas por las molestias y esperando pronta respuesta.
+-->
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>ejemplo</title>
+		<script type="text/javascript">
+			function limpiaTexto() {
+				var txt = document.getElementById('texto').value;
+				var resultado = document.getElementById('textoResuelto');
+				txt = txt.replace(/<a href="" >|<\/a>/g, '');
+				resultado.value = txt;
+			}
+		</script>
+	</head>
+	<body>
+		<textarea id="texto" rows="4" cols="50" placeholder="Inserta el texto aquí..."></textarea>
+		<button onclick="limpiaTexto();">Elimina texto sobrante</button>
+		<textarea id="textoResuelto" rows="4" cols="50"></textarea>
+	</body>
+</html>
