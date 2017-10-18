@@ -1,0 +1,61 @@
+ <html> <head><meta charset="utf-8"><style type="text/css"> input {margin:10px;} </style>
+
+<script>
+
+function validarPassword(password){
+
+  try  {
+
+    if(password.length < 5 ) {      
+      throw "SHORT";    
+    }else if(password.length > 10 ) {
+      throw "LONG";    
+    }
+
+    alert("Password Validated!");
+
+  } catch(e) {
+
+    if(e == "SHORT"){
+      alert("Not enough characters in password!"); 
+    }else if(e == "LONG"){ 
+      alert("Password contains too many characters!");   
+    }
+
+  }finally{    
+    document.miFormulario.password.value="";   
+  }
+
+  alert("La revisión ha terminado.");
+
+}
+
+ </script>
+
+    </head>
+
+    <body>
+
+        <form name="miFormulario" onsubmit="validarPassword(document.getElementById('pass').value)" action="#" >
+
+            Nombre de usuario: <input type="text" name="campo1"><br>
+
+            Password: <input id="pass" type="password" name="password"><br>
+
+            <input type="submit" value="Comprobar" name="comprobar">
+
+        </form>
+
+    </body>
+</html>
+ <!--
+
+a) Busca información en internet y respode: ¿Qué significado tiene una instrucción como throw "SHORT";? ¿A qué da lugar? ¿Qué diferencia hay entre throw "SHORT" y throw new Error('SHORT')?
+La instrucción throw "SHORT" , lanza la cadena que se encuentra entre comillas como mensaje de error dentro de una sentecia try {} catch(mensaje_error){}.
+La diferencia entre las dos formas de lanzar un mensaje es que en throw "SHORT" se lanza el mensaje y en throw new Error('SHORT') , se crea un objeto de tipo Error cuyo mensaje de error es "SHORT". El objeto Error, se forma de la siguiente forma:
+new Error (opcional_message, opcional_fileName, opcional_lineNumber);
+b) ¿Cuál es el objetivo que parecía pretender cumplir el autor del código?
+El objetivo del autor del código pretende validar el campo de password para que cumpla ciertos requisitos.
+c) ¿En qué casos se ejecuta la cláusula finally incluida en el código?
+la cláusula finally por definición se ejecuta independientemente de que se haya producido un error o no durante la ejecución del bloque try. El objetivo habitual de una cláusula finally es liberar un recurso que haya podido ser comprometido anteriormente.
+-->

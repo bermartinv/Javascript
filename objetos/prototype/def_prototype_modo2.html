@@ -1,22 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ </head>
+ <body>
+<script>
  function Taxi (tipoMotor, numeroPasajeros, carga, velocidad) {
-
-this.tipoMotor = tipoMotor; this.numeroPasajeros = numeroPasajeros;
-
-this.carga = carga; this.velocidad = velocidad;
-
+	this.tipoMotor = tipoMotor; 
+	this.numeroPasajeros = numeroPasajeros;
+	this.carga = carga; 
+	this.velocidad = velocidad;
 }
 
  
 
-Taxi.prototype = { ruedas: 4, saludar: function() {
+Taxi.prototype = { ruedas: 4, 
+				   saludar: function() {
 
-alert('Hola soy un taxi de ' + this.ruedas + ' ruedas y ' +this.numeroPasajeros +' pasajeros');} }
-
- 
-
-function ejemploObjetos() {
+					alert('Hola soy un taxi de ' + this.ruedas + ' ruedas y ' +this.numeroPasajeros +' pasajeros');} 
+			}
 
 var taxi1 = new Taxi(1, 6, 300, 90);
 
-taxi1.saludar();
-}
+(function ejemploObjetos() {
+	(taxi1.saludar());
+})();
+
+</script>
+ 	
+ </body>
+ </html>

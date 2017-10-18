@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="mostrarObjeto()">Mostrar Objeto</button>
+<script>
+
+    function persona(nombre,nacionalidad){
+        this.nombre = nombre || 'Desconocido' ;
+        this.nacionalidad = nacionalidad || 'Desconocido';
+    }
+    persona.prototype.mostrarNacionalidad=function(){
+            alert ('La nacionalidad de '+this.nombre+' es '+this.nacionalidad);     
+    }
+    
+    function medico(nombre,nacionalidad,centroDeTrabajo){
+            persona.call(this,nombre,nacionalidad);
+            this.centroDeTrabajo=centroDeTrabajo || 'Desconocido';
+    }
+    
+    function medicoEspecialista(especialidad,centroDeTrabajo,nacionalidad,nombre){
+            medico.call(this,nombre,nacionalidad,centroDeTrabajo);
+            this.especialidad=especialidad || 'Desconocida';
+    }
+    
+    medico.prototype=new persona();
+    medicoEspecialista.prototype=new medico();
+    
+    function mostrarObjeto(){
+        var primerMedico=new medicoEspecialista('traumatologo','Hospital 9 de Octubre','española','Beltran');
+        var msg = ('El medico '+primerMedico.nombre+' con nacionalidad '+primerMedico.nacionalidad+' trabaja en '+primerMedico.centroDeTrabajo+' y tiene la especialidad de ' +primerMedico.especialidad);
+        primerMedico.mostrarNacionalidad();
+        alert(msg);
+        
+    }
+    
+    
+    </script>
+</body>
+</html>

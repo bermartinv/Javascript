@@ -1,8 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script>
  function Taxi (tipoMotor, numeroPasajeros, carga, velocidad) {
 
-this.tipoMotor = tipoMotor; this.numeroPasajeros = numeroPasajeros;
-
-this.carga = carga; this.velocidad = velocidad;
+this.tipoMotor = tipoMotor;
+this.numeroPasajeros = numeroPasajeros;
+this.carga = carga; 
+this.velocidad = velocidad;
 
 }
 
@@ -14,11 +24,16 @@ Taxi.prototype.saludar = function() {
 
 alert('Hola soy un taxi de ' + this.ruedas + ' ruedas y ' +this.numeroPasajeros +' pasajeros');}
 
- 
-
-function ejemploObjetos() {
+ // La creacion del objeto se hace fuera de la funcion autoejucatable sino no funciona
 
 var taxi1 = new Taxi(1, 6, 300, 90);
 
+(function ejemploObjetos() {
+
 taxi1.saludar();
-}
+
+})();
+</script>
+
+</body>
+</html>
